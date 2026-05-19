@@ -125,6 +125,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--g4);font-family:'DM Mono',monospace;}
 .leg-dot{width:8px;height:8px;border-radius:50%;}
 .no-data{color:var(--g3);font-style:italic;font-size:12px;padding:6px 0;}
+.person-card.responsible{background:#F8F7F4;}
 .week-view{display:none;}
 .week-view.visible{display:block;}
 </style>
@@ -161,7 +162,7 @@ const WEEKS = [
     label: '18—22 mai',
     dateRange: '18 — 22 de maig 2026',
     generatedAt: '19 de maig 2026',
-    stats: { persones:14, sobrecàrrega:0, projectesActius:0, bloquejos:0, fites:0 },
+    stats: { persones:19, sobrecàrrega:0, projectesActius:0, bloquejos:0, fites:0 },
     alerts: [],
     departments: makeDepts(),
     fites: []
@@ -173,58 +174,59 @@ const WEEKS = [
 function makeDepts() {
   return [
     {
-      label:'Direcció', accent:'#191919',
-      members:[
-        { name:'Dani',   initials:'DA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CEO', pct:0, projects:[] },
-        { name:'Raquel', initials:'RA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CFO', pct:0, projects:[] },
-        { name:'Astur',  initials:'AS', avatarBg:'#191919', avatarTxt:'#FFFFFF', role:'CXO', pct:0, projects:[] },
-      ]
-    },
-    {
       label:'Creative Campaigns', accent:'#CC2929',
       members:[
-        { name:'Xavi',  initials:'XB', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Director Creatiu', pct:0, projects:[] },
-        { name:'Igor',  initials:'IM', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Disseny',          pct:0, projects:[] },
+        { name:'Xavi', initials:'XB', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Director Creatiu', responsible:true, pct:0, projects:[] },
+        { name:'Igor', initials:'IM', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Disseny', pct:0, projects:[] },
       ]
     },
     {
       label:'Dynamic Branding & Digital Product', accent:'#1A7A4A',
       members:[
-        { name:'Antonio',       initials:'AP', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Branding + web', pct:0, projects:[] },
-        { name:'Uri',           initials:'UR', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'UX/UI',          pct:0, projects:[] },
-        { name:'Ferran Larraz', initials:'FL', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Video',          pct:0, projects:[] },
+        { name:'Antonio',       initials:'AP', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Branding + web', responsible:true, pct:0, projects:[] },
+        { name:'Uri',           initials:'UR', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'UX/UI', responsible:true, pct:0, projects:[] },
+        { name:'Ferran Larraz', initials:'FL', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Vídeo', pct:0, projects:[] },
+        { name:'Enric',         initials:'EB', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Web Developer', pct:0, projects:[] },
       ]
     },
     {
       label:'Iconic Packaging & Off Materials', accent:'#A05C00',
       members:[
-        { name:'Ferran Dachs', initials:'FD', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Dissenyador packaging',     pct:0, projects:[] },
-        { name:'Queralt',      initials:'QS', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:"Packaging · Il·lustradora", pct:0, projects:[] },
-        { name:'Angel',        initials:'AA', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Art final',                 pct:0, projects:[] },
+        { name:'Ferran Dachs', initials:'FD', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Dissenyador packaging', responsible:true, pct:0, projects:[] },
+        { name:'Queralt',      initials:'QS', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:"Packaging · Il·lustradora", responsible:true, pct:0, projects:[] },
+        { name:'Ángel',        initials:'AA', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Art final', pct:0, projects:[] },
       ]
     },
     {
       label:'Social Media', accent:'#7B35C4',
       members:[
-        { name:'Carla', initials:'CJ', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Social Media Manager · CM', pct:0, projects:[] },
-        { name:'Alex',  initials:'AM', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Video',                     pct:0, projects:[] },
-        { name:'Alba',  initials:'AL', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Disseny',                   pct:0, projects:[] },
-      ]
-    },
-    {
-      label:"Accounts & Estratègia", accent:'#1A5C9A',
-      members:[
-        { name:'Núria',  initials:'NÚ', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account',                pct:0, projects:[] },
-        { name:'Silvia', initials:'SE', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account',                pct:0, projects:[] },
-        { name:'Paula',  initials:'PC', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:"Directora d'Estratègia", pct:0, projects:[] },
+        { name:'Carla', initials:'CJ', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Social Media Manager · CM', responsible:true, pct:0, projects:[] },
+        { name:'Àlex',  initials:'AM', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Vídeo', pct:0, projects:[] },
+        { name:'Alba',  initials:'AL', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Disseny', pct:0, projects:[] },
       ]
     },
     {
       label:'Business Development', accent:'#2D6E2D',
       members:[
-        { name:'Albert', initials:'AF', avatarBg:'#E8F5E8', avatarTxt:'#2D6E2D', role:'Business Development', pct:0, projects:[] },
+        { name:'Albert', initials:'AF', avatarBg:'#E8F5E8', avatarTxt:'#2D6E2D', role:'Business Development', responsible:true, pct:0, projects:[] },
       ]
-    }
+    },
+    {
+      label:"Accounts & Estratègia", accent:'#1A5C9A',
+      members:[
+        { name:'Astur',  initials:'AS', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'CXO', responsible:true, pct:0, projects:[] },
+        { name:'Núria',  initials:'NÚ', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:0, projects:[] },
+        { name:'Silvia', initials:'SE', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:0, projects:[] },
+        { name:'Paula',  initials:'PC', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:"Directora d'Estratègia", pct:0, projects:[] },
+      ]
+    },
+    {
+      label:'Direcció', accent:'#191919',
+      members:[
+        { name:'Dani',   initials:'DA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CEO', responsible:true, pct:0, projects:[] },
+        { name:'Raquel', initials:'RA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CFO', responsible:true, pct:0, projects:[] },
+      ]
+    },
   ];
 }
 
@@ -271,7 +273,7 @@ function renderWeek(week) {
               </div>`).join('')
           : `<div class="no-data">Pendent de transcript...</div>`;
         return `
-          <div class="person-card ${lc}">
+          <div class="person-card ${lc}${m.responsible?' responsible':''}">
             <div class="person-top">
               <div class="avatar" style="background:${m.avatarBg};color:${m.avatarTxt};">${m.initials}</div>
               <div style="flex:1;min-width:0;">
