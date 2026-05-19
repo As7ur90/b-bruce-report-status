@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B—BRUCE · Status Setmanal</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥋</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--black:#191919;--red:#CC2929;--red-dim:rgba(204,41,41,0.1);--white:#FFFFFF;--g1:#F5F4F1;--g2:#E8E7E3;--g3:#C4C2BC;--g4:#8A8880;--g5:#3A3936;--green:#1A7A4A;--green-dim:rgba(26,122,74,0.1);--amber:#A05C00;--amber-dim:rgba(160,92,0,0.1);--border:rgba(25,25,25,0.09);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);min-height:100vh;font-size:14px;}
+
+.topbar{background:var(--black);padding:0 2rem;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo-text{font-family:'DM Sans',sans-serif;font-weight:700;font-size:18px;color:white;letter-spacing:-0.03em;}
+.logo-sep{width:1px;height:20px;background:rgba(255,255,255,0.15);margin:0 14px;}
+.logo-label{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;}
+.topbar-right{display:flex;align-items:center;gap:14px;}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.25;}}
+
+.week-bar{background:var(--white);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;gap:12px;height:44px;overflow-x:auto;}
+.week-bar-label{font-family:'DM Mono',monospace;font-size:11px;color:var(--g4);text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap;flex-shrink:0;}
+.week-pills{display:flex;gap:6px;}
+.pill{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:20px;border:1px solid var(--g2);background:transparent;color:var(--g4);cursor:pointer;white-space:nowrap;transition:all 0.15s;}
+.pill:hover{border-color:var(--black);color:var(--black);}
+.pill.active{background:var(--black);color:white;border-color:var(--black);}
+
+.page{max-width:1180px;margin:0 auto;padding:2rem;}
+.page-title{font-size:22px;font-weight:600;letter-spacing:-0.03em;}
+.page-meta{font-family:'DM Mono',monospace;font-size:11px;color:var(--g4);margin-top:4px;}
+.page-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:1.75rem;flex-wrap:wrap;gap:1rem;}
+
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:1.75rem;}
+.stat-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;}
+.stat-card.red{background:var(--red);border-color:var(--red);}
+.stat-card.red .stat-num,.stat-card.red .stat-lbl{color:white;}
+.stat-num{font-size:26px;font-weight:600;letter-spacing:-0.04em;line-height:1;}
+.stat-lbl{font-size:10px;color:var(--g4);margin-top:4px;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.06em;}
+
+.alerts-wrap{margin-bottom:1.5rem;}
+.alert-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:6px;margin-bottom:6px;font-size:13px;line-height:1.5;}
+.alert-item.danger{background:var(--red-dim);border-left:3px solid var(--red);}
+.alert-item.warn{background:var(--amber-dim);border-left:3px solid #C97B00;}
+.alert-item.info{background:rgba(26,92,154,0.07);border-left:3px solid #1A5C9A;}
+
+.dept-section{margin-bottom:2rem;}
+.dept-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--black);}
+.dept-accent{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+.dept-title{font-size:11px;font-family:'DM Mono',monospace;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;}
+.dept-count{font-size:11px;font-family:'DM Mono',monospace;color:var(--g4);margin-left:auto;}
+.persons-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:8px;}
+
+.person-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1rem;position:relative;overflow:hidden;transition:box-shadow 0.15s;}
+.person-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.person-card.load-high::before{background:var(--red);}
+.person-card.load-mid::before{background:#C97B00;}
+.person-card.load-low::before{background:var(--green);}
+.person-card.load-none::before{background:var(--g2);}
+.person-card:hover{box-shadow:0 3px 14px rgba(0,0,0,0.07);}
+
+.person-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.avatar{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;font-family:'DM Mono',monospace;}
+.person-name{font-size:14px;font-weight:600;letter-spacing:-0.01em;}
+.person-role{font-size:11px;color:var(--g4);font-family:'DM Mono',monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+.semaphore{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0;}
+.sem-dot{width:9px;height:9px;border-radius:50%;background:var(--g2);}
+.load-high .sem-dot.d-red{background:var(--red);box-shadow:0 0 5px rgba(204,41,41,0.5);}
+.load-mid .sem-dot.d-amber{background:#C97B00;box-shadow:0 0 5px rgba(201,123,0,0.4);}
+.load-low .sem-dot.d-green{background:var(--green);box-shadow:0 0 5px rgba(26,122,74,0.4);}
+
+.load-wrap{margin:8px 0;}
+.load-head{display:flex;justify-content:space-between;margin-bottom:5px;}
+.load-label{font-size:10px;color:var(--g4);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.05em;}
+.load-pct{font-size:13px;font-weight:600;font-family:'DM Mono',monospace;}
+.load-high .load-pct{color:var(--red);}
+.load-mid .load-pct{color:#C97B00;}
+.load-low .load-pct{color:var(--green);}
+.load-none .load-pct{color:var(--g3);}
+.load-bg{height:5px;background:var(--g2);border-radius:99px;overflow:hidden;}
+.load-fill{height:100%;border-radius:99px;}
+.load-high .load-fill{background:var(--red);}
+.load-mid .load-fill{background:#C97B00;}
+.load-low .load-fill{background:var(--green);}
+.load-none .load-fill{background:var(--g3);}
+
+.projs{border-top:1px solid var(--g1);padding-top:8px;margin-top:6px;}
+.proj-item{display:flex;align-items:flex-start;gap:7px;padding:5px 0;border-bottom:1px solid var(--g1);}
+.proj-item:last-child{border-bottom:none;}
+.proj-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+.proj-dot.block{background:var(--red);}
+.proj-dot.active{background:#C97B00;}
+.proj-dot.quick{background:var(--green);}
+.proj-dot.feedback{background:#7B35C4;}
+.proj-dot.pending{background:var(--g3);}
+.proj-name{font-size:12px;font-weight:500;line-height:1.4;flex:1;min-width:0;}
+.proj-note{font-size:11px;color:var(--g4);margin-top:1px;line-height:1.4;}
+.proj-tag{font-size:10px;font-family:'DM Mono',monospace;padding:2px 6px;border-radius:4px;white-space:nowrap;flex-shrink:0;font-weight:500;margin-top:2px;}
+.proj-tag.block{background:var(--red-dim);color:var(--red);}
+.proj-tag.active{background:var(--amber-dim);color:var(--amber);}
+.proj-tag.quick{background:var(--green-dim);color:var(--green);}
+.proj-tag.feedback{background:rgba(123,53,196,0.08);color:#7B35C4;}
+.proj-tag.pending{background:var(--g2);color:var(--g4);}
+
+.hitos-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.hito-row{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid var(--g1);font-size:13px;}
+.hito-row:last-child{border-bottom:none;}
+.hito-who{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;min-width:80px;flex-shrink:0;padding-top:2px;}
+.hito-text{flex:1;color:var(--g5);line-height:1.5;}
+.hito-tag{font-size:10px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;font-weight:500;}
+.hito-tag.avui{background:var(--red-dim);color:var(--red);}
+.hito-tag.setmana{background:var(--amber-dim);color:var(--amber);}
+.hito-tag.pendent{background:var(--g2);color:var(--g4);}
+
+.tpl-note{background:var(--black);color:white;border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.75rem;display:flex;align-items:flex-start;gap:14px;}
+.tpl-title{font-weight:600;font-size:13px;margin-bottom:4px;}
+.tpl-sub{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.6;font-family:'DM Mono',monospace;}
+.tpl-sub strong{color:white;}
+.leg-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+
+.footer{margin-top:2rem;padding:1rem 0;border-top:1px solid var(--g2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-note{font-size:11px;color:var(--g4);font-family:'DM Mono',monospace;}
+.legend{display:flex;align-items:center;gap:14px;}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--g4);font-family:'DM Mono',monospace;}
+.leg-dot{width:8px;height:8px;border-radius:50%;}
+.no-data{color:var(--g3);font-style:italic;font-size:12px;padding:6px 0;}
+.week-view{display:none;}
+.week-view.visible{display:block;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div style="display:flex;align-items:center;">
+    <span class="logo-text">B—BRUCE</span>
+    <div class="logo-sep"></div>
+    <span class="logo-label">Status setmanal</span>
+  </div>
+  <div class="topbar-right">
+    <span id="topbar-week" style="font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:0.04em;"></span>
+    <div class="live-dot"></div>
+  </div>
+</div>
+
+<div class="week-bar">
+  <span class="week-bar-label">Setmana →</span>
+  <div class="week-pills" id="week-pills"></div>
+</div>
+
+<div id="weeks-container"></div>
+
+<script>
+// ════════════════════════════════════════════════════════════════
+// DADES — Claude actualitza aquest array cada dilluns.
+// L'última setmana va al principi. No esborrar mai les anteriors.
+// ════════════════════════════════════════════════════════════════
+const WEEKS = [
+  {
+    id: 'w-2026-05-18',
+    label: '18—22 mai',
+    dateRange: '18 — 22 de maig 2026',
+    generatedAt: '19 de maig 2026',
+    stats: { persones:14, sobrecàrrega:0, projectesActius:0, bloquejos:0, fites:0 },
+    alerts: [],
+    departments: makeDepts(),
+    fites: []
+  }
+  // ← Claude afegirà aquí les setmanes noves
+];
+
+// ────────────────────────────────────────────────────────────────
+function makeDepts() {
+  return [
+    {
+      label:'Direcció', accent:'#191919',
+      members:[
+        { name:'Dani',   initials:'DA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CEO', pct:0, projects:[] },
+        { name:'Raquel', initials:'RA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CFO', pct:0, projects:[] },
+        { name:'Astur',  initials:'AS', avatarBg:'#191919', avatarTxt:'#FFFFFF', role:'CXO', pct:0, projects:[] },
+      ]
+    },
+    {
+      label:'Creative Campaigns', accent:'#CC2929',
+      members:[
+        { name:'Xavi',  initials:'XB', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Director Creatiu', pct:0, projects:[] },
+        { name:'Igor',  initials:'IM', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Disseny',          pct:0, projects:[] },
+      ]
+    },
+    {
+      label:'Dynamic Branding & Digital Product', accent:'#1A7A4A',
+      members:[
+        { name:'Antonio',       initials:'AP', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Branding + web', pct:0, projects:[] },
+        { name:'Uri',           initials:'UR', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'UX/UI',          pct:0, projects:[] },
+        { name:'Ferran Larraz', initials:'FL', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Video',          pct:0, projects:[] },
+      ]
+    },
+    {
+      label:'Iconic Packaging & Off Materials', accent:'#A05C00',
+      members:[
+        { name:'Ferran Dachs', initials:'FD', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Dissenyador packaging',     pct:0, projects:[] },
+        { name:'Queralt',      initials:'QS', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:"Packaging · Il·lustradora", pct:0, projects:[] },
+        { name:'Angel',        initials:'AA', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Art final',                 pct:0, projects:[] },
+      ]
+    },
+    {
+      label:'Social Media', accent:'#7B35C4',
+      members:[
+        { name:'Carla', initials:'CJ', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Social Media Manager · CM', pct:0, projects:[] },
+        { name:'Alex',  initials:'AM', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Video',                     pct:0, projects:[] },
+        { name:'Alba',  initials:'AL', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Disseny',                   pct:0, projects:[] },
+      ]
+    },
+    {
+      label:"Accounts & Estratègia", accent:'#1A5C9A',
+      members:[
+        { name:'Núria',  initials:'NÚ', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account',                pct:0, projects:[] },
+        { name:'Silvia', initials:'SE', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account',                pct:0, projects:[] },
+        { name:'Paula',  initials:'PC', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:"Directora d'Estratègia", pct:0, projects:[] },
+      ]
+    },
+    {
+      label:'Business Development', accent:'#2D6E2D',
+      members:[
+        { name:'Albert', initials:'AF', avatarBg:'#E8F5E8', avatarTxt:'#2D6E2D', role:'Business Development', pct:0, projects:[] },
+      ]
+    }
+  ];
+}
+
+// ────────────────────────────────────────────────────────────────
+const TAG_LABELS = { block:'Blocat', active:'En curs', quick:'Tasca ràpida', feedback:'Esperant feedback', pending:'Pendent' };
+
+function loadClass(p){ return p>=80?'load-high':p>=40?'load-mid':p>0?'load-low':'load-none'; }
+
+function renderWeek(week) {
+  const el = document.createElement('div');
+  el.className = 'week-view';
+  el.id = week.id;
+
+  const statsHTML = `<div class="stats-row">
+    <div class="stat-card"><div class="stat-num">${week.stats.persones}</div><div class="stat-lbl">Persones</div></div>
+    <div class="stat-card ${week.stats.sobrecàrrega>0?'red':''}"><div class="stat-num">${week.stats.sobrecàrrega||'—'}</div><div class="stat-lbl">Sobrecàrrega</div></div>
+    <div class="stat-card"><div class="stat-num">${week.stats.projectesActius||'—'}</div><div class="stat-lbl">Projectes actius</div></div>
+    <div class="stat-card"><div class="stat-num">${week.stats.bloquejos||'—'}</div><div class="stat-lbl">Bloquejos</div></div>
+    <div class="stat-card"><div class="stat-num">${week.stats.fites||'—'}</div><div class="stat-lbl">Fites setmana</div></div>
+  </div>`;
+
+  const alertsHTML = week.alerts.length
+    ? `<div class="alerts-wrap">${week.alerts.map(a=>`<div class="alert-item ${a.type}">${a.text}</div>`).join('')}</div>`
+    : '';
+
+  const deptsHTML = week.departments.map(dept=>`
+    <div class="dept-section">
+      <div class="dept-head">
+        <div class="dept-accent" style="background:${dept.accent};"></div>
+        <span class="dept-title">${dept.label}</span>
+        <span class="dept-count">${dept.members.length} persones</span>
+      </div>
+      <div class="persons-grid">${dept.members.map(m=>{
+        const lc = loadClass(m.pct);
+        const projRows = m.projects.length
+          ? m.projects.map(p=>`
+              <div class="proj-item">
+                <div class="proj-dot ${p.type}"></div>
+                <div style="flex:1;min-width:0;">
+                  <div class="proj-name">${p.name}</div>
+                  ${p.note?`<div class="proj-note">${p.note}</div>`:''}
+                </div>
+                <span class="proj-tag ${p.type}">${TAG_LABELS[p.type]||p.type}</span>
+              </div>`).join('')
+          : `<div class="no-data">Pendent de transcript...</div>`;
+        return `
+          <div class="person-card ${lc}">
+            <div class="person-top">
+              <div class="avatar" style="background:${m.avatarBg};color:${m.avatarTxt};">${m.initials}</div>
+              <div style="flex:1;min-width:0;">
+                <div class="person-name">${m.name}</div>
+                <div class="person-role">${m.role}</div>
+              </div>
+              <div class="semaphore">
+                <div class="sem-dot d-red"></div>
+                <div class="sem-dot d-amber"></div>
+                <div class="sem-dot d-green"></div>
+              </div>
+            </div>
+            <div class="load-wrap">
+              <div class="load-head">
+                <span class="load-label">ocupació estimada</span>
+                <span class="load-pct">${m.pct>0?m.pct+'%':'—'}</span>
+              </div>
+              <div class="load-bg"><div class="load-fill" style="width:${m.pct}%"></div></div>
+            </div>
+            <div class="projs">${projRows}</div>
+          </div>`;
+      }).join('')}</div>
+    </div>`).join('');
+
+  const hitosHTML = week.fites.length
+    ? week.fites.map(h=>`
+        <div class="hito-row">
+          <span class="hito-who">${h.who}</span>
+          <span class="hito-text">${h.text}</span>
+          <span class="hito-tag ${h.tag}">${h.tag==='avui'?'Avui':h.tag==='setmana'?'Aquesta setmana':'Pendent'}</span>
+        </div>`).join('')
+    : `<div class="hito-row">
+        <span class="hito-who">—</span>
+        <span class="hito-text" style="color:var(--g3);font-style:italic;">Els compromisos i fites de la reunió apareixeran aquí.</span>
+        <span class="hito-tag pendent">Pendent</span>
+      </div>`;
+
+  el.innerHTML = `<div class="page">
+    <div class="page-header">
+      <div>
+        <div class="page-title">Ocupació de l'equip</div>
+        <div class="page-meta">${week.dateRange} · Generat el ${week.generatedAt}</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem;">
+      <span class="proj-tag block">● Blocat / Projecte gran</span>
+      <span class="proj-tag active">● En curs actiu</span>
+      <span class="proj-tag quick">● Tasca ràpida</span>
+      <span class="proj-tag feedback">● Esperant feedback</span>
+      <span class="proj-tag pending">● Pendent / Incert</span>
+    </div>
+    ${statsHTML}
+    ${alertsHTML}
+    ${deptsHTML}
+    <div class="dept-section">
+      <div class="dept-head">
+        <div class="dept-accent" style="background:var(--black);"></div>
+        <span class="dept-title">Fites i compromisos de la setmana</span>
+      </div>
+      <div class="hitos-card">${hitosHTML}</div>
+    </div>
+    <div class="footer">
+      <span class="footer-note">B—BRUCE · Dashboard generat des de transcript · Otter.ai → Claude</span>
+      <div class="legend">
+        <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Alta càrrega (≥80%)</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#C97B00"></div>Càrrega mitjana (40–79%)</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--green)"></div>Disponible (&lt;40%)</div>
+      </div>
+    </div>
+  </div>`;
+  return el;
+}
+
+function showWeek(id) {
+  document.querySelectorAll('.week-view').forEach(v=>v.classList.remove('visible'));
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('visible');
+  document.querySelector(`.pill[data-id="${id}"]`).classList.add('active');
+  const w = WEEKS.find(x=>x.id===id);
+  if(w) document.getElementById('topbar-week').textContent = w.dateRange;
+}
+
+(function init(){
+  const container = document.getElementById('weeks-container');
+  const pillsEl   = document.getElementById('week-pills');
+  WEEKS.forEach((week,i)=>{
+    const pill = document.createElement('button');
+    pill.className = 'pill'+(i===0?' active':'');
+    pill.textContent = week.label;
+    pill.dataset.id = week.id;
+    pill.addEventListener('click',()=>showWeek(week.id));
+    pillsEl.appendChild(pill);
+    const view = renderWeek(week);
+    if(i===0){ view.classList.add('visible'); document.getElementById('topbar-week').textContent=week.dateRange; }
+    container.appendChild(view);
+  });
+})();
+</script>
+</body>
+</html>
