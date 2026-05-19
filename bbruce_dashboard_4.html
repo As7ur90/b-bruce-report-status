@@ -51,12 +51,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .dept-count{font-size:11px;font-family:'DM Mono',monospace;color:var(--g4);margin-left:auto;}
 .persons-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:8px;}
 
-.person-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1rem;position:relative;overflow:hidden;transition:box-shadow 0.15s;}
-.person-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
-.person-card.load-high::before{background:var(--red);}
-.person-card.load-mid::before{background:#C97B00;}
-.person-card.load-low::before{background:var(--green);}
-.person-card.load-none::before{background:var(--g2);}
+.person-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1rem;position:relative;transition:box-shadow 0.15s;}
+.person-card.load-high,.person-card.load-mid,.person-card.load-low,.person-card.load-none{background:var(--white);}
 .person-card:hover{box-shadow:0 3px 14px rgba(0,0,0,0.07);}
 
 .person-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
@@ -64,11 +60,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .person-name{font-size:14px;font-weight:600;letter-spacing:-0.01em;}
 .person-role{font-size:11px;color:var(--g4);font-family:'DM Mono',monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 
-.semaphore{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0;}
-.sem-dot{width:9px;height:9px;border-radius:50%;background:var(--g2);}
-.load-high .sem-dot.d-red{background:var(--red);box-shadow:0 0 5px rgba(204,41,41,0.5);}
-.load-mid .sem-dot.d-amber{background:#C97B00;box-shadow:0 0 5px rgba(201,123,0,0.4);}
-.load-low .sem-dot.d-green{background:var(--green);box-shadow:0 0 5px rgba(26,122,74,0.4);}
+
 
 .load-wrap{margin:8px 0;}
 .load-head{display:flex;justify-content:space-between;margin-bottom:5px;}
@@ -103,15 +95,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .proj-tag.feedback{background:rgba(123,53,196,0.08);color:#7B35C4;}
 .proj-tag.pending{background:var(--g2);color:var(--g4);}
 
+.fites-section{margin-top:3rem;border-top:2px solid var(--black);padding-top:1.5rem;}
+.fites-header{display:flex;align-items:baseline;gap:12px;margin-bottom:1rem;}
+.fites-title-main{font-size:16px;font-weight:600;letter-spacing:-0.02em;}
+.fites-subtitle{font-size:11px;font-family:'DM Mono',monospace;color:var(--g4);}
 .hitos-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
-.hito-row{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid var(--g1);font-size:13px;}
+.hito-row{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--g2);font-size:13px;}
 .hito-row:last-child{border-bottom:none;}
-.hito-who{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;min-width:80px;flex-shrink:0;padding-top:2px;}
-.hito-text{flex:1;color:var(--g5);line-height:1.5;}
-.hito-tag{font-size:10px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;font-weight:500;}
-.hito-tag.avui{background:var(--red-dim);color:var(--red);}
+.hito-who{font-family:'DM Mono',monospace;font-size:11px;font-weight:600;min-width:90px;flex-shrink:0;padding-top:2px;color:var(--black);}
+.hito-text{flex:1;color:var(--g5);line-height:1.6;font-size:13px;}
+.hito-note{font-size:11px;color:var(--g4);margin-top:3px;font-family:'DM Mono',monospace;}
+.hito-tag{font-size:10px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:1px;font-weight:500;}
+.hito-tag.avui{background:var(--red);color:white;}
 .hito-tag.setmana{background:var(--amber-dim);color:var(--amber);}
 .hito-tag.pendent{background:var(--g2);color:var(--g4);}
+.hito-tag.hores{background:rgba(26,92,154,0.1);color:#1A5C9A;}
 
 .tpl-note{background:var(--black);color:white;border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.75rem;display:flex;align-items:flex-start;gap:14px;}
 .tpl-title{font-weight:600;font-size:13px;margin-bottom:4px;}
@@ -126,6 +124,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .leg-dot{width:8px;height:8px;border-radius:50%;}
 .no-data{color:var(--g3);font-style:italic;font-size:12px;padding:6px 0;}
 .person-card.responsible{background:var(--white);}
+.dept-section.mgmt{background:#DEDAD4;margin-left:-2rem;margin-right:-2rem;padding:1.5rem 2rem 1.75rem;margin-bottom:0;}
+.dept-section.mgmt:first-of-type{margin-top:2rem;}
+.dept-section.mgmt .person-card.load-high,.dept-section.mgmt .person-card.load-mid,.dept-section.mgmt .person-card.load-low,.dept-section.mgmt .person-card.load-none{background:var(--white);}
 .week-view{display:none;}
 .week-view.visible{display:block;}
 </style>
@@ -162,10 +163,164 @@ const WEEKS = [
     label: '18—22 mai',
     dateRange: '18 — 22 de maig 2026',
     generatedAt: '19 de maig 2026',
-    stats: { persones:19, sobrecàrrega:0, projectesActius:0, bloquejos:0, fites:0 },
-    alerts: [],
-    departments: makeDepts(),
-    fites: []
+    stats: { persones:19 },
+    alerts: [
+      { type:'danger', text:'⚠ Igor al límit aquesta setmana — Kove entra avui i ja té AFP Courts i Lidl. Valorar redistribuir Lidl a Ángel.' },
+      { type:'danger', text:'⚠ Xavi i Ferran Dachs al 90%+ — Nike i Miguel Torres coincideixen en pic de feina. Revisar si cal suport extern.' },
+      { type:'warn',   text:'↗ Fresh OCS web: Enric pendent de continguts del client des de dijous passat. Astur fa seguiment avui.' },
+      { type:'warn',   text:'↗ Ferran Larraz disponible (~35%) des de dijous — assignar-li suport a Àlex amb Asics o fresh OCS motion.' },
+    ],
+    departments: [
+      {
+        label:'Creative Campaigns', accent:'#CC2929',
+        members:[
+          { name:'Xavi', initials:'XB', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Director Creatiu', responsible:true, pct:80,
+            projects:[
+              { name:'Nike — concepte campanya tardor', note:'Presentació interna divendres', type:'block' },
+              { name:'Asics Testing Experience', note:'Direcció art, revisió peces finals', type:'active' },
+            ]},
+          { name:'Igor', initials:'IM', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Disseny', pct:95,
+            projects:[
+              { name:'Kove — materials campanya', note:'~50% setmana, entra avui', type:'block' },
+              { name:'AFP Courts — peces digitals', note:'Banner pack + RRSS', type:'active' },
+              { name:'Lidl LID83 — ajustos finals', note:'Valorar redistribuir', type:'quick' },
+            ]},
+        ]
+      },
+      {
+        label:'Dynamic Branding & Digital Product', accent:'#1A7A4A',
+        members:[
+          { name:'Antonio', initials:'AP', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Branding + web', responsible:true, pct:70,
+            projects:[
+              { name:'Aneto — identitat visual nova línia', note:'Primeres propostes dimecres', type:'active' },
+              { name:'Disna — actualització brand guidelines', note:'', type:'quick' },
+            ]},
+          { name:'Uri', initials:'UR', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'UX/UI', responsible:true, pct:85,
+            projects:[
+              { name:'Fresh OCS — app mòbil Sprint 3', note:'Lliurament divendres', type:'block' },
+              { name:'Disna — prototip nova secció web', note:'Revisió amb client dijous', type:'active' },
+            ]},
+          { name:'Ferran Larraz', initials:'FL', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Vídeo', pct:35,
+            projects:[
+              { name:'QJ Motor — vídeo producte 360', note:'Entregat dijous, ara disponible', type:'quick' },
+            ]},
+          { name:'Enric', initials:'EB', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Web Developer', pct:55,
+            projects:[
+              { name:'Fresh OCS — web landing', note:'Esperant continguts del client', type:'feedback' },
+              { name:'B—Bruce web — manteniment', note:'', type:'quick' },
+            ]},
+        ]
+      },
+      {
+        label:'Iconic Packaging & Off Materials', accent:'#A05C00',
+        members:[
+          { name:'Ferran Dachs', initials:'FD', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Dissenyador packaging', responsible:true, pct:90,
+            projects:[
+              { name:'Miguel Torres — estoig VAP T20', note:'Prova de color urgent avui', type:'block' },
+              { name:'Aneto — nou format brick 500ml', note:'Briefing rebut dilluns', type:'active' },
+              { name:'Lidl — LID81 Cien Brumas revisió', note:'', type:'quick' },
+            ]},
+          { name:'Queralt', initials:'QS', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:"Packaging · Il·lustradora", responsible:true, pct:55,
+            projects:[
+              { name:'Miguel Torres — il·lustració etiqueta T20', note:'Revisió 2a proposta', type:'active' },
+              { name:'Aneto — il·lustració pack producte', note:'Primer esbós', type:'active' },
+            ]},
+          { name:'Ángel', initials:'AA', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Art final', pct:65,
+            projects:[
+              { name:'Lidl — art final LID82 i LID83', note:'Entrega dimecres', type:'active' },
+              { name:'Miguel Torres — VAP T5 Light art final', note:'Revisió prova impressió', type:'active' },
+              { name:'AFP Courts — maquetació dossier', note:'', type:'quick' },
+            ]},
+        ]
+      },
+      {
+        label:'Social Media', accent:'#7B35C4',
+        members:[
+          { name:'Carla', initials:'CJ', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Social Media Manager · CM', responsible:true, pct:75,
+            projects:[
+              { name:'Asics — contingut RRSS campanya maig', note:'Publicació dimarts i dijous', type:'active' },
+              { name:'QJ Motor — calendari editorial juny', note:'Entrega proposta divendres', type:'active' },
+              { name:'AFP Courts — stories setmanals', note:'', type:'quick' },
+            ]},
+          { name:'Àlex', initials:'AM', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Vídeo', pct:60,
+            projects:[
+              { name:'Asics — muntatge vídeo teaser', note:'Entrega dijous', type:'active' },
+              { name:'Fresh OCS — motion graphics', note:'Esperant aprovació guió', type:'feedback' },
+            ]},
+          { name:'Alba', initials:'AL', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Disseny', pct:50,
+            projects:[
+              { name:'Kove — suport disseny', note:'~20% setmana', type:'active' },
+              { name:'Nike — adaptacions formats RRSS', note:'Stories + display', type:'active' },
+            ]},
+        ]
+      },
+      {
+        label:'Business Development', accent:'#2D6E2D', mgmt:true,
+        members:[
+          { name:'Albert', initials:'AF', avatarBg:'#E8F5E8', avatarTxt:'#2D6E2D', role:'Business Development', responsible:true, pct:55,
+            projects:[
+              { name:'Pitch Cooltra — proposta creativa', note:'Reunió presentació dijous', type:'block' },
+              { name:'Prospecció nous clients Q2', note:'3 contactes en curs', type:'active' },
+              { name:'Kira Ventures — seguiment', note:'', type:'quick' },
+            ]},
+        ]
+      },
+      {
+        label:'Strategy & B—Bruce Marketing', accent:'#555250', mgmt:true,
+        members:[
+          { name:'Paula', initials:'PC', avatarBg:'#EEEDEB', avatarTxt:'#555250', role:"Directora d'Estratègia", responsible:true, pct:50,
+            projects:[
+              { name:'Aneto — estratègia llançament nova línia', note:'Document estratègic per dimarts', type:'active' },
+              { name:'Nike — estratègia campanya tardor', note:'Suport a Xavi per presentació', type:'active' },
+            ]},
+        ]
+      },
+      {
+        label:'Client Experience', accent:'#1A5C9A', mgmt:true,
+        members:[
+          { name:'Astur', initials:'AS', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'CXO', responsible:true, pct:65,
+            projects:[
+              { name:'Fresh OCS — seguiment feedback', note:'Client pendent des de dj passat', type:'feedback' },
+              { name:'Onboarding Aneto', note:'Primera reunió dimarts', type:'active' },
+              { name:'Reunió status equip dilluns', note:'', type:'quick' },
+            ]},
+          { name:'Núria', initials:'NÚ', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:60,
+            projects:[
+              { name:'Lidl — coordinació entregues setmana', note:'4 projectes actius', type:'active' },
+              { name:'Miguel Torres — seguiment aprovació', note:'', type:'quick' },
+            ]},
+          { name:'Silvia', initials:'SE', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:65,
+            projects:[
+              { name:'Asics — gestió feedback i aprovacions', note:'Sprint final Testing Experience', type:'active' },
+              { name:'Nike — briefing nou projecte', note:'Reunió kick-off dimecres', type:'quick' },
+            ]},
+        ]
+      },
+      {
+        label:'Direcció', accent:'#191919', mgmt:true,
+        members:[
+          { name:'Dani',   initials:'DA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CEO', responsible:true, pct:30,
+            projects:[
+              { name:'Reunions comercials Q2', note:'Tancament proposta AFP Courts', type:'active' },
+              { name:'Revisió pressupostos mensuals', note:'Amb Raquel dimecres', type:'quick' },
+            ]},
+          { name:'Raquel', initials:'RA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CFO', responsible:true, pct:35,
+            projects:[
+              { name:'Tancament facturació abril', note:'Pendent 3 factures Lidl', type:'active' },
+              { name:'Pressupost Nike — revisió marges', note:'', type:'quick' },
+            ]},
+        ]
+      },
+    ],
+    fites: [
+      { who:'Ferran Larraz', text:'Entrega vídeo QJ Motor 360 al client', tag:'setmana', hours:15, note:'Postproducció bloqueja tota la setmana fins dijous' },
+      { who:'Uri',           text:'Lliurament Sprint 3 Fresh OCS app mòbil', tag:'setmana', hours:12, note:'Revisió interna prèvia dijous' },
+      { who:'Xavi',          text:'Presentació interna concepte campanya Nike tardor', tag:'setmana' },
+      { who:'Ferran Dachs',  text:'Prova de color estoig Miguel Torres VAP T20 — urgent', tag:'avui' },
+      { who:'Ángel',         text:'Art final Lidl LID82 i LID83 llest per impressió', tag:'setmana' },
+      { who:'Albert',        text:'Reunió presentació pitch Cooltra', tag:'setmana' },
+      { who:'Astur',         text:'Seguiment Fresh OCS — desbloquejat avui o dimarts', tag:'avui' },
+    ]
   }
   // ← Claude afegirà aquí les setmanes noves
 ];
@@ -206,13 +361,19 @@ function makeDepts() {
       ]
     },
     {
-      label:'Business Development', accent:'#2D6E2D',
+      label:'Business Development', accent:'#2D6E2D', mgmt:true,
       members:[
         { name:'Albert', initials:'AF', avatarBg:'#E8F5E8', avatarTxt:'#2D6E2D', role:'Business Development', responsible:true, pct:0, projects:[] },
       ]
     },
     {
-      label:"Accounts & Estratègia", accent:'#1A5C9A',
+      label:'Strategy & B—Bruce Marketing', accent:'#555250', mgmt:true,
+      members:[
+        { name:'Paula', initials:'PC', avatarBg:'#EEEDEB', avatarTxt:'#555250', role:"Directora d'Estratègia", responsible:true, pct:0, projects:[] },
+      ]
+    },
+    {
+      label:'Client Experience', accent:'#1A5C9A', mgmt:true,
       members:[
         { name:'Astur',  initials:'AS', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'CXO', responsible:true, pct:0, projects:[] },
         { name:'Núria',  initials:'NÚ', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:0, projects:[] },
@@ -220,13 +381,7 @@ function makeDepts() {
       ]
     },
     {
-      label:'Strategy & B—Bruce Marketing', accent:'#555250',
-      members:[
-        { name:'Paula', initials:'PC', avatarBg:'#EEEDEB', avatarTxt:'#555250', role:"Directora d'Estratègia", responsible:true, pct:0, projects:[] },
-      ]
-    },
-    {
-      label:'Direcció', accent:'#191919',
+      label:'Direcció', accent:'#191919', mgmt:true,
       members:[
         { name:'Dani',   initials:'DA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CEO', responsible:true, pct:0, projects:[] },
         { name:'Raquel', initials:'RA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CFO', responsible:true, pct:0, projects:[] },
@@ -236,29 +391,52 @@ function makeDepts() {
 }
 
 // ────────────────────────────────────────────────────────────────
-const TAG_LABELS = { block:'Blocat', active:'En curs', quick:'Tasca ràpida', feedback:'Esperant feedback', pending:'Pendent' };
+const TAG_LABELS = { block:'Bloquejat', active:'En curs', quick:'Tasca ràpida', feedback:'Esperant feedback', pending:'Pendent' };
 
-function loadClass(p){ return p>=80?'load-high':p>=40?'load-mid':p>0?'load-low':'load-none'; }
+function loadClass(p){ return p>=80?'load-high':p>=50?'load-mid':p>0?'load-low':'load-none'; }
 
 function renderWeek(week) {
   const el = document.createElement('div');
   el.className = 'week-view';
   el.id = week.id;
 
+  // Stats only from productive depts (non-mgmt)
+  const prodMembers = week.departments.filter(d=>!d.mgmt).flatMap(d=>d.members);
+  const overloaded = prodMembers.filter(m=>m.pct>=80).length;
+  const medium = prodMembers.filter(m=>m.pct>=50&&m.pct<80).length;
+  const available = prodMembers.filter(m=>m.pct<50&&m.pct>0).length;
+  const free = prodMembers.filter(m=>!m.pct||m.pct===0).length;
+  const active = prodMembers.flatMap(m=>m.projects).filter(p=>p.type==='active'||p.type==='block').length;
   const statsHTML = `<div class="stats-row">
-    <div class="stat-card"><div class="stat-num">${week.stats.persones}</div><div class="stat-lbl">Persones</div></div>
-    <div class="stat-card ${week.stats.sobrecàrrega>0?'red':''}"><div class="stat-num">${week.stats.sobrecàrrega||'—'}</div><div class="stat-lbl">Sobrecàrrega</div></div>
-    <div class="stat-card"><div class="stat-num">${week.stats.projectesActius||'—'}</div><div class="stat-lbl">Projectes actius</div></div>
-    <div class="stat-card"><div class="stat-num">${week.stats.bloquejos||'—'}</div><div class="stat-lbl">Bloquejos</div></div>
-    <div class="stat-card"><div class="stat-num">${week.stats.fites||'—'}</div><div class="stat-lbl">Fites setmana</div></div>
-  </div>`;
+    <div class="stat-card" style="background:#CC2929;border-color:#CC2929;">
+      <div class="stat-num" style="color:white;">${overloaded||'0'}</div>
+      <div class="stat-lbl" style="color:rgba(255,255,255,0.7);">Alta càrrega ≥80%</div>
+    </div>
+    <div class="stat-card" style="background:#A05C00;border-color:#A05C00;">
+      <div class="stat-num" style="color:white;">${medium||'0'}</div>
+      <div class="stat-lbl" style="color:rgba(255,255,255,0.7);">Càrrega mitjana 50–79%</div>
+    </div>
+    <div class="stat-card" style="background:#1A7A4A;border-color:#1A7A4A;">
+      <div class="stat-num" style="color:white;">${available+free||'0'}</div>
+      <div class="stat-lbl" style="color:rgba(255,255,255,0.7);">Disponibles &lt;50%</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">${active||'—'}</div>
+      <div class="stat-lbl">Projectes en curs</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">${week.fites?.length||'—'}</div>
+      <div class="stat-lbl">Fites setmana</div>
+    </div>
+  </div>
+  <div style="font-size:11px;color:var(--black);font-family:'DM Mono',monospace;font-weight:600;margin:-1rem 0 1.5rem;text-align:right;"><strong>Equip productiu: ${prodMembers.length}</strong> &nbsp;·&nbsp; Total equip: ${week.stats.persones} &nbsp;<span style="color:var(--g4);font-weight:400;">(ocupació calculada sobre equip productiu)</span></div>`;
 
   const alertsHTML = week.alerts.length
     ? `<div class="alerts-wrap">${week.alerts.map(a=>`<div class="alert-item ${a.type}">${a.text}</div>`).join('')}</div>`
     : '';
 
   const deptsHTML = week.departments.map(dept=>`
-    <div class="dept-section">
+    <div class="dept-section${dept.mgmt?' mgmt':''}">
       <div class="dept-head">
         <div class="dept-accent" style="background:${dept.accent};"></div>
         <span class="dept-title">${dept.label}</span>
@@ -271,7 +449,7 @@ function renderWeek(week) {
               <div class="proj-item">
                 <div class="proj-dot ${p.type}"></div>
                 <div style="flex:1;min-width:0;">
-                  <div class="proj-name">${p.name}</div>
+                  <div class="proj-name">${p.name.includes("—") ? "<strong>"+p.name.split("—")[0].trim()+"</strong> — "+p.name.split("—").slice(1).join("—").trim() : p.name}</div>
                   ${p.note?`<div class="proj-note">${p.note}</div>`:''}
                 </div>
                 <span class="proj-tag ${p.type}">${TAG_LABELS[p.type]||p.type}</span>
@@ -285,11 +463,7 @@ function renderWeek(week) {
                 <div class="person-name">${m.name}${m.responsible?'<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--black);margin-left:6px;vertical-align:2px;" title="Responsable"></span>':''}</div>
                 <div class="person-role">${m.role}</div>
               </div>
-              <div class="semaphore">
-                <div class="sem-dot d-red"></div>
-                <div class="sem-dot d-amber"></div>
-                <div class="sem-dot d-green"></div>
-              </div>
+
             </div>
             <div class="load-wrap">
               <div class="load-head">
@@ -303,16 +477,21 @@ function renderWeek(week) {
       }).join('')}</div>
     </div>`).join('');
 
-  const hitosHTML = week.fites.length
+  const TAG_TEXT = { avui:'Avui', setmana:'Aquesta setmana', pendent:'Pendent', hores:'Hores' };
+  const hitosHTML = week.fites && week.fites.length
     ? week.fites.map(h=>`
         <div class="hito-row">
           <span class="hito-who">${h.who}</span>
-          <span class="hito-text">${h.text}</span>
-          <span class="hito-tag ${h.tag}">${h.tag==='avui'?'Avui':h.tag==='setmana'?'Aquesta setmana':'Pendent'}</span>
+          <div style="flex:1;min-width:0;">
+            <div class="hito-text">${h.text}</div>
+            ${h.hours?`<div class="hito-note">⏱ ${h.hours}h estimades · ${Math.round(h.hours/37.5*100)}% de la jornada setmanal</div>`:''}
+            ${h.note?`<div class="hito-note">${h.note}</div>`:''}
+          </div>
+          <span class="hito-tag ${h.tag}">${TAG_TEXT[h.tag]||h.tag}</span>
         </div>`).join('')
     : `<div class="hito-row">
         <span class="hito-who">—</span>
-        <span class="hito-text" style="color:var(--g3);font-style:italic;">Els compromisos i fites de la reunió apareixeran aquí.</span>
+        <div style="flex:1;"><span class="hito-text" style="color:var(--g3);font-style:italic;">Els compromisos i fites de la reunió apareixeran aquí.</span></div>
         <span class="hito-tag pendent">Pendent</span>
       </div>`;
 
@@ -324,7 +503,7 @@ function renderWeek(week) {
       </div>
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem;">
-      <span class="proj-tag block">● Blocat / Projecte gran</span>
+      <span class="proj-tag block">● Bloquejat / Projecte gran</span>
       <span class="proj-tag active">● En curs actiu</span>
       <span class="proj-tag quick">● Tasca ràpida</span>
       <span class="proj-tag feedback">● Esperant feedback</span>
@@ -333,10 +512,10 @@ function renderWeek(week) {
     ${statsHTML}
     ${alertsHTML}
     ${deptsHTML}
-    <div class="dept-section">
-      <div class="dept-head">
-        <div class="dept-accent" style="background:var(--black);"></div>
-        <span class="dept-title">Fites i compromisos de la setmana</span>
+    <div class="fites-section">
+      <div class="fites-header">
+        <span class="fites-title-main">Fites i compromisos de la setmana</span>
+        <span class="fites-subtitle">37,5h / persona · setmana laboral dilluns—divendres</span>
       </div>
       <div class="hitos-card">${hitosHTML}</div>
     </div>
