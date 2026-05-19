@@ -125,7 +125,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--g4);font-family:'DM Mono',monospace;}
 .leg-dot{width:8px;height:8px;border-radius:50%;}
 .no-data{color:var(--g3);font-style:italic;font-size:12px;padding:6px 0;}
-.person-card.responsible{background:#F8F7F4;}
+.person-card.responsible{background:var(--white);}
 .week-view{display:none;}
 .week-view.visible{display:block;}
 </style>
@@ -217,7 +217,12 @@ function makeDepts() {
         { name:'Astur',  initials:'AS', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'CXO', responsible:true, pct:0, projects:[] },
         { name:'Núria',  initials:'NÚ', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:0, projects:[] },
         { name:'Silvia', initials:'SE', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:0, projects:[] },
-        { name:'Paula',  initials:'PC', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:"Directora d'Estratègia", pct:0, projects:[] },
+      ]
+    },
+    {
+      label:'Strategy & B—Bruce Marketing', accent:'#555250',
+      members:[
+        { name:'Paula', initials:'PC', avatarBg:'#EEEDEB', avatarTxt:'#555250', role:"Directora d'Estratègia", responsible:true, pct:0, projects:[] },
       ]
     },
     {
@@ -277,7 +282,7 @@ function renderWeek(week) {
             <div class="person-top">
               <div class="avatar" style="background:${m.avatarBg};color:${m.avatarTxt};">${m.initials}</div>
               <div style="flex:1;min-width:0;">
-                <div class="person-name">${m.name}</div>
+                <div class="person-name">${m.name}${m.responsible?'<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--black);margin-left:6px;vertical-align:2px;" title="Responsable"></span>':''}</div>
                 <div class="person-role">${m.role}</div>
               </div>
               <div class="semaphore">
