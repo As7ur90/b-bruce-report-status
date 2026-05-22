@@ -159,167 +159,166 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 // ════════════════════════════════════════════════════════════════
 const WEEKS = [
   {
-    id: 'w-2026-05-18',
-    label: '18—22 mai',
-    dateRange: '18 — 22 de maig 2026',
-    generatedAt: '19 de maig 2026',
+    id: 'w-2026-05-25',
+    label: '25-29 mai',
+    dateRange: '25 - 29 de maig 2026',
+    generatedAt: '22 de maig 2026',
     stats: { persones:19 },
     alerts: [
-      { type:'danger', text:'⚠ Igor al límit aquesta setmana — Kove entra avui i ja té AFP Courts i Lidl. Valorar redistribuir Lidl a Ángel.' },
-      { type:'danger', text:'⚠ Xavi i Ferran Dachs al 90%+ — Nike i Miguel Torres coincideixen en pic de feina. Revisar si cal suport extern.' },
-      { type:'warn',   text:'↗ Fresh OCS web: Enric pendent de continguts del client des de dijous passat. Astur fa seguiment avui.' },
-      { type:'warn',   text:'↗ Ferran Larraz disponible (~35%) des de dijous — assignar-li suport a Àlex amb Asics o fresh OCS motion.' },
+      { type:'danger', text:'Dilluns 26 festiu BCN. Treballen: Antonio, Astur, Dani, Raquel, Queralt, Xavi, Angel i Alex.' },
+      { type:'danger', text:'Silvia de vacances fins dimecres 27 inclos. Torna dijous 28.' },
+      { type:'danger', text:'Astur absent dijous 29 i divendres 30.' },
+      { type:'warn', text:'Enric: AFP Courts (World Summit) landings Redport + Pale per dimarts 26 (~10h). Mes BPT ~20% setmana.' },
+      { type:'warn', text:'Uri bloquejat amb Well On - presentacio dijous 28 (~3 dies full). Olin a delegar.' },
+      { type:'warn', text:'Presentacio Lubrizol (Argireline) dimarts 2 juny 9h - implica Paula i Queralt.' },
+      { type:'warn', text:'Black Crown: Xavi + Antonio han de tenir-ho llest avui divendres o dilluns mati maxim (~2-4h).' }
     ],
     departments: [
-      {
-        label:'Creative Campaigns', accent:'#CC2929',
+      { label:'Creative Campaigns', accent:'#CC2929',
         members:[
-          { name:'Xavi', initials:'XB', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Director Creatiu', responsible:true, pct:80,
+          { name:'Xavi', initials:'XB', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Director Creatiu', responsible:true, pct:85,
             projects:[
-              { name:'Nike — concepte campanya tardor', note:'Presentació interna divendres', type:'block' },
-              { name:'Asics Testing Experience', note:'Direcció art, revisió peces finals', type:'active' },
+              { name:'Black Crown', note:'Acabar avui/dilluns mati - claims + enfoc creatiu (~4h Xavi, ~2h Antonio)', type:'block' },
+              { name:'Disna', note:'Propostes creatives amb Alba - ~1 dia', type:'active' },
+              { name:'Frit Ravich', note:'Reunio avui - manifest posicionament. Seguiment setmana', type:'active' },
+              { name:'Aneto', note:'Pendent definir elements finals amb Paula (~1h)', type:'pending' }
             ]},
-          { name:'Igor', initials:'IM', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Disseny', pct:95,
+          { name:'Igor', initials:'IM', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Disseny', pct:75,
             projects:[
-              { name:'Kove — materials campanya', note:'~50% setmana, entra avui', type:'block' },
-              { name:'AFP Courts — peces digitals', note:'Banner pack + RRSS', type:'active' },
-              { name:'Lidl LID83 — ajustos finals', note:'Valorar redistribuir', type:'quick' },
-            ]},
-        ]
-      },
-      {
-        label:'Dynamic Branding & Digital Product', accent:'#1A7A4A',
+              { name:'Motos Bordoy (QJ + Kove)', note:'~40% setmana (~15h) - noves campanyes, traduccions i adaptacions disseny', type:'block' },
+              { name:'Miguel Torres (RTD)', note:'Ajustos creatius Ready to Drink T10 llaunes - confirmar timing divendres', type:'feedback' }
+            ]}
+        ]},
+      { label:'Dynamic Branding & Digital Product', accent:'#1A7A4A',
         members:[
-          { name:'Antonio', initials:'AP', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Branding + web', responsible:true, pct:70,
+          { name:'Antonio', initials:'AP', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Branding + web', responsible:true, pct:90,
             projects:[
-              { name:'Aneto — identitat visual nova línia', note:'Primeres propostes dimecres', type:'active' },
-              { name:'Disna — actualització brand guidelines', note:'', type:'quick' },
+              { name:'Black Crown', note:'Acabar avui/dilluns mati - 2h maxim', type:'block' },
+              { name:'Kira Ventures', note:'Reformular wireframes + avançar UI (~1 dia). Ajust papeleria (~1h). Entrega divendres.', type:'active' },
+              { name:'B-Bruce (Manifesto)', note:'Supervisar manifest intern - entregar dijous', type:'active' },
+              { name:'B-Bruce (Landings)', note:'4 landings - posar imatges + correccions (~1 dia)', type:'active' },
+              { name:'B-Bruce (Cases)', note:'Adaptar i pujar casos web (~1h)', type:'quick' },
+              { name:'Business Tour', note:'Ajustos disseny web - poca feina', type:'quick' }
             ]},
-          { name:'Uri', initials:'UR', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'UX/UI', responsible:true, pct:85,
+          { name:'Uri', initials:'UR', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'UX/UI', responsible:true, pct:90,
             projects:[
-              { name:'Fresh OCS — app mòbil Sprint 3', note:'Lliurament divendres', type:'block' },
-              { name:'Disna — prototip nova secció web', note:'Revisió amb client dijous', type:'active' },
+              { name:'Well On', note:'PRIORITAT TOTAL - presentacio identitat dijous 28. 3 dies full (~22h)', type:'block' },
+              { name:'AFP Courts', note:'Landings practicament acabades - mig mati dilluns per tancar (~3-4h)', type:'quick' },
+              { name:'Olin', note:'DELEGAR - Uri no pot assumir aquesta setmana', type:'pending' },
+              { name:'Candidate', note:'Modul matching Gemini - divendres tarda amb Paula (~2h)', type:'feedback' }
             ]},
-          { name:'Ferran Larraz', initials:'FL', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Vídeo', pct:35,
+          { name:'Ferran Larraz', initials:'FL', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Video', pct:45,
             projects:[
-              { name:'QJ Motor — vídeo producte 360', note:'Entregat dijous, ara disponible', type:'quick' },
+              { name:'AFP Courts', note:'Reels campanyes paid - avui + dilluns mati amb feedbacks (~6h total)', type:'active' },
+              { name:'Badalona (video)', note:'Video vertical - revisar viabilitat output horitzontal amb Paula (~mig dia)', type:'active' }
             ]},
           { name:'Enric', initials:'EB', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Web Developer', pct:55,
             projects:[
-              { name:'Fresh OCS — web landing', note:'Esperant continguts del client', type:'feedback' },
-              { name:'B—Bruce web — manteniment', note:'', type:'quick' },
-            ]},
-        ]
-      },
-      {
-        label:'Iconic Packaging & Off Materials', accent:'#A05C00',
+              { name:'AFP Courts (World Summit)', note:'Landings Redport + Pale - publicar dimarts 26 (~10h maxim)', type:'block' },
+              { name:'BPT', note:'Tasques web habituals (~20% setmana, ~7,5h)', type:'active' }
+            ]}
+        ]},
+      { label:'Iconic Packaging & Off Materials', accent:'#A05C00',
         members:[
           { name:'Ferran Dachs', initials:'FD', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Dissenyador packaging', responsible:true, pct:90,
             projects:[
-              { name:'Miguel Torres — estoig VAP T20', note:'Prova de color urgent avui', type:'block' },
-              { name:'Aneto — nou format brick 500ml', note:'Briefing rebut dilluns', type:'active' },
-              { name:'Lidl — LID81 Cien Brumas revisió', note:'', type:'quick' },
+              { name:'Frit Ravich', note:'Suport presentacio dijous 28 - parell de dies de treball', type:'active' },
+              { name:'Nestle (NAN Supreme)', note:'Aplicar feedbacks i entregar dimarts (~6h)', type:'active' },
+              { name:'Miguel Torres (RTD)', note:'Feedback T10 llaunes Ready to Drink. Passa a Queralt si no arriba.', type:'feedback' }
             ]},
-          { name:'Queralt', initials:'QS', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:"Packaging · Il·lustradora", responsible:true, pct:55,
+          { name:'Queralt', initials:'QS', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Packaging - Il.lustradora', pct:70,
             projects:[
-              { name:'Miguel Torres — il·lustració etiqueta T20', note:'Revisió 2a proposta', type:'active' },
-              { name:'Aneto — il·lustració pack producte', note:'Primer esbós', type:'active' },
+              { name:'Lubrizol (Argireline)', note:'Landing Solinel pendent. URGENT: registrar naming per poder avançar produccio.', type:'block' },
+              { name:'Lubrizol - Presentacio', note:'Maquetar slides presentacio 2 juny amb Paula (~1 dia)', type:'active' },
+              { name:'Miguel Torres (RTD)', note:'Suport Dachs si cal - Ready to Drink feedback', type:'quick' }
             ]},
-          { name:'Ángel', initials:'AA', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Art final', pct:65,
+          { name:'Angel', initials:'AA', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Art final', pct:45,
             projects:[
-              { name:'Lidl — art final LID82 i LID83', note:'Entrega dimecres', type:'active' },
-              { name:'Miguel Torres — VAP T5 Light art final', note:'Revisió prova impressió', type:'active' },
-              { name:'AFP Courts — maquetació dossier', note:'', type:'quick' },
-            ]},
-        ]
-      },
-      {
-        label:'Social Media', accent:'#7B35C4',
+              { name:'Lidl', note:'Entrades habituals setmanals', type:'active' }
+            ]}
+        ]},
+      { label:'Social Media', accent:'#7B35C4',
         members:[
-          { name:'Carla', initials:'CJ', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Social Media Manager · CM', responsible:true, pct:75,
+          { name:'Carla', initials:'CJ', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Social Media Manager', responsible:true, pct:85,
             projects:[
-              { name:'Asics — contingut RRSS campanya maig', note:'Publicació dimarts i dijous', type:'active' },
-              { name:'QJ Motor — calendari editorial juny', note:'Entrega proposta divendres', type:'active' },
-              { name:'AFP Courts — stories setmanals', note:'', type:'quick' },
+              { name:'B-Bruce', note:'Dimarts: carrusel + reel Area Cubica (publica divendres). Newsletter adaptada a carrusel perfil Dani. Report mensual dimarts.', type:'block' },
+              { name:'Disna', note:'Document visual acabat per dimarts 27', type:'active' },
+              { name:'Lubrizol - Presentacio', note:'Suport Paula presentacio 2 juny (~1,5 dies)', type:'active' },
+              { name:'B-Bruce (Metriques)', note:'Revisio interna metriques xarxes divendres 29 (~1h reunio)', type:'quick' }
             ]},
-          { name:'Àlex', initials:'AM', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Vídeo', pct:60,
+          { name:'Alex', initials:'AM', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Video', pct:80,
             projects:[
-              { name:'Asics — muntatge vídeo teaser', note:'Entrega dijous', type:'active' },
-              { name:'Fresh OCS — motion graphics', note:'Esperant aprovació guió', type:'feedback' },
+              { name:'B-Bruce (Manifesto)', note:'Manifesto B-Bruce - prioritat primers 2 dies (~2 dies)', type:'block' },
+              { name:'Aneto', note:'Reels Fira Alimentaria - edicio i entrega', type:'active' },
+              { name:'B-Bruce', note:'Carrusel + Reel Area Cubica (publica divendres)', type:'active' },
+              { name:'B-talk', note:'Reels Edgar Emogg', type:'active' },
+              { name:'Motos Bordoy (QJ + Kove)', note:'Adaptacions idioma reels (~6h en total)', type:'active' }
             ]},
-          { name:'Alba', initials:'AL', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Disseny', pct:50,
+          { name:'Alba', initials:'AL', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Disseny', pct:60,
             projects:[
-              { name:'Kove — suport disseny', note:'~20% setmana', type:'active' },
-              { name:'Nike — adaptacions formats RRSS', note:'Stories + display', type:'active' },
-            ]},
-        ]
-      },
-      {
-        label:'Business Development', accent:'#2D6E2D', mgmt:true,
+              { name:'Neftis', note:'3 creativitats xarxes socials (~6h, demanat per Carla)', type:'active' },
+              { name:'Disna', note:'Creativitats amb Xavi (~1 dia)', type:'active' },
+              { name:'Frit Ravich', note:'Suport Dachs en rutes creatives per presentacio 28', type:'active' }
+            ]}
+        ]},
+      { label:'Business Development', accent:'#2D6E2D', mgmt:true,
         members:[
-          { name:'Albert', initials:'AF', avatarBg:'#E8F5E8', avatarTxt:'#2D6E2D', role:'Business Development', responsible:true, pct:55,
+          { name:'Albert', initials:'AF', avatarBg:'#E8F5E8', avatarTxt:'#2D6E2D', role:'Business Development', responsible:true, pct:35,
             projects:[
-              { name:'Pitch Cooltra — proposta creativa', note:'Reunió presentació dijous', type:'block' },
-              { name:'Prospecció nous clients Q2', note:'3 contactes en curs', type:'active' },
-              { name:'Kira Ventures — seguiment', note:'', type:'quick' },
-            ]},
-        ]
-      },
-      {
-        label:'Strategy & B—Bruce Marketing', accent:'#555250', mgmt:true,
+              { name:'Disna', note:'Gestio i coordinacio comptes Disna (Albert porta la gestio del client)', type:'active' },
+              { name:'Evento B-Bruce', note:'Reunio setmana vinent amb Paula i Xavi per definir possibilitats (~1h)', type:'pending' }
+            ]}
+        ]},
+      { label:'Strategy & B-Bruce Marketing', accent:'#555250', mgmt:true,
         members:[
-          { name:'Paula', initials:'PC', avatarBg:'#EEEDEB', avatarTxt:'#555250', role:"Directora d'Estratègia", responsible:true, pct:50,
+          { name:'Paula', initials:'PC', avatarBg:'#EEEDEB', avatarTxt:'#555250', role:'Directora Estrategia', responsible:true, pct:80,
             projects:[
-              { name:'Aneto — estratègia llançament nova línia', note:'Document estratègic per dimarts', type:'active' },
-              { name:'Nike — estratègia campanya tardor', note:'Suport a Xavi per presentació', type:'active' },
-            ]},
-        ]
-      },
-      {
-        label:'Client Experience', accent:'#1A5C9A', mgmt:true,
+              { name:'Lubrizol - Presentacio', note:'Estructurar + ordenar slides presentacio 2 juny (~1 dia). Coordina amb Queralt.', type:'block' },
+              { name:'Aneto', note:'Presentacio identitat - definir elements finals amb Xavi (~1h)', type:'active' },
+              { name:'Candidate', note:'Modul matching Gemini - divendres tarda amb Uri (~2h)', type:'quick' },
+              { name:'Frit Ravich', note:'Suport revisio i coordinacio presentacio dijous 28', type:'quick' }
+            ]}
+        ]},
+      { label:'Client Experience', accent:'#1A5C9A', mgmt:true,
         members:[
-          { name:'Astur', initials:'AS', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'CXO', responsible:true, pct:65,
+          { name:'Astur', initials:'AS', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'CXO', responsible:true, pct:40,
             projects:[
-              { name:'Fresh OCS — seguiment feedback', note:'Client pendent des de dj passat', type:'feedback' },
-              { name:'Onboarding Aneto', note:'Primera reunió dimarts', type:'active' },
-              { name:'Reunió status equip dilluns', note:'', type:'quick' },
+              { name:'AFP Courts', note:'Camps practicament fets - activar i validar dilluns/dimarts (~30-40% setmana)', type:'active' },
+              { name:'Bord', note:'~40% setmana en tasques Bord - traduccions portugues/frances + campanyes', type:'active' },
+              { name:'SEO - Reunio', note:'Dimarts 26 amb Dani', type:'quick' }
             ]},
-          { name:'Núria', initials:'NÚ', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:60,
+          { name:'Nuria', initials:'NU', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:55,
             projects:[
-              { name:'Lidl — coordinació entregues setmana', note:'4 projectes actius', type:'active' },
-              { name:'Miguel Torres — seguiment aprovació', note:'', type:'quick' },
+              { name:'Lubrizol (Argireline)', note:'Gestiona feedback si arriba mentre Silvia no hi es. Ull al naming pendent.', type:'active' },
+              { name:'Miguel Torres', note:'Supervisio ajustos i entregues setmanals', type:'active' },
+              { name:'Lidl', note:'Coordinacio entregues habituals', type:'quick' },
+              { name:'Well On / Olin', note:'Possible delegacio des de Uri - validacio web', type:'pending' }
             ]},
-          { name:'Silvia', initials:'SE', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:65,
+          { name:'Silvia', initials:'SE', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:0,
             projects:[
-              { name:'Asics — gestió feedback i aprovacions', note:'Sprint final Testing Experience', type:'active' },
-              { name:'Nike — briefing nou projecte', note:'Reunió kick-off dimecres', type:'quick' },
-            ]},
-        ]
-      },
-      {
-        label:'Direcció', accent:'#191919', mgmt:true,
+              { name:'Vacances', note:'Absent fins dimecres 27 inclos. Torna dijous 28.', type:'pending' }
+            ]}
+        ]},
+      { label:'Direccio', accent:'#191919', mgmt:true,
         members:[
-          { name:'Dani',   initials:'DA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CEO', responsible:true, pct:30,
+          { name:'Dani', initials:'DA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CEO', responsible:true, pct:25,
             projects:[
-              { name:'Reunions comercials Q2', note:'Tancament proposta AFP Courts', type:'active' },
-              { name:'Revisió pressupostos mensuals', note:'Amb Raquel dimecres', type:'quick' },
+              { name:'SEO - Reunio', note:'Dimarts 26 amb Astur', type:'quick' },
+              { name:'B-Bruce', note:'Revisio newsletter + carrusel amb Carla', type:'quick' }
             ]},
-          { name:'Raquel', initials:'RA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CFO', responsible:true, pct:35,
-            projects:[
-              { name:'Tancament facturació abril', note:'Pendent 3 factures Lidl', type:'active' },
-              { name:'Pressupost Nike — revisió marges', note:'', type:'quick' },
-            ]},
-        ]
-      },
+          { name:'Raquel', initials:'RA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CFO', responsible:true, pct:20,
+            projects:[] }
+        ]}
     ],
     fites: [
-      { who:'Ferran Larraz', text:'Entrega vídeo QJ Motor 360 al client', tag:'setmana', hours:15, note:'Postproducció bloqueja tota la setmana fins dijous' },
-      { who:'Uri',           text:'Lliurament Sprint 3 Fresh OCS app mòbil', tag:'setmana', hours:12, note:'Revisió interna prèvia dijous' },
-      { who:'Xavi',          text:'Presentació interna concepte campanya Nike tardor', tag:'setmana' },
-      { who:'Ferran Dachs',  text:'Prova de color estoig Miguel Torres VAP T20 — urgent', tag:'avui' },
-      { who:'Ángel',         text:'Art final Lidl LID82 i LID83 llest per impressió', tag:'setmana' },
-      { who:'Albert',        text:'Reunió presentació pitch Cooltra', tag:'setmana' },
-      { who:'Astur',         text:'Seguiment Fresh OCS — desbloquejat avui o dimarts', tag:'avui' },
+      { who:'Enric', text:'AFP Courts (World Summit) - landings Redport + Pale publicades', tag:'setmana', note:'Deadline dimarts 26 al mati - bloquejat tota la setmana' },
+      { who:'Xavi + Antonio', text:'Black Crown acabat i enviat al client', tag:'avui', note:'Avui divendres 22 o dilluns 26 mati maxim - ~4h Xavi + ~2h Antonio' },
+      { who:'Uri (Oriol)', text:'Presentacio identitat Well On dijous 28', tag:'setmana', note:'3 dies full (~22h) + mig mati dilluns AFP Courts', hours:25 },
+      { who:'Igor + Alex', text:'Motos Bordoy (QJ + Kove) - campanyes i reels', tag:'setmana', note:'Igor ~40% setmana (~15h disseny). Alex reels (~6h video).' },
+      { who:'Carla', text:'Carrusel + reel B-Bruce publicats + report Vibris al Dani', tag:'setmana', note:'Dimarts: carrusel. Divendres: reel.' },
+      { who:'Paula + Queralt', text:'Estructura presentacio Lubrizol (Argireline) preparada', tag:'setmana', note:'Per presentacio dijous 2 de juny a les 9h' },
+      { who:'Alex', text:'Manifesto B-Bruce + Reels Aneto + Carrusel Area Cubica + adaptacions Motos Bordoy', tag:'setmana', note:'Setmana molt carregada - diversos projectes en paral.lel' },
+      { who:'Astur', text:'Enviar link dashboard + pautes reunio a equip', tag:'avui' }
     ]
   }
   // ← Claude afegirà aquí les setmanes noves
