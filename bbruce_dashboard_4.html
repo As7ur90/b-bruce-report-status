@@ -165,10 +165,10 @@ const WEEKS = [
     generatedAt: '22 de maig 2026',
     stats: { persones:19 },
     alerts: [
-      { type:'danger', text:'Dilluns 26 festiu BCN. Treballen: Antonio, Astur, Dani, Raquel, Queralt, Xavi, Angel i Alex.' },
+      { type:'danger', text:'Avui dilluns 26 festiu BCN. Treballen: Antonio, Astur, Dani, Raquel, Queralt, Xavi, Angel i Alex. Tambe: Enric (AFP Courts urgent) i Uri (Well On urgent). Dachs agafa festa avui excepcionalment.' },
       { type:'danger', text:'Silvia de vacances fins dimecres 27 inclos. Torna dijous 28.' },
       { type:'danger', text:'Astur absent dijous 29 i divendres 30.' },
-      { type:'warn', text:'Enric: AFP Courts (World Summit) landings Redport + Pale per dimarts 26 (~10h). Mes BPT ~20% setmana.' },
+      { type:'warn', text:'Enric: AFP Courts (Padel Padel World Summit) landings Redport + Pale per dimarts 26 (~10h). Mes BPT ~20% setmana.' },
       { type:'warn', text:'Uri bloquejat amb Well On - presentacio dijous 28 (~3 dies full). Olin a delegar.' },
       { type:'warn', text:'Presentacio Lubrizol (Argireline) dimarts 2 juny 9h - implica Paula i Queralt.' },
       { type:'warn', text:'Black Crown: Xavi + Antonio han de tenir-ho llest avui divendres o dilluns mati maxim (~2-4h).' }
@@ -198,7 +198,7 @@ const WEEKS = [
               { name:'B-Bruce (Manifesto)', note:'Supervisar manifest intern - entregar dijous', type:'active' },
               { name:'B-Bruce (Landings)', note:'4 landings - posar imatges + correccions (~1 dia)', type:'active' },
               { name:'B-Bruce (Cases)', note:'Adaptar i pujar casos web (~1h)', type:'quick' },
-              { name:'Business Tour', note:'Ajustos disseny web - poca feina', type:'quick' }
+              { name:'BPT (Business Padel Tour)', note:'Ajustos disseny web - poca feina', type:'quick' }
             ]},
           { name:'Uri', initials:'UR', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'UX/UI', responsible:true, pct:90,
             projects:[
@@ -214,7 +214,7 @@ const WEEKS = [
             ]},
           { name:'Enric', initials:'EB', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Web Developer', pct:55,
             projects:[
-              { name:'AFP Courts (World Summit)', note:'Landings Redport + Pale - publicar dimarts 26 (~10h maxim)', type:'block' },
+              { name:'AFP Courts (Padel Padel World Summit)', note:'Landings Redport + Pale - publicar dimarts 26 (~10h maxim)', type:'block' },
               { name:'BPT', note:'Tasques web habituals (~20% setmana, ~7,5h)', type:'active' }
             ]}
         ]},
@@ -224,7 +224,7 @@ const WEEKS = [
             projects:[
               { name:'Frit Ravich', note:'Suport presentacio dijous 28 - parell de dies de treball', type:'active' },
               { name:'Nestle (NAN Supreme)', note:'Aplicar feedbacks i entregar dimarts (~6h)', type:'active' },
-              { name:'Miguel Torres (RTD)', note:'Feedback T10 llaunes Ready to Drink. Passa a Queralt si no arriba.', type:'feedback' }
+              { name:'Miguel Torres (RTD)', note:'Ja te el feedback - bastanta feina aquesta setmana amb T10 llaunes Ready to Drink (~6h)', type:'active' }
             ]},
           { name:'Queralt', initials:'QS', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Packaging - Il.lustradora', pct:70,
             projects:[
@@ -311,7 +311,7 @@ const WEEKS = [
         ]}
     ],
     fites: [
-      { who:'Enric', text:'AFP Courts (World Summit) - landings Redport + Pale publicades', tag:'setmana', note:'Deadline dimarts 26 al mati - bloquejat tota la setmana' },
+      { who:'Enric', text:'AFP Courts (Padel Padel World Summit) - landings Redport + Pale publicades', tag:'setmana', note:'Deadline dimarts 26 al mati - bloquejat tota la setmana' },
       { who:'Xavi + Antonio', text:'Black Crown acabat i enviat al client', tag:'avui', note:'Avui divendres 22 o dilluns 26 mati maxim - ~4h Xavi + ~2h Antonio' },
       { who:'Uri (Oriol)', text:'Presentacio identitat Well On dijous 28', tag:'setmana', note:'3 dies full (~22h) + mig mati dilluns AFP Courts', hours:25 },
       { who:'Igor + Alex', text:'Motos Bordoy (QJ + Kove) - campanyes i reels', tag:'setmana', note:'Igor ~40% setmana (~15h disseny). Alex reels (~6h video).' },
@@ -440,6 +440,7 @@ function renderWeek(week) {
         <div class="dept-accent" style="background:${dept.accent};"></div>
         <span class="dept-title">${dept.label}</span>
         <span class="dept-count">${dept.members.length} persones</span>
+        ${(()=>{const ap=dept.members.length?Math.round(dept.members.reduce((s,m)=>s+(m.pct||0),0)/dept.members.length):0;const col=ap>=80?'#CC2929':ap>=50?'#C97B00':'#1A7A4A';const bg=ap>=80?'#FCEAEA':ap>=50?'#FEF3E6':'#EAF5EE';return '<span class=\"dept-occ-badge\" style=\"background:'+bg+';color:'+col+';">'+ap+'%</span>';})()}
       </div>
       <div class="persons-grid">${dept.members.map(m=>{
         const lc = loadClass(m.pct);
@@ -500,6 +501,7 @@ function renderWeek(week) {
         <div class="page-title">Ocupació de l'equip</div>
         <div class="page-meta">${week.dateRange} · Generat el ${week.generatedAt}</div>
       </div>
+      ${(()=>{const am=week.departments.filter(d=>!d.mgmt).flatMap(d=>d.members);const gp=am.length?Math.round(am.reduce((s,m)=>s+(m.pct||0),0)/am.length):0;const gc=gp>=80?'#CC2929':gp>=50?'#C97B00':'#1A7A4A';const gb=gp>=80?'#FCEAEA':gp>=50?'#FEF3E6':'#EAF5EE';return '<div class="global-occ-bar"><span class="global-occ-label">Ocupacio equip productiu</span><div class="global-occ-track"><div class="global-occ-fill" style="width:'+Math.min(100,gp)+'%;background:'+gc+';"></div></div><span class="global-occ-pct" style="background:'+gb+';color:'+gc+';">'+gp+'%</span></div>';})()}
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem;">
       <span class="proj-tag block">● Bloquejat / Projecte gran</span>
