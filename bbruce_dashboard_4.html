@@ -322,7 +322,174 @@ const WEEKS = [
     ]
   }
   // ← Claude afegirà aquí les setmanes noves
-];
+,
+  {
+    id: 'w-2026-06-08',
+    label: '8-12 juny',
+    dateRange: '8 - 12 de juny 2026',
+    generatedAt: '8 de juny 2026',
+    stats: { persones:19 },
+    alerts: [
+      { type:'danger', text:'Angel absent fins a nou avis per temes personals. Dachs remara sol a Packaging.' },
+      { type:'danger', text:'Ultima setmana de la Nuria a B-Bruce.' },
+      { type:'warn',   text:'Uri i Paula absents a la reunio: reunio de Candidate. Uri bloquejat amb Badalona case + Olin + AFP Courts landing.' },
+      { type:'warn',   text:'Lubrizol: entren DOS nous projectes avui i dema (video estrategic juliol + nou briefing urgent). Xavi i Queralt implicats.' },
+      { type:'warn',   text:'Larraz a full: Badalona case (prioritat) + Olin flyers/ads. Possible suport Alex per Olin.' },
+      { type:'warn',   text:'Miguel Torres RTD: possible feedback urgent finals de setmana. Dachs en alerta.' },
+      { type:'warn',   text:'BPT: play-offs avui i dimecres. Pendent confirmar si Mireia va a gravar contingut. Alex hauria de muntar videos.' }
+    ],
+    departments: [
+      { label:'Creative Campaigns', accent:'#CC2929',
+        members:[
+          { name:'Xavi', initials:'XB', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Director Creatiu', responsible:true, pct:85,
+            projects:[
+              { name:'Frit Ravich', note:'Comecar manifest i conceptes - verbalitzacio. Reunio dijous.', type:'block' },
+              { name:'Lubrizol', note:'Reunio avui 11h - nou video estrategic per juliol. Nou briefing dema urgent.', type:'block' },
+              { name:'Disna', note:'Execucio contingut Corporate + Naturvital. Parlar amb Carla per estructura.', type:'active' },
+              { name:'Fisherman Friend', note:'NOVA OPORTUNITAT - Pressupost + proposta de necessitats. Xavi lidera.', type:'pending' },
+              { name:'Sant Andreu', note:'Kickoff + retrotiming amb Albert. Entrega en 6 setmanes (primera setmana juliol). Valorar produccio in-house o externa.', type:'active' }
+            ]},
+          { name:'Igor', initials:'IM', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Disseny', pct:80,
+            projects:[
+              { name:'Motos Bordoy (QJ + Kove)', note:'~40-50% setmana com sempre - catalogues i materials. Urgent avui i dema.', type:'block' },
+              { name:'Cartago', note:'Ajustos bus - avui si pot, sino a mig setmana', type:'active' },
+              { name:'Olin', note:'2-3 materials pendents de setmana passada', type:'active' },
+              { name:'The Venue', note:'Adaptar disseny (fet amb Canva) - urgent, pendent de setmana passada', type:'active' }
+            ]}
+        ]},
+      { label:'Dynamic Branding & Digital Product', accent:'#1A7A4A',
+        members:[
+          { name:'Antonio', initials:'AP', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Branding + web', responsible:true, pct:85,
+            projects:[
+              { name:'Kira Ventures', note:'Acabar avui - presentacio divendres. Wireframes aprovats, pintant UI. Mig mati maxim dema.', type:'block' },
+              { name:'Frit Ravich', note:'Reunio setmana passada feta - revisar feedback pagines. Reunio dijous.', type:'active' },
+              { name:'B-Bruce (Manual Badalona)', note:'Actualitzar manual marca amb nou escut + caps nous (~1h)', type:'quick' },
+              { name:'Neftis (web)', note:'Reunio dema per definir proposta i pressupost', type:'pending' }
+            ]},
+          { name:'Uri', initials:'UR', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'UX/UI', responsible:true, pct:90,
+            projects:[
+              { name:'B-Bruce (Case Badalona)', note:'Prioritat - presentacio dimecres 19 juny. Fins dema o dimecres en esto.', type:'block' },
+              { name:'BPT (layout web)', note:'Ajustos layout - entrega maxim dimarts/dimecres. Portat endarrerit des de setmana passada.', type:'block' },
+              { name:'Olin (web)', note:'Canvis pagines botiga - avui quedara fet. Te dubtes pendents.', type:'active' },
+              { name:'AFP Courts', note:'Landing page pendent - Astur ho mou a dijous per prioritzar resta', type:'pending' }
+            ]},
+          { name:'Ferran Larraz', initials:'FL', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Video', pct:85,
+            projects:[
+              { name:'B-Bruce (Case Badalona)', note:'Fins dema dimarts. Intentar tenir dimarts ultima hora per deixar lliure dimecres-dijous.', type:'block' },
+              { name:'Olin (ads/flyers)', note:'Ads i flyers - llarg de setmana. Possible suport Alex si Larraz a full.', type:'active' }
+            ]},
+          { name:'Enric', initials:'EB', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Web Developer', pct:90,
+            projects:[
+              { name:'Kira Ventures', note:'PRIORITAT programacio - bloquejat ~mes i mig. Comenca estructura CMS + blog.', type:'block' },
+              { name:'AFP Courts', note:'Ajustos landings si surten canvis', type:'active' },
+              { name:'Olin (web)', note:'Suport Uri amb canvis pagines botiga', type:'quick' }
+            ]}
+        ]},
+      { label:'Iconic Packaging & Off Materials', accent:'#A05C00',
+        members:[
+          { name:'Ferran Dachs', initials:'FD', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Dissenyador packaging', responsible:true, pct:90,
+            projects:[
+              { name:'Nestle (Suprem Pro)', note:'Integrar etiqueta real + producte real + envas + caixa. Avui ajustos Suprem Portugal ST1/2/3 (~mig mati).', type:'block' },
+              { name:'Nestle (NAN Supreme)', note:'Cataleg complex - comecar aquesta setmana', type:'active' },
+              { name:'Lidl (Block Magic)', note:'Feedback sobre projecte - ajustos. Entrega final setmana.', type:'active' },
+              { name:'Lidl (escoles)', note:'Nou projecte - entrega final setmana', type:'active' },
+              { name:'Miguel Torres (RTD)', note:'Possible feedback urgent RTD finals setmana - en alerta', type:'pending' }
+            ]},
+          { name:'Queralt', initials:'QS', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Packaging - Il.lustradora', pct:80,
+            projects:[
+              { name:'Lubrizol (Carbopol Textura)', note:'Feedback a aplicar - dues vies (ajustos + via nova). Bastanta feina. Prioritat des de dema.', type:'block' },
+              { name:'Lubrizol', note:'Nou briefing urgent dema - prioritat alta des de dema', type:'block' },
+              { name:'Neftis', note:'Cataleg Neftis - acabar avui', type:'active' },
+              { name:'Labelist', note:'Ajustos pendents - gestionar apart de Neftis', type:'active' },
+              { name:'BPT (dossier Liga)', note:'Dossier Liga BPT - acabar avui', type:'active' }
+            ]},
+          { name:'Angel', initials:'AA', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Art final', pct:0,
+            projects:[
+              { name:'Absent', note:'Absent fins a nou avis per temes personals. Recurs no disponible aquesta setmana.', type:'pending' }
+            ]}
+        ]},
+      { label:'Social Media', accent:'#7B35C4',
+        members:[
+          { name:'Carla', initials:'CJ', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Social Media Manager', responsible:true, pct:75,
+            projects:[
+              { name:'Echevarne', note:'Reel - entregar dimecres', type:'active' },
+              { name:'BPT', note:'Play-offs avui i dimecres. Pendent confirmar si Mireia grava contingut. Guio ja fet.', type:'active' },
+              { name:'B-TALKS', note:'Capsules 2 i 3 - cap2 per dimecres, cap3 per divendres. Alex les munta.', type:'active' }
+            ]},
+          { name:'Alex', initials:'AM', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Video', pct:85,
+            projects:[
+              { name:'Neftis', note:'Reel - avui o dema', type:'block' },
+              { name:'Echevarne', note:'Reel - dimecres', type:'active' },
+              { name:'B-TALKS', note:'Capsules 2 i 3 - cap2 dimecres, cap3 divendres', type:'active' },
+              { name:'B-Bruce (Manifesto)', note:'En curs - intentar retomar avui final dia. Carla li ha passat feina urgent.', type:'active' },
+              { name:'BPT (contingut)', note:'Si Mireia grava avui, Alex haura de muntar videos. A tenir en compte.', type:'pending' }
+            ]},
+          { name:'Alba', initials:'AL', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Disseny', pct:60,
+            projects:[
+              { name:'Neftis', note:'Post avui (presentar a Judi). Dos posts mes per divendres.', type:'active' },
+              { name:'Disna (Naturvital)', note:'2 posts fins divendres', type:'active' },
+              { name:'Disna (Corpore Sano)', note:'2 posts fins divendres', type:'active' },
+              { name:'Motos Bordoy', note:'Suport puntual ~10-20% setmana', type:'quick' }
+            ]}
+        ]},
+      { label:'Business Development', accent:'#2D6E2D', mgmt:true,
+        members:[
+          { name:'Albert', initials:'AF', avatarBg:'#E8F5E8', avatarTxt:'#2D6E2D', role:'Business Development', responsible:true, pct:40,
+            projects:[
+              { name:'Sant Andreu', note:'Kickoff + retrotiming amb Xavi. Entrega 6 setmanes (1a setmana juliol).', type:'active' },
+              { name:'99 (e-commerce)', note:'Reunio amb Pango Studio per analitzar solucio pedidos/tienda', type:'active' }
+            ]}
+        ]},
+      { label:'Strategy & B-Bruce Marketing', accent:'#555250', mgmt:true,
+        members:[
+          { name:'Paula', initials:'PC', avatarBg:'#EEEDEB', avatarTxt:'#555250', role:'Directora Estrategia', responsible:true, pct:60,
+            projects:[
+              { name:'B-Bruce (Case Badalona)', note:'Presentacio case dimecres 19 juny - coordinant amb Uri', type:'active' },
+              { name:'Echevarne (web)', note:'Proposta web - coordinant amb Astur', type:'active' },
+              { name:'Neftis (web)', note:'Reunio dema amb Astur i Antonio per definir projecte + pressupost', type:'active' },
+              { name:'AFP Courts', note:'Canvis landings - implicacio per determinar', type:'active' }
+            ]}
+        ]},
+      { label:'Client Experience', accent:'#1A5C9A', mgmt:true,
+        members:[
+          { name:'Astur', initials:'AS', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'CXO', responsible:true, pct:50,
+            projects:[
+              { name:'Neftis (web)', note:'Reunio dema amb Paula i Antonio - proposta web + pressupost', type:'active' },
+              { name:'Echevarne (web)', note:'Proposta web coordinant amb Paula', type:'active' },
+              { name:'AFP Courts', note:'Gestio i coordinacio. Mou landing Uri a dijous.', type:'active' }
+            ]},
+          { name:'Nuria', initials:'NU', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:60,
+            projects:[
+              { name:'Motos Bordoy (Kove)', note:'Ultima setmana - gestio compte Kove', type:'active' },
+              { name:'Motos Bordoy (QJ)', note:'Ultima setmana - gestio compte QJ', type:'active' },
+              { name:'Lubrizol', note:'Coordinacio nous projectes que entren avui i dema', type:'active' }
+            ]},
+          { name:'Silvia', initials:'SE', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:55,
+            projects:[
+              { name:'Nestle (Suprem Portugal)', note:'Ajustos avui - poca cosa, mig mati', type:'quick' },
+              { name:'Lubrizol', note:'Coordinacio feedback Carbopol i nous projectes', type:'active' },
+              { name:'Miguel Torres (RTD)', note:'En alerta per feedback urgent finals setmana', type:'pending' }
+            ]}
+        ]},
+      { label:'Direccio', accent:'#191919', mgmt:true,
+        members:[
+          { name:'Dani', initials:'DA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CEO', responsible:true, pct:0,
+            projects:[] },
+          { name:'Raquel', initials:'RA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CFO', responsible:true, pct:0,
+            projects:[] }
+        ]}
+    ],
+    fites: [
+      { who:'Antonio', text:'Kira Ventures - presentacio disseny divendres 12', tag:'setmana', note:'Acabar avui/dema mati. Wireframes aprovats, pintant UI.' },
+      { who:'Queralt', text:'Cataleg Neftis + Dossier Liga BPT acabats', tag:'avui', note:'Les dues coses per avui' },
+      { who:'Uri', text:'B-Bruce Case Badalona + BPT layout acabats', tag:'setmana', note:'Badalona case: prioritat dimecres 19. BPT layout: dimarts/dimecres maxim.' },
+      { who:'Alex', text:'Reel Neftis + Reel Echevarne + B-TALKS cap2', tag:'setmana', note:'Neftis avui/dema. Echevarne dimecres. B-TALKS cap2 dimecres.' },
+      { who:'Dachs', text:'Nestle Suprem Portugal ajustos', tag:'avui', note:'Mig mati - poca cosa' },
+      { who:'Xavi + Queralt', text:'Reunio Lubrizol - nou video estrategic', tag:'avui', note:'Avui 11h. Nou briefing urgent arriba dema.' },
+      { who:'Larraz', text:'B-Bruce Case Badalona video - tancar dimarts ultima hora', tag:'setmana', note:'Per deixar lliure dimecres-dijous per Olin.' },
+      { who:'Astur + Paula + Antonio', text:'Reunio Neftis web - proposta i pressupost', tag:'setmana', note:'Dema dimarts' }
+    ]
+  }];
 
 // ────────────────────────────────────────────────────────────────
 function makeDepts() {
@@ -400,7 +567,7 @@ function renderWeek(week) {
   el.id = week.id;
 
   // Stats only from productive depts (non-mgmt)
-  const prodMembers = week.departments.filter(d=>!d.mgmt).flatMap(d=>d.members);
+  const prodMembers = week.departments.filter(d=>!d.mgmt).flatMap(d=>d.members).filter(m=>m.pct>0);
   const overloaded = prodMembers.filter(m=>m.pct>=80).length;
   const medium = prodMembers.filter(m=>m.pct>=50&&m.pct<80).length;
   const available = prodMembers.filter(m=>m.pct<50&&m.pct>0).length;
@@ -440,7 +607,7 @@ function renderWeek(week) {
         <div class="dept-accent" style="background:${dept.accent};"></div>
         <span class="dept-title">${dept.label}</span>
         <span class="dept-count">${dept.members.length} persones</span>
-        ${(()=>{const ap=dept.members.length?Math.round(dept.members.reduce((s,m)=>s+(m.pct||0),0)/dept.members.length):0;const col=ap>=80?'#CC2929':ap>=50?'#C97B00':'#1A7A4A';const bg=ap>=80?'#FCEAEA':ap>=50?'#FEF3E6':'#EAF5EE';return '<span class=\"dept-occ-badge\" style=\"background:'+bg+';color:'+col+';">'+ap+'%</span>';})()}
+        ${(()=>{const active=dept.members.filter(m=>m.pct>0);const ap=active.length?Math.round(active.reduce((s,m)=>s+(m.pct||0),0)/active.length):0;const col=ap>=80?'#CC2929':ap>=50?'#C97B00':'#1A7A4A';const bg=ap>=80?'#FCEAEA':ap>=50?'#FEF3E6':'#EAF5EE';return '<span class=\"dept-occ-badge\" style=\"background:'+bg+';color:'+col+';">'+ap+'%</span>';})()}
       </div>
       <div class="persons-grid">${dept.members.map(m=>{
         const lc = loadClass(m.pct);
@@ -501,7 +668,7 @@ function renderWeek(week) {
         <div class="page-title">Ocupació de l'equip</div>
         <div class="page-meta">${week.dateRange} · Generat el ${week.generatedAt}</div>
       </div>
-      ${(()=>{const am=week.departments.filter(d=>!d.mgmt).flatMap(d=>d.members);const gp=am.length?Math.round(am.reduce((s,m)=>s+(m.pct||0),0)/am.length):0;const gc=gp>=80?'#CC2929':gp>=50?'#C97B00':'#1A7A4A';const gb=gp>=80?'#FCEAEA':gp>=50?'#FEF3E6':'#EAF5EE';return '<div class="global-occ-bar"><span class="global-occ-label">Ocupacio equip productiu</span><div class="global-occ-track"><div class="global-occ-fill" style="width:'+Math.min(100,gp)+'%;background:'+gc+';"></div></div><span class="global-occ-pct" style="background:'+gb+';color:'+gc+';">'+gp+'%</span></div>';})()}
+      ${(()=>{const am=week.departments.filter(d=>!d.mgmt).flatMap(d=>d.members).filter(m=>m.pct>0);const gp=am.length?Math.round(am.reduce((s,m)=>s+(m.pct||0),0)/am.length):0;const gc=gp>=80?'#CC2929':gp>=50?'#C97B00':'#1A7A4A';const gb=gp>=80?'#FCEAEA':gp>=50?'#FEF3E6':'#EAF5EE';return '<div class="global-occ-bar"><span class="global-occ-label">Ocupacio equip productiu</span><div class="global-occ-track"><div class="global-occ-fill" style="width:'+Math.min(100,gp)+'%;background:'+gc+';"></div></div><span class="global-occ-pct" style="background:'+gb+';color:'+gc+';">'+gp+'%</span></div>';})()}
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem;">
       <span class="proj-tag block">● Bloquejat / Projecte gran</span>
@@ -546,13 +713,13 @@ function showWeek(id) {
   const pillsEl   = document.getElementById('week-pills');
   WEEKS.forEach((week,i)=>{
     const pill = document.createElement('button');
-    pill.className = 'pill'+(i===0?' active':'');
+    pill.className = 'pill';
     pill.textContent = week.label;
     pill.dataset.id = week.id;
     pill.addEventListener('click',()=>showWeek(week.id));
     pillsEl.appendChild(pill);
     const view = renderWeek(week);
-    if(i===0){ view.classList.add('visible'); document.getElementById('topbar-week').textContent=week.dateRange; }
+    if(i===WEEKS.length-1){ view.classList.add('visible'); document.getElementById('topbar-week').textContent=week.dateRange; pill.classList.add('active'); }
     container.appendChild(view);
   });
 })();
