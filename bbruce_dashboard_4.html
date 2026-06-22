@@ -429,8 +429,7 @@ const WEEKS = [
             projects:[
               { name:'Neftis', note:'Post avui (presentar a Judi). Dos posts mes per divendres.', dur:'mig dia', type:'active' },
               { name:'Disna (Naturvital)', note:'2 posts fins divendres.', dur:'mig dia', type:'active' },
-              { name:'Disna (Corpore Sano)', note:'2 posts fins divendres.', dur:'mig dia', type:'active' },
-              { name:'Motos Bordoy', note:'Suport puntual ~10-20% setmana.', dur:'puntual', type:'quick' }
+              { name:'Disna (Corpore Sano)', note:'2 posts fins divendres.', dur:'mig dia', type:'active' }
             ]}
         ]},
       { label:'Business Development', accent:'#2D6E2D', mgmt:true,
@@ -668,6 +667,190 @@ const WEEKS = [
       { who:'Uri + Paula', text:'Presentacio identitat Badalona', tag:'Dimecres 17 (9-13h)', note:'Oriol, Dani, Albert i Paula fora del despatx.' },
       { who:'Xavi', text:'Script video corporatiu Lubrizol', tag:'Dijous 18', note:'~6h de feina entre dilluns 15 i dimecres 17.' },
       { who:'Queralt', text:'Lubrizol Antartica - inici i avenc', tag:'Dimarts 16 - Divendres 19', note:'Prioritat maxima. Presentar divendres 19 o setmana vinent.' }
+    ]
+  },
+{
+    id: 'w-2026-06-22',
+    label: '22-26 juny',
+    dateRange: '22 - 26 de juny 2026',
+    generatedAt: '22 de juny 2026',
+    stats: { persones:18 },
+    alerts: [
+      { type:'danger', text:'Dimecres 24: Sant Joan - festiu tothom. Setmana de 4 dies (base 30h per persona).' },
+      { type:'danger', text:'Enric absent dilluns 22 i dimarts 23. Disponible dijous 25 i divendres 26.' },
+      { type:'danger', text:'Uri absent dimarts 23. Disponible dilluns 22, dijous 25 i divendres 26.' },
+      { type:'warn',   text:'Nous clients: BBOU (kick-off dilluns 22 ~2h) i J. Hernando (kick-off dijous 25 mati ~2h).' },
+      { type:'warn',   text:'Olin Vuelta al Cole: briefing dijous 25 a les 11:30h. Xavi tindra maxim 1 setmana per concepte.' },
+      { type:'warn',   text:'Badalona (B-Bruce): carrusel dimarts 23, reel dijous 25. Web responsive i versio castellana amb errors - corregir dilluns 22.' },
+      { type:'warn',   text:'Manifesto B-Bruce: Paula proposa ajornar a setembre. Reunio dijous 25 amb Carla, Alex i Uri.' },
+      { type:'warn',   text:'Torres Ready to Drink: presentacio interna client 1 juliol. Dachs + Igor + Larraz preparen Key Visuals dijous 25 - divendres 26.' }
+    ],
+    departments: [
+      { label:'Creative Campaigns', accent:'#CC2929',
+        members:[
+          { name:'Xavi', id:'xavi', initials:'XB', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Director Creatiu', responsible:true, pct:85,
+            projects:[
+              { name:'Sant Andreu', note:'Presentacio dilluns 22 al mati. Si OK, brief al realitzador. Si feedback, replantejament storyboard.', dur:'dilluns 22 mati', type:'block' },
+              { name:'Lubrizol', note:'Esperant pautas copy del client. Silvia reclama si no arriba dimarts 23.', dur:'pendent client', type:'pending' },
+              { name:'Disna', note:'Reunio amb Carla dilluns 22 o dimarts 23 per continguts agost.', dur:'mig dia (dilluns 22 o dimarts 23)', type:'active' },
+              { name:'Frit Ravich', note:'Reunio interna dimarts 23 amb Antonio i Dachs. Dedicar hores dilluns 22 + dimarts 23.', dur:'dilluns 22 + dimarts 23', type:'active' },
+              { name:'Olin (Vuelta al Cole)', note:'Briefing dijous 25 a les 11:30h. A partir d\'aqui ~1 setmana per concepte.', dur:'setmana vinent post-briefing', type:'pending' },
+              { name:'Olin (shooting)', note:'Reunio rapida amb Silvia i Dani per next steps, productora i pressupost.', dur:'~1h (dijous 25 o divendres 26)', type:'quick' }
+            ]},
+          { name:'Igor', id:'igor', initials:'IM', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Disseny', pct:75,
+            projects:[
+              { name:'Motos Bordoy (QJ + Kove)', note:'~40-50% setmana. Campanya a mig fer, entraran coses dilluns 22 i dimarts 23.', dur:'~12-15h tota la setmana', type:'block' },
+              { name:'Miguel Torres (RTD - Key Visuals)', note:'Dijous 25 i divendres 26: Key Visuals i animacio lata per presentacio interna 1 juliol.', dur:'dijous 25 + divendres 26', type:'block' },
+              { name:'Olin (Cartago)', note:'Material poca cosa dimarts 23. Feedbacks flyers si arriben.', dur:'~2h dimarts 23', type:'active' }
+            ]}
+        ]},
+      { label:'Dynamic Branding & Digital Product', accent:'#1A7A4A',
+        members:[
+          { name:'Antonio', id:'antonio', initials:'AP', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Branding + web', responsible:true, pct:80,
+            projects:[
+              { name:'Kira Ventures (web)', note:'Presentacio wireframes dilluns 22 a les 10h amb Paula. Acordar data programacio per dir al client.', dur:'dilluns 22 (presentacio 10h)', type:'block' },
+              { name:'Frit Ravich', note:'No ha avancat res. Reunio interna dimarts 23. Dedicar hores dilluns 22 + dimarts 23.', dur:'dilluns 22 + dimarts 23', type:'active' },
+              { name:'B-Bruce (Badalona responsive)', note:'Corregir versio responsive i castellana amb Astur. Enric no esta fins dijous.', dur:'~2-3h dilluns 22', type:'block' },
+              { name:'J. Hernando', note:'Kick-off dijous 25 mati (~2h). Antonio present.', dur:'dijous 25 (kick-off ~2h)', type:'active' },
+              { name:'B-Bruce (reporting departament)', note:'Fer dilluns 22 amb Uri (Dani ho porta demanant).', dur:'dilluns 22 (~1h)', type:'active' }
+            ]},
+          { name:'Uri', id:'uri', initials:'UR', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'UX/UI', responsible:true, pct:80,
+            projects:[
+              { name:'B-Bruce (Badalona carrusel)', note:'Publicar carrusel dimarts 23. Uri fa dilluns 22 (no esta dimarts).', dur:'~3h dilluns 22', type:'block' },
+              { name:'AFP Courts (web Adidas)', note:'Programar web dijous 25 i divendres 26. Uri tanca disseny avis.', dur:'dijous 25 + divendres 26', type:'active' },
+              { name:'Well On (animacio logo)', note:'Tancar animacio logotip dilluns 22 amb Larraz. Pendent des de fa temps.', dur:'dilluns 22 (~2-3h)', type:'block' },
+              { name:'BPT (layout web)', note:'Revisio amb Silvia dilluns 22. Enviament a client dijous 25 - divendres 26.', dur:'dilluns 22 (revisio) + dijous-divendres (enviament)', type:'active' },
+              { name:'Candidate', note:'Ajustos app (pantallas paid i flux core). Proxims dies.', dur:'dijous 25 + divendres 26', type:'active' },
+              { name:'B-Bruce (reporting departament)', note:'Fer dilluns 22 amb Antonio.', dur:'dilluns 22 (~1h)', type:'active' }
+            ]},
+          { name:'Ferran Larraz', id:'larraz', initials:'FL', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Video', pct:80,
+            projects:[
+              { name:'Well On (animacio logo)', note:'Tancar animacio logotip dilluns 22 amb supervisio Uri.', dur:'~2-3h dilluns 22', type:'block' },
+              { name:'Miguel Torres (RTD)', note:'Dijous 25 i divendres 26: animacio moviment lata per presentacio interna 1 juliol.', dur:'dijous 25 + divendres 26', type:'block' },
+              { name:'Olin (reel Malaga)', note:'Reel publica dilluns 22 - possible feedback urgent avui.', dur:'dilluns 22 (si feedback)', type:'active' },
+              { name:'Olin (reel)', note:'Nou reel que es publica dimecres 24 (festiu). Ha d\'estar aprovat dimarts 23.', dur:'dilluns 22 + dimarts 23', type:'active' }
+            ]},
+          { name:'Enric', id:'enric', initials:'EB', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Web Developer', pct:130,
+            projects:[
+              { name:'AFP Courts (web Adidas)', note:'Programar web divendres 26. ~6h en total.', dur:'~6h divendres 26', type:'active' },
+              { name:'Olin + Cartago (banners)', note:'Pujar banners dijous 25 a primera hora.', dur:'dijous 25 mati (~1h)', type:'active' },
+              { name:'Olin (formularis)', note:'Reunio amb Tony dijous 25 o divendres 26 per problema redirects/leads.', dur:'~1h dijous 25 o divendres 26', type:'active' },
+              { name:'B-Bruce (web SEO + Paid)', note:'Pagines SEO i duplicar webs - ja vencia 12 juny. Fer divendres 26.', dur:'divendres 26', type:'active' },
+              { name:'Kira Ventures', note:'BLOQUEJAT - full time ~mes i mig. Pendent acordar data entrega amb Antonio i Uri per comunicar al client.', dur:'~mes i mig full time', type:'block' }
+            ]}
+        ]},
+      { label:'Iconic Packaging & Off Materials', accent:'#A05C00',
+        members:[
+          { name:'Ferran Dachs', id:'dachs', initials:'FD', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Dissenyador packaging', responsible:true, pct:85,
+            projects:[
+              { name:'Miguel Torres (RTD)', note:'Dilluns 22: tancar 2 vies (conservadora + fit) i enviar.', dur:'dilluns 22 (tancar vies)', type:'block' },
+              { name:'Miguel Torres (RTD - Key Visuals)', note:'Dijous 25 + divendres 26: Key Visuals i elements per presentacio interna 1 juliol amb Igor i Larraz.', dur:'dijous 25 + divendres 26', type:'block' },
+              { name:'Lubrizol (Glucamate Ultra)', note:'Avancar versions dimarts 23 + dijous 25.', dur:'dimarts 23 + dijous 25', type:'active' },
+              { name:'Nestle (NAN Care Kids)', note:'Ajustos dimarts 23 - replanteig, te feina.', dur:'~3h dimarts 23', type:'active' },
+              { name:'Nestle (Nansuprem Pro)', note:'Adaptacio brick 250ml pendent perfil brick. Silvia reclama dilluns 22.', dur:'pendent perfil brick', type:'pending' },
+              { name:'Frit Ravich', note:'Reunio interna dimarts 23 amb Xavi i Antonio per desencallar.', dur:'dimarts 23 (reunio)', type:'active' }
+            ]},
+          { name:'Queralt', id:'queralt', initials:'QS', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Packaging - Il.lustradora', pct:75,
+            projects:[
+              { name:'Lubrizol (Antarticina)', note:'Acabant 1a via. Tancant 2a via. Reunio client dijous 25 o divendres 26.', dur:'dilluns 22 + dimarts 23 (tancar)', type:'block' },
+              { name:'Frit Ravich', note:'Reunio interna dimarts 23. Pot donar suport a Dachs amb Lubrizol si cal.', dur:'dimarts 23 (reunio)', type:'active' }
+            ]},
+          { name:'Angel', id:'angel', initials:'AA', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Art final', pct:60,
+            projects:[
+              { name:'Lidl', note:'Projectes Lidl mati dilluns 22 - quasi acabat.', dur:'dilluns 22 mati', type:'active' },
+              { name:'Nestle', note:'Arts finals pendents.', dur:'dimarts 23', type:'active' },
+              { name:'Olin (Stepona)', note:'Refent cartel tienda - client dona guerra.', dur:'puntual', type:'active' }
+            ]}
+        ]},
+      { label:'Social Media', accent:'#7B35C4',
+        members:[
+          { name:'Carla', id:'carla', initials:'CJ', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Social Media Manager', responsible:true, pct:75,
+            projects:[
+              { name:'Neftis', note:'Ajustos finals reel Exosomes - entrega dilluns 22. Post nova maquina a Alba per dimarts 23. Dos publicacions per divendres 26.', dur:'dilluns 22 + dimarts 23', type:'block' },
+              { name:'Echevarne', note:'Feedback pendent - es publica dimecres 24 (festiu), ha d\'estar aprovat dimarts 23. Alex necessari.', dur:'dilluns 22 o dimarts 23', type:'active' },
+              { name:'Disna', note:'Passar material a Andrea. Acabar contingut Corpore Sano + Naturvital per agost/setembre dilluns 22.', dur:'dilluns 22', type:'active' },
+              { name:'B-Bruce (Badalona)', note:'Carrusel dimarts 23, reel dijous 25. Reunio dijous 25 per estrategia manifesto.', dur:'dimarts 23 (carrusel) + dijous 25 (reunio)', type:'active' }
+            ]},
+          { name:'Alex', id:'alex', initials:'AM', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Video', pct:85,
+            projects:[
+              { name:'Frit Ravich (manifesto)', note:'Acabar dilluns 22. Xavi li resol dubtes.', dur:'dilluns 22', type:'block' },
+              { name:'B-Bruce (Badalona reel)', note:'Reel dijous 25 - rescatant material del case.', dur:'dimarts 23 + dijous 25', type:'block' },
+              { name:'Echevarne (reel)', note:'Quan Carla tingui feedback - ha d\'estar fet dimarts 23 (es publica dimecres 24).', dur:'dimarts 23', type:'active' },
+              { name:'Olin (reel)', note:'Reel que es publica dimecres 24, fer dilluns 22 + dimarts 23.', dur:'dilluns 22 + dimarts 23', type:'active' },
+              { name:'B-TALKS', note:'Edicio nous episodis amb Marserra. Nou format: intro + teaser per YouTube (a dissenyar).', dur:'al llarg de la setmana', type:'active' }
+            ]},
+          { name:'Alba', id:'alba', initials:'AL', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Disseny', pct:65,
+            projects:[
+              { name:'Neftis', note:'Post nova maquina dimarts 23 (Carla passa dilluns 22). Dos publicacions per divendres 26.', dur:'dilluns 22 + dimarts 23 + divendres 26', type:'active' },
+              { name:'Disna (Corpore + Nature)', note:'Contingut per setmanes seguents.', dur:'al llarg setmana', type:'active' },
+              { name:'Olin', note:'Carrusel dijous 25. Reel Malaga dilluns 22 si hi ha feedback.', dur:'dilluns 22 (si cal) + dijous 25', type:'active' },
+              { name:'Catalonia', note:'Publicacions en continu (~1h setmana).', dur:'~1h setmana', type:'quick' }
+            ]}
+        ]},
+      { label:'Business Development', accent:'#2D6E2D', mgmt:true,
+        members:[
+          { name:'Albert', id:'albert', initials:'AF', avatarBg:'#E8F5E8', avatarTxt:'#2D6E2D', role:'Business Development', responsible:true, pct:45,
+            projects:[
+              { name:'TCL (pitch)', note:'Participacio confirmada informalment. Albert es centrara juliol. Valorar recursos interns vs externs.', dur:'juliol', type:'pending' },
+              { name:'Lines Sport', note:'Rebranding pendent confirmacio formal. Intern aprovat.', dur:'per confirmar', type:'pending' },
+              { name:'Nutrisport', note:'Reunio amb Albert Marie per entendre el projecte.', dur:'aquesta setmana', type:'active' },
+              { name:'Asics', note:'Pendent feedback video narrativa.', dur:'pendent client', type:'feedback' }
+            ]}
+        ]},
+      { label:'Strategy & B-Bruce Marketing', accent:'#555250', mgmt:true,
+        members:[
+          { name:'Paula', id:'paula', initials:'PC', avatarBg:'#EEEDEB', avatarTxt:'#555250', role:'Directora Estrategia', responsible:true, pct:85,
+            projects:[
+              { name:'BBOU', note:'NOU CLIENT - kick-off dilluns 22 ~2h. Paula gestiona. Xavi + Astur presents.', dur:'~2h dilluns 22', type:'block' },
+              { name:'J. Hernando', note:'NOU CLIENT - kick-off dijous 25 ~2h. Paula gestiona, Antonio present.', dur:'~2h dijous 25', type:'block' },
+              { name:'Museu Maritim', note:'Passes a setembre. Pre-reunio ~15 juliol. Gravacions finals setembre. Uri (direction art), Albert Barsalo (gravacio).', dur:'setembre', type:'pending' },
+              { name:'Neftis (web)', note:'Proposta presentada. Client desbordats (Gala marxa, dissenyadora marxa dimarts 23). Pendent revisio.', dur:'pendent client', type:'feedback' },
+              { name:'Well On (tarifari)', note:'Preparar tarifari retainer amb Astur despres kick-off BBOU dilluns 22.', dur:'~1,5h dilluns 22', type:'active' }
+            ]}
+        ]},
+      { label:'Client Experience', accent:'#1A5C9A', mgmt:true,
+        members:[
+          { name:'Astur', id:'astur', initials:'AS', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'CXO', responsible:true, pct:60,
+            projects:[
+              { name:'AFP Courts', note:'Reunio dilluns 22 a les 10h per estatus. Enric te estatus preparat.', dur:'dilluns 22 (reunio 10h)', type:'active' },
+              { name:'B-Bruce (Badalona responsive)', note:'Corregir versio responsive + castellana amb Antonio dilluns 22.', dur:'~2h dilluns 22', type:'block' },
+              { name:'Motos Bordoy (QJ + Kove)', note:'Gestio comptes ~30% setmana.', dur:'~9h al llarg setmana', type:'active' },
+              { name:'BBOU', note:'Present al kick-off dilluns 22 amb Paula.', dur:'~2h dilluns 22', type:'active' },
+              { name:'Well On (tarifari)', note:'Treballar tarifari retainer amb Paula despres kick-off BBOU.', dur:'~1,5h dilluns 22', type:'active' }
+            ]},
+          { name:'Silvia', id:'silvia', initials:'SE', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:85,
+            projects:[
+              { name:'Olin', note:'Reel publica dilluns 22 - possible feedback urgent. Reel dimecres 24 (fer dilluns 22 + dimarts 23). Carrusel dijous 25 (Alba).', dur:'dilluns 22 + dimarts 23 urgent', type:'block' },
+              { name:'Olin (Vuelta al Cole)', note:'Briefing dijous 25 a les 11:30h.', dur:'dijous 25 (briefing)', type:'active' },
+              { name:'Olin (shooting)', note:'Reunio amb Xavi i Dani per next steps i productora.', dur:'~1h dijous 25 o divendres 26', type:'active' },
+              { name:'Lubrizol', note:'Antarticina (Queralt) + Glucamate + NAN Care Kids (Dachs). Seguiment.', dur:'seguiment setmana', type:'active' },
+              { name:'Nestle', note:'Suprem Portugal revisio. Nansuprem brick pendent.', dur:'seguiment', type:'active' },
+              { name:'Lidl', note:'Coordinacio Lidl.', dur:'seguiment', type:'active' },
+              { name:'BPT (web)', note:'Revisio layout web amb Uri dilluns 22. Enviament a client dijous 25 - divendres 26.', dur:'dilluns 22 (revisio)', type:'active' }
+            ]}
+        ]},
+      { label:'Direccio', accent:'#191919', mgmt:true,
+        members:[
+          { name:'Dani', id:'dani', initials:'DA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CEO', responsible:true, pct:0,
+            projects:[] },
+          { name:'Raquel', id:'raquel', initials:'RA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CFO', responsible:true, pct:0,
+            projects:[] }
+        ]}
+    ],
+    fites: [
+      { who:'Antonio', text:'Presentacio wireframes Kira Ventures', tag:'Dilluns 22 (10h)', note:'Amb Paula i client. Acordar data programacio.' },
+      { who:'Astur + Antonio', text:'Web Badalona responsive + castellana corregida', tag:'Dilluns 22', note:'Enric absent.' },
+      { who:'Dachs', text:'Torres RTD - tancar 2 vies (conservadora + fit)', tag:'Dilluns 22', note:'Enviar per comentar dimarts 23.' },
+      { who:'Alex', text:'Manifesto Frit Ravich acabat', tag:'Dilluns 22', note:'Xavi li resol dubtes avui.' },
+      { who:'Larraz + Uri', text:'Well On animacio logo tancada', tag:'Dilluns 22', note:'Ja fa temps que esta pendent.' },
+      { who:'Paula + Astur', text:'Kick-off BBOU', tag:'Dilluns 22 (~2h)', note:'Xavi present si pot.' },
+      { who:'Uri + Antonio', text:'Carrusel Badalona publicat', tag:'Dimarts 23', note:'Uri fa dilluns 22 (absent dimarts).' },
+      { who:'Alex + Carla', text:'Reel Echevarne aprovat', tag:'Dimarts 23', note:'Es publica dimecres 24 (festiu).' },
+      { who:'Silvia + Uri', text:'BPT layout web enviat a client', tag:'Dijous 25 - Divendres 26', note:'Revisio dilluns 22.' },
+      { who:'Silvia + Xavi', text:'Briefing Olin Vuelta al Cole', tag:'Dijous 25 (11:30h)', note:'Xavi tindra ~1 setmana de marge per concepte.' },
+      { who:'Paula + Antonio', text:'Kick-off J. Hernando', tag:'Dijous 25', note:'Hora pendent confirmar. ~2h.' },
+      { who:'Dachs + Igor + Larraz', text:'Torres RTD - Key Visuals i animacio lata', tag:'Dijous 25 + Divendres 26', note:'Per presentacio interna client 1 juliol.' },
+      { who:'Alex + Carla + Uri', text:'Reel Badalona publicat + reunio estrategia manifesto', tag:'Dijous 25', note:'Possibilitat ajornar manifesto a setembre.' }
     ]
   }];
 
