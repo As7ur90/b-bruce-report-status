@@ -1043,6 +1043,192 @@ const WEEKS = [
       { who:'Astur + Paula', text:'Reunio Astra Prevencio', tag:'Dijous 2 juliol', note:'Proposta branding enviada divendres passat.' },
       { who:'Paula + Uri', text:'Reunio Candidate', tag:'Divendres 3 juliol', note:'Tancar aplicacio - bastant avancada.' }
     ]
+  },
+  {
+    id: 'w-2026-07-06',
+    label: '6-10 jul',
+    dateRange: '6 - 10 de juliol 2026',
+    generatedAt: '6 de juliol 2026',
+    stats: { persones:18 },
+    alerts: [
+      { type:'absence', text:'Paula dijous 9 (entrevistes internes J. Hernando)' },
+      { type:'absence', text:'Uri dijous 9 i divendres 10 (projecte BBOU amb Dani)' },
+      { type:'absence', text:'Dani dijous 9 i divendres 10 (projecte BBOU)' },
+      { type:'danger',  text:'Larraz PRIORITAT MAXIMA: reel agraiment Malaga (Olin deixa de ser patrocinador oficial) + video Lubrizol. Mupi Olin queda en espera fins aprovacio.' },
+      { type:'danger',  text:'Aneto: fi de la relacio comercial. El client passa a una agencia del grup Adam Foods. Han destacat el bon treball fet.' },
+      { type:'warn',    text:'Lubrizol: NOU projecte aprovat - gestio Instagram Beauty. Kick-off dijous 9. A mes: video prioritari (guio aprovat) entrega setmana vinent + presentacio Glucamate dijous 9.' },
+      { type:'warn',    text:'Queralt: story video estrategia Lubrizol es PRIORITAT MAXIMA aquesta setmana. Revisio presentacio Glucamate Ultra dimarts 7 a oficina.' },
+      { type:'warn',    text:'TCL: pitch s\'activa dimarts 7 despres de reunio interna amb Albert i Xavi.' },
+      { type:'warn',    text:'Vera: proposta creativa en desenvolupament - video podcast + event corporatiu. Es treballa durant el mes.' },
+      { type:'warn',    text:'B-TALK: nova sessio amb Guillem Graell (exdirector marketing Barça). Treball previ aquesta setmana.' },
+      { type:'warn',    text:'AFP Courts: preparar pressupost nova web 2027 + pressupostos Enric per ajustos AFP i Adidas (Astur).' },
+      { type:'warn',    text:'Olin: briefing Vuelta al Cole encara pendent. Pressupostos enviats: landings Cobertura Plus + Canal Etic.' }
+    ],
+    departments: [
+      { label:'Creative Campaigns', accent:'#CC2929',
+        members:[
+          { name:'Xavi', id:'xavi', initials:'XB', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Director Creatiu', responsible:true, pct:80,
+            projects:[
+              { name:'Olin (reel Malaga)', note:'Suport proposta reel agraiment al Malaga - deixen de ser patrocinadors. Prioritat amb Larraz.', dur:'~3h (dilluns 6 + dimarts 7)', type:'block' },
+              { name:'Sant Andreu', note:'Video escudo - el realitzador comenca avui dilluns 6. Seguiment.', dur:'seguiment setmana', type:'active' },
+              { name:'Olin (manifest)', note:'Manifest amb el nou posicionament Olin.', dur:'~mig dia (dimecres 8)', type:'active' },
+              { name:'Disna', note:'Creativitats xarxes Corpore Sano + Naturvital.', dur:'~1 dia (dimarts 7 o dimecres 8)', type:'active' },
+              { name:'Olin (Vuelta al Cole)', note:'Briefing encara pendent. Prioritat quan entri.', dur:'pendent briefing', type:'pending' },
+              { name:'TCL (pitch)', note:'Reunio interna dimarts 7 amb Albert per activar el pitch.', dur:'dimarts 7 (reunio)', type:'active' }
+            ]},
+          { name:'Igor', id:'igor', initials:'IM', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Disseny', pct:85,
+            projects:[
+              { name:'Motos Bordoy (QJ + Kove)', note:'~40-50% setmana com sempre.', dur:'~15-19h tota la setmana', type:'block' },
+              { name:'Olin (Canal Etic landing)', note:'Gestiona la part del canal etic - landing nova.', dur:'~1 dia', type:'active' },
+              { name:'Olin (landing campanya)', note:'Landing addicional per campanya publicitaria - tasca ja assignada.', dur:'~mig dia', type:'active' },
+              { name:'Operadoras', note:'Tasques operadoras en curs. Bon ritme segons Silvia.', dur:'puntual', type:'active' }
+            ]}
+        ]},
+      { label:'Dynamic Branding & Digital Product', accent:'#1A7A4A',
+        members:[
+          { name:'Antonio', id:'antonio', initials:'AP', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Branding + web', responsible:true, pct:75,
+            projects:[
+              { name:'Frit Ravich (logo)', note:'Avancos logo - reunio dimarts 7.', dur:'dimarts 7 (reunio) + ajustos', type:'block' },
+              { name:'99 (case web)', note:'Entrega case 99 Cheesecake per finals de setmana. Pujar a la web amb suport Carla i Uri.', dur:'divendres 10 (entrega)', type:'active' },
+              { name:'Kira Ventures', note:'Ajustos pendents. Organitzar flux amb Enric per equilibrar ajustos diaris vs projectes grans.', dur:'al llarg setmana', type:'active' },
+              { name:'B-Bruce (coordinacio departaments)', note:'Reunio amb Dani i Uri per establir directrius - formalitzar.', dur:'per agendar', type:'pending' }
+            ]},
+          { name:'Uri', id:'uri', initials:'UR', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'UX/UI', responsible:true, pct:85,
+            projects:[
+              { name:'BBOU (branding)', note:'Beach Club + hotels. Reunio interna planificada. Dijous 9 i divendres 10 fora amb Dani pel projecte.', dur:'dijous 9 + divendres 10 (fora)', type:'block' },
+              { name:'Candidate', note:'Ajustos pantallas + gestio desenvolupament amb equip tecnic.', dur:'dilluns 6 + dimarts 7', type:'block' },
+              { name:'B-Bruce (video Marc)', note:'Video Marc publicat a Instagram i YouTube.', dur:'fet dilluns 6', type:'quick' },
+              { name:'BPT (web)', note:'Seguiment web.', dur:'puntual', type:'active' },
+              { name:'Well On (animacio logo)', note:'Animacio logo pendent de tancar.', dur:'~2h', type:'active' },
+              { name:'B-Bruce (case TCL)', note:'Pujada del case a la web.', dur:'~2h', type:'active' },
+              { name:'Frit Ravich (shooting)', note:'Seguiment shooting amb Javier.', dur:'seguiment', type:'active' }
+            ]},
+          { name:'Ferran Larraz', id:'larraz', initials:'FL', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Video', pct:90,
+            projects:[
+              { name:'Olin (reel Malaga)', note:'PRIORITAT MAXIMA - reel agraiment Malaga.', dur:'dilluns 6 + dimarts 7', type:'block' },
+              { name:'Lubrizol (video)', note:'PRIORITAT MAXIMA - motion graphics video estrategia. Entrega setmana vinent. Story amb Queralt.', dur:'dimecres 8 - divendres 10', type:'block' },
+              { name:'Olin (Mupi)', note:'En espera fins aprovacio del client.', dur:'pendent aprovacio', type:'pending' },
+              { name:'99 (case animacions)', note:'Possible suport animacions case si el flux ho permet.', dur:'si hi ha forats', type:'pending' }
+            ]},
+          { name:'Enric', id:'enric', initials:'EB', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Web Developer', pct:110,
+            projects:[
+              { name:'Kira Ventures', note:'Continua full - organitzar flux: tasques petites a inici de jornada, Kira la resta del dia.', dur:'full time base', type:'block' },
+              { name:'AFP Courts (landing Adidas)', note:'Acabar landing Adidas avui dilluns 6.', dur:'~2-3h dilluns 6', type:'active' },
+              { name:'AFP Courts (tasques pendents)', note:'Noves tasques entrants - Astur les cotitza. Pendent planificar quan aprovades.', dur:'pendent cotitzacio', type:'pending' },
+              { name:'Catalonia (web)', note:'Treballant projecte Catalonia.', dur:'al llarg setmana', type:'active' },
+              { name:'Olin (banners web)', note:'Canvis menors banners.', dur:'~1h', type:'quick' },
+              { name:'Operadoras (canal etic Netcan)', note:'Implementacio canal etic per Netcan - operadora pendent.', dur:'~1-2h', type:'active' },
+              { name:'B-Bruce (web SEO)', note:'Canvis SEO fa temps pendents - Paula insisteix. Encaixar amb tasques petites de mati.', dur:'~4h repartides', type:'active' }
+            ]}
+        ]},
+      { label:'Iconic Packaging & Off Materials', accent:'#A05C00',
+        members:[
+          { name:'Ferran Dachs', id:'dachs', initials:'FD', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Dissenyador packaging', responsible:true, pct:85,
+            projects:[
+              { name:'Nestle (Suprem Pro Portugal)', note:'Entrega 3 referencies.', dur:'dilluns 6 + dimarts 7', type:'block' },
+              { name:'Nestle (Nidina)', note:'Ajustos Nidina 1, 2 i 1200 - arts finals per entregar dimarts 7.', dur:'dimarts 7 (entrega)', type:'block' },
+              { name:'Lubrizol (Inos)', note:'Concepte comenca setmana vinent. Aquesta setmana: thinking previ pel stand.', dur:'~2h thinking', type:'pending' }
+            ]},
+          { name:'Queralt', id:'queralt', initials:'QS', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Packaging - Il.lustradora', pct:90,
+            projects:[
+              { name:'Lubrizol (Strategy Video)', note:'PRIORITAT MAXIMA setmana - story del video estrategia. Coordinacio amb Larraz per motion.', dur:'dilluns 6 - dimecres 8', type:'block' },
+              { name:'Lubrizol (Glucamate Ultra)', note:'Revisio presentacio dimarts 7 a oficina. Presentacio client dijous 9.', dur:'dimarts 7 (revisio) + dijous 9 (presentacio)', type:'block' },
+              { name:'Lubrizol (Carbopol Textura)', note:'Aplicar feedback rebut.', dur:'dijous 9 o divendres 10', type:'active' },
+              { name:'Lubrizol (Antarticina)', note:'Aplicar feedback rebut.', dur:'dijous 9 o divendres 10', type:'active' },
+              { name:'Lubrizol (peptid HGR)', note:'Feedback en curs.', dur:'divendres 10', type:'active' }
+            ]},
+          { name:'Angel', id:'angel', initials:'AA', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Art final', pct:60,
+            projects:[
+              { name:'Nestle', note:'Diversos projectes - ajustos i arts finals.', dur:'al llarg setmana', type:'active' },
+              { name:'Lidl', note:'Ajustos i arts finals habituals.', dur:'al llarg setmana', type:'active' }
+            ]}
+        ]},
+      { label:'Social Media', accent:'#7B35C4',
+        members:[
+          { name:'Carla', id:'carla', initials:'CJ', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Social Media Manager', responsible:true, pct:75,
+            projects:[
+              { name:'B-Bruce (Badalona reel)', note:'Alex ha entregat el primer reel BS Badalona. Publicacio en curs.', dur:'dilluns 6', type:'active' },
+              { name:'99 (case web)', note:'Preparacio case Cheesecake per web amb suport Antonio i Uri.', dur:'al llarg setmana', type:'active' },
+              { name:'Echevarne', note:'Pendent material del client perque Alba i Alex comencin posts.', dur:'pendent client', type:'pending' },
+              { name:'Neftis', note:'Avancar 3 publicacions.', dur:'dimarts 7 - dijous 9', type:'active' },
+              { name:'Disna', note:'Baixada de conceptes agost.', dur:'dimecres 8 o dijous 9', type:'active' },
+              { name:'BPT (capsules)', note:'Coordinacio amb Icar per capsules Business Padel Tour.', dur:'coordinacio', type:'active' }
+            ]},
+          { name:'Alex', id:'alex', initials:'AM', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Video', pct:75,
+            projects:[
+              { name:'B-Bruce (Badalona reel)', note:'Primer reel BS Badalona entregat dilluns 6.', dur:'fet dilluns 6', type:'quick' },
+              { name:'Echevarne', note:'Posts quan arribi material del client.', dur:'pendent client', type:'pending' },
+              { name:'B-TALK (Guillem Graell)', note:'Treball previ nova sessio amb exdirector marketing Barça.', dur:'dimecres 8 - divendres 10', type:'active' }
+            ]},
+          { name:'Alba', id:'alba', initials:'AL', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Disseny', pct:80,
+            projects:[
+              { name:'Lubrizol (Glucamate)', note:'Col.laboracio presentacio dijous 9 - coordinar amb tasques de xarxes.', dur:'dimarts 7 + dimecres 8', type:'block' },
+              { name:'Neftis', note:'3 publicacions per avancar.', dur:'al llarg setmana', type:'active' },
+              { name:'Echevarne', note:'Posts quan arribi material.', dur:'pendent client', type:'pending' },
+              { name:'Disna (Corpore + Nature)', note:'Creativitats contingut.', dur:'al llarg setmana', type:'active' }
+            ]}
+        ]},
+      { label:'Business Development', accent:'#2D6E2D', mgmt:true,
+        members:[
+          { name:'Albert', id:'albert', initials:'AF', avatarBg:'#E8F5E8', avatarTxt:'#2D6E2D', role:'Business Development', responsible:true, pct:55,
+            projects:[
+              { name:'TCL (pitch)', note:'Activacio dimarts 7 despres de reunio interna amb Xavi.', dur:'dimarts 7 (reunio) + activacio', type:'block' },
+              { name:'Vera', note:'Proposta creativa en desenvolupament: video podcast + event corporatiu. Es treballa durant el mes.', dur:'al llarg del mes', type:'active' },
+              { name:'Asics', note:'Pendent feedback video narrativa.', dur:'pendent client', type:'feedback' },
+              { name:'Lines Sport', note:'Rebranding pendent confirmacio formal.', dur:'per confirmar', type:'pending' }
+            ]}
+        ]},
+      { label:'Strategy & B-Bruce Marketing', accent:'#555250', mgmt:true,
+        members:[
+          { name:'Paula', id:'paula', initials:'PC', avatarBg:'#EEEDEB', avatarTxt:'#555250', role:'Directora Estrategia', responsible:true, pct:85,
+            projects:[
+              { name:'BBOU (estrategia)', note:'Planificacio components estrategics - dedicacio principal de la setmana.', dur:'tota la setmana', type:'block' },
+              { name:'J. Hernando (estrategia)', note:'Planificacio part estrategica. Dijous 9 entrevistes internes (fora tot el dia).', dur:'tota la setmana + dijous 9 (entrevistes)', type:'block' },
+              { name:'B-Bruce (continguts)', note:'Seguiment continguts B-Bruce programats des de setmana passada.', dur:'seguiment', type:'active' },
+              { name:'Candidate', note:'Coordinacio amb Dorota.', dur:'puntual', type:'active' }
+            ]}
+        ]},
+      { label:'Client Experience', accent:'#1A5C9A', mgmt:true,
+        members:[
+          { name:'Astur', id:'astur', initials:'AS', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'CXO', responsible:true, pct:85,
+            projects:[
+              { name:'Motos Bordoy (QJ + Kove)', note:'Gestio comptes - avui dilluns 6 especialment frenetic. Igor al 40-50%.', dur:'~12h tota la setmana', type:'block' },
+              { name:'Miguel Torres', note:'Esperant respostes T5, T20 i RTD. Planificar reunio WIP (Working Process).', dur:'seguiment + agendar reunio', type:'active' },
+              { name:'AFP Courts (pressupostos)', note:'Pressupostos Enric per ajustos AFP i Adidas + pressupost nova web 2027.', dur:'~3h (dimarts 7 o dimecres 8)', type:'block' },
+              { name:'Kivel EDE', note:'Proposta presentada avui dilluns 6 - control instal.lacions plaques solars i carregadors vehicles electrics.', dur:'~2h dilluns 6 (presentacio)', type:'active' },
+              { name:'Echevarne (veterinaria)', note:'Presentacio proposta plataforma veterinaria dimarts 7.', dur:'~2h dimarts 7 (presentacio)', type:'active' }
+            ]},
+          { name:'Silvia', id:'silvia', initials:'SE', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:85,
+            projects:[
+              { name:'Lubrizol (Instagram Beauty)', note:'NOU projecte aprovat. Kick-off dijous 9.', dur:'dijous 9 (kick-off)', type:'block' },
+              { name:'Lubrizol (video)', note:'Video prioritari amb guio aprovat - entrega setmana vinent. Story + motion amb Larraz i Queralt.', dur:'seguiment tota la setmana', type:'block' },
+              { name:'Lubrizol (Glucamate)', note:'Presentacio dijous 9. Revisio interna dimarts 7.', dur:'dimarts 7 + dijous 9', type:'active' },
+              { name:'Olin', note:'Briefing Vuelta al Cole pendent. Pressupostos landings Cobertura Plus + Canal Etic enviats.', dur:'seguiment', type:'active' },
+              { name:'Nestle', note:'Suprem Pro Portugal + Nidina - seguiment entregues Dachs.', dur:'seguiment', type:'active' },
+              { name:'Lidl', note:'Coordinacio habitual.', dur:'seguiment', type:'active' }
+            ]}
+        ]},
+      { label:'Direccio', accent:'#191919', mgmt:true,
+        members:[
+          { name:'Dani', id:'dani', initials:'DA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CEO', responsible:true, pct:0,
+            projects:[] },
+          { name:'Raquel', id:'raquel', initials:'RA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CFO', responsible:true, pct:0,
+            projects:[] }
+        ]}
+    ],
+    fites: [
+      { who:'Larraz + Xavi', text:'Olin - reel agraiment Malaga', tag:'Dilluns 6 + Dimarts 7', note:'PRIORITAT MAXIMA. Olin deixa de ser patrocinador oficial.' },
+      { who:'Dachs', text:'Nestle Nidina 1, 2 i 1200 - arts finals entregats', tag:'Dimarts 7', note:'Tambe 3 referencies Suprem Pro Portugal.' },
+      { who:'Albert + Xavi', text:'Reunio interna TCL - activacio pitch', tag:'Dimarts 7', note:'Es posa en marxa el pitch.' },
+      { who:'Queralt + Silvia', text:'Revisio presentacio Glucamate Ultra', tag:'Dimarts 7 (oficina)', note:'Presentacio client dijous 9.' },
+      { who:'Antonio', text:'Frit Ravich - reunio logo', tag:'Dimarts 7', note:'Avancos del logo.' },
+      { who:'Queralt', text:'Lubrizol story video estrategia', tag:'Dilluns 6 - Dimecres 8', note:'PRIORITAT MAXIMA setmana. Motion amb Larraz despres.' },
+      { who:'Silvia + Queralt + Alba', text:'Presentacio Lubrizol Glucamate', tag:'Dijous 9', note:'Alba col.labora amb la presentacio.' },
+      { who:'Silvia', text:'Kick-off Lubrizol Instagram Beauty', tag:'Dijous 9', note:'Nou projecte aprovat.' },
+      { who:'Paula', text:'Entrevistes internes J. Hernando', tag:'Dijous 9', note:'Paula fora tot el dia.' },
+      { who:'Antonio + Carla + Uri', text:'99 - case Cheesecake pujat a la web', tag:'Divendres 10', note:'Entrega finals de setmana.' },
+      { who:'Astur', text:'Pressupostos AFP Courts (ajustos + web 2027)', tag:'Dimecres 8', note:'Pressupostos Enric + nova web projectada 2027.' }
+    ]
   }];
 
 // ────────────────────────────────────────────────────────────────
