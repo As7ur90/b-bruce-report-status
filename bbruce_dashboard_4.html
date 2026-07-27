@@ -130,6 +130,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .week-view{display:none;}
 .week-view.visible{display:block;}
 .alert-item.alert-absence{background:#EFF6FF;border-left:3px solid #1A5C9A;color:#1A3A6A;padding:10px 14px;}
+.alert-item.alert-nextweek{background:#FDF4E7;border-left:3px solid #C97B00;color:#7A4500;padding:10px 14px;}
+.alert-item.alert-nextweek .abs-title{color:#C97B00;}
 .alert-item.handoff{background:#F0F9F4;border-left:3px solid #1A7A4A;color:#0F4A2A;}
 .abs-title{font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1A5C9A;display:block;margin-bottom:8px;}
 .abs-list{margin:0;padding:0;list-style:none;}
@@ -1613,6 +1615,201 @@ const WEEKS = [
       { who:'Xavi + Albert', text:'TCL - entrega pitch', tag:'Divendres 24', note:'Necessita Igor per motion.' },
       { who:'Xavi', text:'BBOU manifest tancat', tag:'Divendres 24', note:'Locucio via Fiverr.' }
     ]
+  },
+  {
+    id: 'w-2026-07-27',
+    label: '27-31 jul',
+    dateRange: '27 - 31 de juliol 2026',
+    generatedAt: '27 de juliol 2026',
+    stats: { persones:18 },
+    alerts: [
+      { type:'absence', text:'Silvia continua de vacances (setmana 2 de 3)' },
+      { type:'absence', text:'Alba de vacances (setmana 1 de 3)' },
+      { type:'absence', text:'Alex de vacances (setmana 1 de 3)' },
+      { type:'absence', text:'Uri de vacances (setmana 1 de 3)' },
+      { type:'nextweek', text:'Dani' },
+      { type:'nextweek', text:'Enric' },
+      { type:'nextweek', text:'Astur' },
+      { type:'nextweek', text:'Raquel' },
+      { type:'nextweek', text:'Xavi' },
+      { type:'handoff', text:'Traspassos vacances: Paula gestiona Lubrizol i Olin (amb Dani). Astur gestiona Lidl, Nestle i reten Bordoy. Igor cobrira temes de xarxes que faria Alba (prioritat Neftis).' },
+      { type:'danger',  text:'BBOU: presentacio final 17 agost. Aquesta setmana + la vinent per tancar tot (guion branding, manifest, ajustos visuals, piezas, mockups, presentacio). Antonio + Larraz principals.' },
+      { type:'danger',  text:'Lubrizol In-Cosmetics: presentacio DIJOUS 30 a les 12h. Concepte refet des de zero. Queralt + Dachs (+ Xavi puntual) machaquen dimarts 28 al mati.' },
+      { type:'danger',  text:'TCL: presentacio DIMARTS 28 al mati (Xavi). Speech per preparar avui dilluns 27.' },
+      { type:'warn',    text:'Candidate: petits ajustos que havia de fer Uri - Antonio els tanca aquesta setmana. Candid tanca i reunio 1a setmana d\'agost, proves durant tot l\'agost.' },
+      { type:'warn',    text:'Newsletter agost: preparar template + recopilatori aquesta setmana (Antonio). Carla tanca la del juliol amb Dani.' },
+      { type:'warn',    text:'Piezas offline Olin: Igor bloquejat quan arribi el GO definitiu de la campanya - baixar tot a saco. Ha de sortir de setmana o principis de la vinent.' },
+      { type:'warn',    text:'Case Tresarcs: pujar 1a setmana d\'agost (Antonio + Uri passa link fotos abans de marxar).' },
+      { type:'warn',    text:'Lubrizol BioBase Conditioning (nou brief): presentacio DILLUNS 3 AGOST. 2 Key Visuals + propostes tagline. Queralt aquesta setmana.' },
+      { type:'warn',    text:'Lubrizol Brand Assets (social media playbook Instagram Beauty): presentacio mitjans setembre. Anar avancant durant agost (Xavi + Carla). Carla lidera avanç setmana 3 agost.' }
+    ],
+    departments: [
+      { label:'Creative Campaigns', accent:'#CC2929',
+        members:[
+          { name:'Xavi', id:'xavi', initials:'XB', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Director Creatiu', responsible:true, pct:95,
+            projects:[
+              { name:'TCL (pitch)', note:'Enviat divendres ultima hora - presentacio DIMARTS 28 mati. Preparar speech avui dilluns 27.', dur:'dilluns 27 (speech) + dimarts 28 (presentacio)', type:'block' },
+              { name:'Lubrizol (In-Cosmetics)', note:'Prioritat. Suport puntual a Queralt i Dachs - possible sessio despres del TCL dimarts 28 mati/migdia.', dur:'dimarts 28 migdia', type:'block' },
+              { name:'Sant Andreu (video)', note:'Primer feedback rebut - els ha encantat, retreballar cosa visual quan arribi detall.', dur:'pendent feedback detallat', type:'feedback' },
+              { name:'BBOU (manifest)', note:'Aportacio puntual si cal. Alex ha deixat storyboard. Antonio negocia amb Ruben (extern etnia) per possible muntatge.', dur:'suport puntual', type:'active' },
+              { name:'Olin (cunya radio)', note:'Deixar-la feta aquesta setmana per Marta. Concepte -es un dia extra- acordat.', dur:'aquesta setmana', type:'active' },
+              { name:'Vera + TCL shooting', note:'Propostes presentades divendres passat.', dur:'seguiment', type:'active' }
+            ]},
+          { name:'Igor', id:'igor', initials:'IM', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Disseny', pct:110,
+            projects:[
+              { name:'Olin (piezas offline campanya)', note:'BLOQUEJAT quan arribi GO definitiu - baixar tot a saco. Cua principal aquesta setmana.', dur:'quan arribi GO', type:'block' },
+              { name:'Motos Bordoy (QJ + Kove)', note:'Continua carrega alta com sempre.', dur:'~15h tota la setmana', type:'block' },
+              { name:'Neftis (posts xarxes)', note:'PRIORITAT afegida - 5 posts que havia de fer Alba. Carla passa avui dilluns 27. Judith marxa i vol tenir agost tancat.', dur:'~mig dia dilluns 27 - dimarts 28', type:'block' },
+              { name:'B-TALK (posts)', note:'2 posts single fàcils que Carla passa avui.', dur:'~2h dilluns 27', type:'active' },
+              { name:'Echevarne (posts)', note:'Quan arribi material del client - carrusels.', dur:'quan arribi material', type:'pending' }
+            ]}
+        ]},
+      { label:'Dynamic Branding & Digital Product', accent:'#1A7A4A',
+        members:[
+          { name:'Antonio', id:'antonio', initials:'AP', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Branding + web', responsible:true, pct:100,
+            projects:[
+              { name:'BBOU', note:'Prioritat top - guion branding no fet, manifest, ajustos visuals, piezas, mockups, presentacio. Tot ha de quedar tancat divendres 31 (presentacio final 17 agost). Coordinacio amb Larraz i possible externa Ruben.', dur:'tota la setmana + tota la vinent', type:'block' },
+              { name:'Kira Ventures', note:'Acabar els ajustes pendents per passar-los al client.', dur:'~1 dia repartit', type:'active' },
+              { name:'Candidate', note:'Petits ajustos que havia de fer Uri - tancar aquesta setmana (Candid ha de fer proves durant agost).', dur:'~mig dia aquesta setmana', type:'block' },
+              { name:'B-Bruce (newsletter agost)', note:'Preparar template + recopilatori per la newsletter d\'agost.', dur:'~mig dia aquesta setmana', type:'active' },
+              { name:'Olin (webs)', note:'Diverses webs a pujar - ha d\'estar tot pujat DILLUNS 3 AGOST.', dur:'divendres 31', type:'block' },
+              { name:'Case Tresarcs', note:'Preparar case per pujar 1a setmana agost. Uri passa link fotos abans de marxar.', dur:'inici agost', type:'pending' }
+            ]},
+          { name:'Ferran Larraz', id:'larraz', initials:'FL', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Video', pct:110,
+            projects:[
+              { name:'BBOU (video branding + manifest)', note:'PRIORITAT MAXIMA - video branding + ajustar manifest que Alex no va acabar. Antonio parla amb Ruben (etnia) per possible suport extern amb el muntatge.', dur:'tota la setmana + la vinent', type:'block' },
+              { name:'Olin (Mupis digitals + activacio)', note:'Mopis digitals i activacio digital campanya un cop arribi el GO.', dur:'quan arribi GO', type:'block' },
+              { name:'Reels xarxes (Olin + altres)', note:'Alguns reels a fer - Larraz cobreix perque Alex es de vacances.', dur:'al llarg setmana', type:'active' },
+              { name:'Echevarne (reel)', note:'Almenys 1 reel segur quan arribi material - possiblement mes.', dur:'pendent material', type:'pending' },
+              { name:'Motos Bordoy (reel)', note:'Astur diu que probablement algun reel entrara aquesta setmana.', dur:'quan entri', type:'pending' }
+            ]},
+          { name:'Enric', id:'enric', initials:'EB', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Web Developer', pct:75,
+            projects:[
+              { name:'Operadoras (canal etic)', note:'Ajustos - pujar temes canal etic i ajustar plugins. Credencials rebudes avui.', dur:'aquesta setmana', type:'block' },
+              { name:'Olin (web)', note:'Ja quasi tot fet - la resta ho fa Tony.', dur:'puntual', type:'active' },
+              { name:'Kira Ventures', note:'Continua base - esperant que Antonio tanqui ajustos per aplicar.', dur:'seguiment', type:'active' }
+            ]}
+        ,
+          { name:'Uri', id:'uri', initials:'UR', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'UX/UI', responsible:true, pct:0,
+            projects:[
+              { name:'De vacances', note:'Setmana 1 de 3 - torna 17 agost.', dur:'vacances', type:'pending' }
+            ]}
+        ]},
+      { label:'Iconic Packaging & Off Materials', accent:'#A05C00',
+        members:[
+          { name:'Ferran Dachs', id:'dachs', initials:'FD', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Dissenyador packaging', responsible:true, pct:100,
+            projects:[
+              { name:'Lubrizol (In-Cosmetics)', note:'PRIORITAT top - refer concepte des de zero. DIMARTS 28 mati intensiu amb Queralt (Dachs va amb cotxe i alliberen 2h extres). Presentacio DIJOUS 30 a les 12h.', dur:'dilluns 27 - dijous 30', type:'block' },
+              { name:'Nestle', note:'Coses de Nestle - anar traient avui dilluns 27. A partir de dimarts, Angel n\'agafa mes per alliberar Dachs.', dur:'dilluns 27 + suport Angel', type:'active' },
+              { name:'W5', note:'Projecte encallat des de fa dies - retomar despres de dijous 30 (In-Cosmetics).', dur:'divendres 31 o setmana vinent', type:'active' },
+              { name:'Perfums (expositor Suddenly)', note:'Nou feedback arribat - continua el no-parar de cambios. Diseñan ellos.', dur:'puntual', type:'active' },
+              { name:'B-Bruce (merchandising tasa)', note:'Nou tema - Paula ho parla amb Dachs (perfils, volum, produccio).', dur:'per definir', type:'pending' }
+            ]},
+          { name:'Queralt', id:'queralt', initials:'QS', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Packaging - Il.lustradora', pct:110,
+            projects:[
+              { name:'Lubrizol (In-Cosmetics)', note:'PRIORITAT top - concepte des de zero. DIMARTS 28 sessio intensiva amb Dachs (Queralt plega 13:30 i van amb cotxe). Presentacio DIJOUS 30 a les 12h.', dur:'dilluns 27 - dijous 30', type:'block' },
+              { name:'Lubrizol (BioBase Conditioning)', note:'Nou projecte - 2 Key Visuals + propostes tagline. Presentacio DILLUNS 3 AGOST. Ha d\'estar fet aquesta setmana.', dur:'dimarts 28 - divendres 31', type:'block' },
+              { name:'Lubrizol (Brand Assets)', note:'Va veient pero no s\'hi posa aquesta setmana - focus a In-Cosmetics i BioBase.', dur:'setmana vinent', type:'pending' },
+              { name:'Feedbacks pendents', note:'Poden entrar feedbacks aquesta setmana - Paula filtra amb clients (molts de vacances).', dur:'segons entrada', type:'pending' }
+            ]},
+          { name:'Angel', id:'angel', initials:'AA', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Art final', pct:85,
+            projects:[
+              { name:'Lidl', note:'Full amb Lidl com sempre.', dur:'al llarg setmana', type:'block' },
+              { name:'Nestle', note:'Agafa mes coses de Nestle a partir de dimarts per alliberar Dachs (que va full In-Cosmetics).', dur:'dimarts 28 - divendres 31', type:'block' },
+              { name:'Olin (adaptacions)', note:'Adaptacions relativament senzilles de la campanya - Angel pot cobrir un cop Igor tingui master.', dur:'quan arribi', type:'active' },
+              { name:'Neftis (suport diseny)', note:'Si Igor no arriba amb tots els 5 posts, Angel pot ajustar dissenys.', dur:'segons necessitat', type:'pending' }
+            ]}
+        ]},
+      { label:'Social Media', accent:'#7B35C4',
+        members:[
+          { name:'Carla', id:'carla', initials:'CJ', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Social Media Manager', responsible:true, pct:110,
+            projects:[
+              { name:'Disna (pla setembre)', note:'Presentacio pla setembre DIJOUS 30 a Andrea. Preparar aquesta setmana - anticaiguda Naturvital pot necessitar suport puntual de Xavi.', dur:'dilluns 27 - dijous 30', type:'block' },
+              { name:'Neftis', note:'Prioritat top - Judith marxa i vol agost tancat. Carla passa 5 posts a Igor avui i coordina.', dur:'dilluns 27 (traspas) + seguiment', type:'block' },
+              { name:'B-TALK (Pedro)', note:'Ana ha marxat - Carla espera resposta de Pedro per agendar reunio amb Paula.', dur:'aquesta setmana', type:'active' },
+              { name:'B-TALK (2 posts)', note:'2 posts single facils - Igor els fa avui dilluns 27.', dur:'dilluns 27 (coordinar Igor)', type:'active' },
+              { name:'Echevarne', note:'Esperant material del client per fer carrusels + reel d\'agost.', dur:'pendent material', type:'pending' },
+              { name:'B-Bruce (event finals setembre)', note:'Preparar event - trucar Albert.', dur:'coordinacio setmana', type:'active' },
+              { name:'B-Bruce (newsletter)', note:'Passar-la a Dani per tancar.', dur:'dilluns 27', type:'active' },
+              { name:'B-Bruce (posts shooting)', note:'Uri passa link fotos - preparar post per dimecres 29 o dijous 30.', dur:'dimecres 29 o dijous 30', type:'active' },
+              { name:'Disna (clips OGCs)', note:'Acabant clips del rodatge i gestionant tema OGCs - com pot.', dur:'al llarg setmana', type:'active' },
+              { name:'Tresarcs (adaptacio)', note:'Adaptar case a reel i carrusel (case ja penja a la web).', dur:'inici agost', type:'pending' },
+              { name:'Reten SM (setmana vinent)', note:'Carla queda de reten Social Media la setmana vinent (equip fora).', dur:'setmana vinent', type:'active' }
+            ]}
+        ,
+          { name:'Alba', id:'alba', initials:'AL', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Disseny', pct:0,
+            projects:[
+              { name:'De vacances', note:'Setmana 1 de 3 - torna 17 agost.', dur:'vacances', type:'pending' }
+            ]},
+          { name:'Alex', id:'alex', initials:'AM', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Video', pct:0,
+            projects:[
+              { name:'De vacances', note:'Setmana 1 de 3 - torna 17 agost.', dur:'vacances', type:'pending' }
+            ]}
+        ]},
+      { label:'Business Development', accent:'#2D6E2D', mgmt:true,
+        members:[
+          { name:'Albert', id:'albert', initials:'AF', avatarBg:'#E8F5E8', avatarTxt:'#2D6E2D', role:'Business Development', responsible:true, pct:60,
+            projects:[
+              { name:'TCL (presentacio)', note:'Amb Xavi - presentacio DIMARTS 28 mati.', dur:'dimarts 28', type:'block' },
+              { name:'B-Bruce (event finals setembre)', note:'Carla contacta per coordinar.', dur:'coordinacio setmana', type:'active' },
+              { name:'Sant Andreu (video)', note:'Seguiment - primer feedback rebut positiu.', dur:'seguiment', type:'active' },
+              { name:'Vera + TCL shooting', note:'Propostes ja presentades - pendent client.', dur:'pendent client', type:'feedback' }
+            ]}
+        ]},
+      { label:'Strategy & B-Bruce Marketing', accent:'#555250', mgmt:true,
+        members:[
+          { name:'Paula', id:'paula', initials:'PC', avatarBg:'#EEEDEB', avatarTxt:'#555250', role:'Directora Estrategia', responsible:true, pct:110,
+            projects:[
+              { name:'Traspassos + retens', note:'Gestio Lubrizol i Olin (amb Dani) - traspas Silvia. Coordinacio general durant vacances. Setmana vinent tambe reten Bordoy.', dur:'tota la setmana + la vinent', type:'block' },
+              { name:'BBOU (suport)', note:'Coordinacio equip amb presentacio 17 agost.', dur:'seguiment', type:'active' },
+              { name:'Catalonia + Olin (posts)', note:'Posts pendents que va deixar Alba - repartir amb Igor.', dur:'coordinacio setmana', type:'active' },
+              { name:'J. Hernando (brief)', note:'Passar brief a Xavi per treballar durant agost (brand manifesto + missatges). Presentacio mitjans setembre.', dur:'passar brief aquesta setmana', type:'active' },
+              { name:'Lubrizol (Brand Assets playbook)', note:'Social media playbook Instagram Beauty - presentacio mitjans setembre. Anar avancant agost (Xavi + Carla).', dur:'al llarg agost', type:'pending' },
+              { name:'Neftis (Judith)', note:'Coordinacio prioritats amb Judith - Carla passa contacte si cal.', dur:'aquesta setmana', type:'active' },
+              { name:'Feedbacks Lubrizol filtre', note:'Filtrar amb clients quins feedbacks son urgents (molts client de vacances - possible Glucamate es posposi).', dur:'al llarg setmana', type:'active' }
+            ]}
+        ]},
+      { label:'Client Experience', accent:'#1A5C9A', mgmt:true,
+        members:[
+          { name:'Astur', id:'astur', initials:'AS', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'CXO', responsible:true, pct:100,
+            projects:[
+              { name:'Motos Bordoy (QJ + Kove)', note:'Reten Bordoy aquesta setmana (Silvia el reten a partir de la vinent). Igor cua i entrada previsible de reels.', dur:'~15h tota la setmana', type:'block' },
+              { name:'Nestle (gestio traspas Silvia)', note:'Gestio Nestle - continua. Coordinar traspas amb Silvia per setmana vinent (Silvia agafa reten).', dur:'gestio setmana', type:'active' },
+              { name:'Lidl (gestio traspas Silvia)', note:'Gestio Lidl - continua. Coordinar traspas amb Silvia per setmana vinent.', dur:'gestio setmana', type:'active' },
+              { name:'AFP Courts', note:'Seguiment habitual. Esperant traduccions client per publicar landing.', dur:'seguiment', type:'active' },
+              { name:'Carreras Cars (ajustos web)', note:'Ajustos web - via Guillem o Tony.', dur:'coordinacio setmana', type:'active' },
+              { name:'Reunio comptes', note:'Reunio comptes DIJOUS 30 amb Albert i Paula.', dur:'dijous 30 (reunio)', type:'block' },
+              { name:'Tancament mes (facturacio)', note:'Tancament mes de facturacio abans de marxar.', dur:'divendres 31', type:'block' },
+              { name:'Traspas equip setmana vinent', note:'Setmana vinent Astur fora - deixar tot lligat: reten Bordoy passa a Silvia, reten SM a Carla.', dur:'divendres 31 (traspas)', type:'block' },
+              { name:'BBOU (Ruben extern)', note:'Coordinar amb Antonio la possible entrada de Ruben (etnia) per muntatge BBOU. Dani ho ha aprovat en principi.', dur:'aquesta setmana', type:'active' }
+            ]}
+        ,
+          { name:'Silvia', id:'silvia', initials:'SE', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account', pct:0,
+            projects:[
+              { name:'De vacances', note:'Setmana 2 de 3 - torna 11 agost.', dur:'vacances', type:'pending' }
+            ]}
+        ]},
+      { label:'Direccio', accent:'#191919', mgmt:true,
+        members:[
+          { name:'Dani', id:'dani', initials:'DA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CEO', responsible:true, pct:0,
+            projects:[] },
+          { name:'Raquel', id:'raquel', initials:'RA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CFO', responsible:true, pct:0,
+            projects:[] }
+        ]}
+    ],
+    fites: [
+      { who:'Xavi', text:'TCL - preparar speech per la presentacio', tag:'Dilluns 27', note:'Presentacio dimarts 28 mati.' },
+      { who:'Carla + Igor', text:'Neftis - 5 posts traspassats a Igor', tag:'Dilluns 27', note:'Prioritat - Judith marxa i vol agost tancat.' },
+      { who:'Antonio', text:'Ajustos Candidate tancats', tag:'Aquesta setmana', note:'Petits ajustos que havia de fer Uri.' },
+      { who:'Xavi + Albert', text:'TCL - presentacio', tag:'Dimarts 28 mati', note:'Enviat divendres a ultima hora.' },
+      { who:'Queralt + Dachs (+ Xavi)', text:'Lubrizol In-Cosmetics - sessio intensiva concepte', tag:'Dimarts 28 mati/migdia', note:'Queralt plega 13:30 i van amb cotxe (2h extres). Xavi suport puntual post-TCL.' },
+      { who:'Queralt + Dachs', text:'Lubrizol In-Cosmetics - presentacio client', tag:'Dijous 30 (12h)', note:'Concepte refet des de zero.' },
+      { who:'Carla', text:'Disna - presentacio pla setembre a Andrea', tag:'Dijous 30', note:'Anticaiguda Naturvital pot necessitar suport Xavi.' },
+      { who:'Antonio', text:'Olin webs pujades', tag:'Divendres 31', note:'Tot ha d\'estar pujat abans del dilluns 3 agost.' },
+      { who:'Astur', text:'Traspas final equip', tag:'Divendres 31', note:'Reten Bordoy passa a Silvia, reten SM a Carla. Astur fora setmana vinent.' },
+      { who:'Queralt', text:'Lubrizol BioBase Conditioning - Key Visuals + tagline', tag:'Setmana vinent (presentacio dilluns 3)', note:'Ha d\'estar fet aquesta setmana.' },
+      { who:'Antonio + Larraz', text:'BBOU - tancament (guion, manifest, piezas, mockups, presentacio)', tag:'Setmana vinent (presentacio 17 agost)', note:'Aquesta setmana i la vinent per tancar-ho tot.' }
+    ]
   }];
 
 // ────────────────────────────────────────────────────────────────
@@ -1722,10 +1919,12 @@ function renderWeek(week) {
   <div style="font-size:11px;color:var(--black);font-family:'DM Mono',monospace;font-weight:600;margin:-1rem 0 1.5rem;text-align:right;"><strong>Equip productiu: ${prodMembers.length}</strong> &nbsp;·&nbsp; Total equip: ${week.stats.persones} &nbsp;<span style="color:var(--g4);font-weight:400;">(ocupació calculada sobre equip productiu)</span></div>`;
 
   const _abs = week.alerts.filter(a=>a.type==='absence');
-  const _oth = week.alerts.filter(a=>a.type!=='absence');
-  const _aHTML = _abs.length ? `<div class="alerts-wrap"><div class="alert-item alert-absence"><span class="abs-title">ABSÈNCIES</span><ul class="abs-list">${_abs.map(a=>{const t=a.text.replace(/^ABSENCIES:\s*/,'');const parts=t.split(' ');return `<li><strong>${parts[0]}</strong> ${parts.slice(1).join(' ')}</li>`;}).join('')}</ul></div></div>` : '';
-  const _oHTML = _oth.length ? `<div class="alerts-wrap">${_oth.map(a=>{const t=a.text;const colon=t.indexOf(':');const bold=colon>0?`<strong>${t.slice(0,colon)}</strong>${t.slice(colon)}`:t;return `<div class="alert-item ${a.type}">${bold}</div>`;}).join('')}</div>` : '';
-  const alertsHTML = _aHTML + _oHTML;
+  const _nxt = week.alerts.filter(a=>a.type==='nextweek');
+  const _oth = week.alerts.filter(a=>a.type!=='absence' && a.type!=='nextweek');
+  const _aHTML = _abs.length ? `<div class="alert-item alert-absence"><span class="abs-title">ABSÈNCIES</span><ul class="abs-list">${_abs.map(a=>{const t=a.text.replace(/^ABSENCIES:\s*/,'');const parts=t.split(' ');return `<li><strong>${parts[0]}</strong> ${parts.slice(1).join(' ')}</li>`;}).join('')}</ul></div>` : '';
+  const _nHTML = _nxt.length ? `<div class="alert-item alert-nextweek"><span class="abs-title">SETMANA VINENT DE VACANCES</span><ul class="abs-list">${_nxt.map(a=>`<li><strong>${a.text}</strong></li>`).join('')}</ul></div>` : '';
+  const _oHTML = _oth.length ? _oth.map(a=>{const t=a.text;const colon=t.indexOf(':');const bold=colon>0?`<strong>${t.slice(0,colon)}</strong>${t.slice(colon)}`:t;return `<div class="alert-item ${a.type}">${bold}</div>`;}).join('') : '';
+  const alertsHTML = (_abs.length||_nxt.length||_oth.length) ? `<div class="alerts-wrap">${_aHTML}${_nHTML}${_oHTML}</div>` : '';
 
   const deptsHTML = week.departments.map(dept=>`
     <div class="dept-section${dept.mgmt?' mgmt':''}">
