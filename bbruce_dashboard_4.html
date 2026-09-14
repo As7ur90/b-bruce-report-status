@@ -22,6 +22,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .week-bar{background:var(--white);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;gap:12px;height:44px;overflow-x:auto;}
 .week-bar-label{font-family:'DM Mono',monospace;font-size:11px;color:var(--g4);text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap;flex-shrink:0;}
 .week-pills{display:flex;gap:6px;}
+.week-select{font-family:'DM Mono',monospace;font-size:12px;padding:6px 32px 6px 12px;border:1px solid var(--border);border-radius:6px;background:var(--white) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%23555' fill='none' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat right 12px center;color:var(--black);cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;min-width:220px;letter-spacing:0.03em;}
+.week-select:hover{border-color:var(--g4);}
+.week-select:focus{outline:none;border-color:var(--black);}
 .pill{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:20px;border:1px solid var(--g2);background:transparent;color:var(--g4);cursor:pointer;white-space:nowrap;transition:all 0.15s;}
 .pill:hover{border-color:var(--black);color:var(--black);}
 .pill.active{background:var(--black);color:white;border-color:var(--black);}
@@ -84,6 +87,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .proj-dot.block{background:var(--red);}
 .proj-dot.active{background:#C97B00;}
 .proj-dot.quick{background:var(--green);}
+.proj-dot.lowprio{background:#4A90D9;}
 .proj-dot.feedback{background:#7B35C4;}
 .proj-dot.pending{background:var(--g3);}
 .proj-name{font-size:12px;font-weight:500;line-height:1.4;flex:1;min-width:0;}
@@ -92,6 +96,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .proj-tag.block{background:var(--red-dim);color:var(--red);}
 .proj-tag.active{background:var(--amber-dim);color:var(--amber);}
 .proj-tag.quick{background:var(--green-dim);color:var(--green);}
+.proj-tag.lowprio{background:rgba(74,144,217,0.10);color:#2A6FB0;}
 .proj-tag.feedback{background:rgba(123,53,196,0.08);color:#7B35C4;}
 .proj-tag.pending{background:var(--g2);color:var(--g4);}
 
@@ -155,7 +160,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 
 <div class="week-bar">
   <span class="week-bar-label">Setmana →</span>
-  <div class="week-pills" id="week-pills"></div>
+  <select id="week-select" class="week-select"></select>
 </div>
 
 <div id="weeks-container"></div>
@@ -1969,6 +1974,216 @@ const WEEKS = [
       { who:'Enric', text:'BPT web finalitzada', tag:'Aquesta setmana', note:'Completar dissenys.' },
       { who:'Xavi', text:'J. Hernando manifesto (narrativa + missatges clau)', tag:'Deadline 28 set', note:'Anar avancant aquesta setmana.' }
     ]
+  },
+  {
+    id: 'w-2026-09-14',
+    label: '14-18 set',
+    dateRange: '14 - 18 de setembre 2026',
+    generatedAt: '14 de setembre 2026',
+    stats: { persones:19 },
+    alerts: [
+      { type:'absence', text:'Paula avui dilluns 14 (dia lliure - dema ja hi es)' },
+      { type:'absence', text:'Xavi TOTA la setmana (vacances - no fara res)' },
+      { type:'nextweek', text:'Dani' },
+      { type:'nextweek', text:'Raquel' },
+      { type:'nextweek', text:'Astur' },
+      { type:'nextweek', text:'Dachs' },
+      { type:'nextweek', text:'Queralt' },
+      { type:'nextweek', text:'Angel' },
+      { type:'nextweek', text:'Alex' },
+      { type:'danger',  text:'SETMANA VINENT: presentacio Lubrizol Instagram Beauty (social media playbook). Ha de quedar tancat aquesta setmana per no perdre octubre en redes.' },
+      { type:'danger',  text:'DIUMENGE 28: presentacio J. Hernando (branding + brand show + video brand manifesto). Antonio ensenya avancos a Dani DIMARTS 15.' },
+      { type:'warn',    text:'Legends: activar YA DE YA - empezar creativitats amb noves textures Brand Center. Igor arrenca.' },
+      { type:'warn',    text:'BBOU: planificar web general + landing SUUR + shooting + social media playbook. Uri ha passat minutes a Astur. Angel pot agafar minutes (Word). Dachs+Angel poden agafar materials de baixada i art final.' },
+      { type:'warn',    text:'Miguel Torres RTD: reunio avui dilluns 14 a les 11h - proposta definitiva escollida per estudi consumidors. Dachs ha de fer 30 MAQUETES FISIQUES. Larraz no cal a la reunio.' },
+      { type:'warn',    text:'LIN3S SPORT: Paula ajuda Astur amb planning. Fase naming activada. Branding tope octubre. Llancament marca gener 2027.' },
+      { type:'warn',    text:'Nou membre: TONI MATEO - Web Developer (mitja jornada 4h/dia). Focus Olin web (pot compaginar amb altres). Aquesta setmana full amb Teras (deadline dimecres 16).' },
+      ],
+    departments: [
+      { label:'Creative Campaigns', accent:'#CC2929',
+        members:[
+          { name:'Xavi', id:'xavi', initials:'XB', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Director Creatiu', responsible:true, pct:0,
+            projects:[
+              { name:'De vacances', note:'TOTAL out tota la setmana - no fara res.', dur:'vacances', type:'pending' }
+            ]},
+          { name:'Igor', id:'igor', initials:'IM', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Disseny', pct:100,
+            projects:[
+              { name:'Motos Bordoy (QJ + Kove)', note:'Setmana normal - Cobe (6 prints + display) i QJ com sempre.', dur:'~15h tota la setmana', type:'block' },
+              { name:'Legends', note:'Activar YA DE YA - creativitats amb noves textures Brand Center. Igor arrenca.', dur:'~1 dia aquesta setmana', type:'block' },
+              { name:'Olin (bajada materials sorteig)', note:'URGENT - post sorteig publica dema dimarts 15. Ha passat a semicampanya. Alba no arribara amb tot - Igor bajada materials probablement.', dur:'dilluns 14 + dimarts 15', type:'block' },
+              { name:'Olin (display captacio talents)', note:'Feedback rebut - reprendre despres. Es una pieza ad hoc, sense estandar.', dur:'segons feedback', type:'active' },
+              { name:'Cartago', note:'Banners nous demanats + coses que van entrant.', dur:'al llarg setmana', type:'active' },
+              { name:'AFP Courts (creativitats Paid)', note:'Entre aquesta setmana i la vinent - actualitzar creativitats anuncis (les actuals ja es cremen).', dur:'aquesta setmana o la vinent', type:'active' }
+            ]}
+        ]},
+      { label:'Dynamic Branding & Digital Product', accent:'#1A7A4A',
+        members:[
+          { name:'Antonio', id:'antonio', initials:'AP', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Branding + web', responsible:true, pct:100,
+            projects:[
+              { name:'J. Hernando (branding + brand show)', note:'PRIORITAT MAXIMA - presentacio 28 setembre. Ensenyar avancos a Dani DEMA DIMARTS 15 per si cal replantejar. Larraz + Uri poden entrar.', dur:'tota la setmana', type:'block' },
+              { name:'Lubrizol (Instagram Beauty - social media playbook)', note:'Acabar assets marca animats digitalitzats amb Alex. Reunio amb Queralt i Carla despres reunio per organitzar.', dur:'tota la setmana', type:'active' },
+              { name:'Kira Ventures (web)', note:'Revisar web amb Enric aquesta setmana.', dur:'~mig dia', type:'lowprio' },
+              { name:'B-Bruce (newsletter J-Letters)', note:'Segona edicio de la newsletter - publica 29 de setembre.', dur:'preparacio final mes', type:'pending' }
+            ]},
+          { name:'Uri', id:'uri', initials:'UR', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'UX/UI', responsible:true, pct:100,
+            projects:[
+              { name:'Candidate (revisio app)', note:'Revisar app avui dilluns 14. Pablo ha fet coses - revisar com s\'ha implementat el diseny.', dur:'dilluns 14', type:'active' },
+              { name:'BPT (web)', note:'Enric fent canvis diseny. Reunio migdia avui amb Enric. Aquesta setmana canvis diseny fets i comencar a programar.', dur:'dilluns 14 (reunio) + seguiment', type:'active' },
+              { name:'Museu Maritim (identitat "Tresors Amagats")', note:'Traspas Paula - iniciar identitat + brand asset creation.', dur:'aquesta setmana', type:'active' },
+              { name:'Well On (web - kick-off)', note:'DIJOUS 17 kick-off web - iniciar disseny.', dur:'dijous 17', type:'active' },
+              { name:'SUUR/BBOU (masters Word)', note:'Master minutes i master carta normal per Angel A5 i A4. Astur pregunta si son nomes per SUUR o tambe BBOU (bodes/eventos).', dur:'~1h aquesta setmana', type:'quick' },
+              { name:'B-Bruce/BBOU (redes)', note:'Contingut arrastra d\'agost. Nomes s\'esta activant podcast. Coordinar amb Paula com activar Instagram + web.', dur:'coordinacio setmana', type:'lowprio' },
+              { name:'Tarifes + configurador Olin', note:'Tony fa configurador - esperant feedback client.', dur:'segons feedback', type:'pending' }
+            ]},
+          { name:'Ferran Larraz', id:'larraz', initials:'FL', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Video', pct:95,
+            projects:[
+              { name:'B-TALK (reels)', note:'Acabar reels aquesta setmana per publicar - Ha d\'estar acabat AVUI DILLUNS 14.', dur:'dilluns 14', type:'active' },
+              { name:'B-TALK (intro format Reel)', note:'Adaptar intro a format Reel.', dur:'~2h aquesta setmana', type:'quick' },
+              { name:'Badalona (adaptacions Sportbiz)', note:'Adaptar videos Badalona per Sportbiz. Hi ha temps durant el mes.', dur:'al llarg del mes', type:'lowprio' },
+              { name:'J. Hernando (video manifesto)', note:'S\'incorpora en algun moment - Alex principal, Larraz suport.', dur:'segons Alex', type:'pending' }
+            ]},
+          { name:'Enric', id:'enric', initials:'EB', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Web Developer', pct:100,
+            projects:[
+              { name:'BPT (web)', note:'Canvis diseny + comencar a programar aquesta setmana. Reunio migdia amb Uri avui.', dur:'tota la setmana', type:'active' },
+              { name:'Kira Ventures (web)', note:'Revisar amb Antonio aquesta setmana.', dur:'~mig dia', type:'lowprio' },
+              { name:'Operadoras (plugins)', note:'Una part ja feta pero hi ha un tema que no acaba de estar be - revisar.', dur:'aquesta setmana o vinent', type:'lowprio' }
+            ]},
+          { name:'Toni Mateo', id:'toni', initials:'TM', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Web Developer (4h/dia)', pct:100,
+            projects:[
+              { name:'Olin (web Teras)', note:'FULL fins dimecres 16 - deadline client. Feina bastanta.', dur:'dilluns 14 - dimecres 16', type:'block' },
+              { name:'Olin (ajustos web)', note:'Petits ajustos que van entrant (~mitja hora/1h cada un).', dur:'puntual diari', type:'quick' },
+              { name:'Olin (configurador + tarifes)', note:'Fent configurador - esperant feedback client per continuar.', dur:'segons feedback', type:'pending' },
+              { name:'BBOU/Well On/J. Hernando (futures)', note:'A Uri li agradaria que Toni fos a les webs grans que venen: BBOU, Well On, J. Hernando. A definir amb Dani.', dur:'planificacio futura', type:'pending' }
+            ]}
+        ]},
+      { label:'Iconic Packaging & Off Materials', accent:'#A05C00',
+        members:[
+          { name:'Ferran Dachs', id:'dachs', initials:'FD', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Dissenyador packaging', responsible:true, pct:100,
+            projects:[
+              { name:'Miguel Torres RTD (30 maquetes fisiques)', note:'PRIORITAT top - reunio avui dilluns 14 a les 11h amb propuesta definitiva. Fer 30 maquetes fisiques.', dur:'dilluns 14 (reunio) + tota la setmana', type:'block' },
+              { name:'Sportfil (2 ficticis)', note:'DEADLINE DEMA DIMARTS 15. 2 referencies (chips guisant + gominolas) - fake per presentacio Sportfil dimecres. Lidl no permet IA per aliments pero es ficticio.', dur:'dilluns 14 + dimarts 15', type:'block' },
+              { name:'B-Bruce (tassa B-TALKS)', note:'Arrancar aquesta setmana - deixar-lo tancat.', dur:'aquesta setmana', type:'lowprio' },
+              { name:'ASICS (Testing Madrid espai)', note:'Renders o ficticis per visualitzar millor la proposta. Ho demana ASICS.', dur:'aquesta setmana', type:'lowprio' },
+              { name:'Nestle NAN Optipro Portugal (llaunes)', note:'Ajustos ja passats. Stick de mostra Portugal pendent (no existia).', dur:'aquesta setmana', type:'lowprio' },
+              { name:'Nestle Man Confort (Espanya)', note:'Nou projecte - descarregat pero no mirat encara. Silvia programa aquesta setmana. Confusio noms Expert Pro/Pro Confort a aclarir.', dur:'aquesta setmana', type:'lowprio' },
+              { name:'Sportfil (3D 2 referencies)', note:'Arrancat, cal terminar. Quasi fet.', dur:'aquesta setmana', type:'lowprio' },
+              { name:'Kira Ventures (oficines)', note:'Probable reunio aquesta setmana (Paula ho confirma dema).', dur:'segons Paula', type:'pending' }
+            ]},
+          { name:'Queralt', id:'queralt', initials:'QS', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Packaging (½ jornada)', pct:100,
+            projects:[
+              { name:'Lubrizol (social media playbook)', note:'PRIORITAT canvia - abans era Carbopol Textura. Ara playbook a fons. Combinar. Reunio migdia amb Antonio i Carla per organitzar.', dur:'tota la setmana', type:'block' },
+              { name:'Lubrizol (Carbopol Textura)', note:'Es combina amb el playbook. Passar briefing a Alba dema per una proposta visual (l\'altre la fara Queralt).', dur:'combinat playbook', type:'block' },
+              { name:'Lubrizol (Body Antiaging)', note:'Nou briefing entrat setmana passada - apartat aquesta setmana.', dur:'setmana vinent', type:'pending' }
+            ]},
+          { name:'Angel', id:'angel', initials:'AA', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Art final', pct:85,
+            projects:[
+              { name:'Lidl (pulseres citronela)', note:'Noves referencies per mitat de setmana - hi ha diseny de fa 2 anys de base.', dur:'dimarts 15 - dimecres 16', type:'active' },
+              { name:'Lidl (habitual)', note:'Lidl va i ve cada dia.', dur:'al llarg setmana', type:'lowprio' },
+              { name:'Nestle Molico Portugal', note:'Feedback per avui dilluns 14.', dur:'dilluns 14', type:'active' },
+              { name:'BBOU (minutes)', note:'Pot agafar les minutes (fer Word). Astur ho comenta amb Angel.', dur:'~mig dia', type:'quick' },
+              { name:'BBOU (materials baixada)', note:'Cap a materials baixada i art final quan vagin entrant.', dur:'segons entrada', type:'lowprio' },
+              { name:'Olin (arts finals)', note:'Ha anat generant materials, van coleando durant la setmana. Adaptacions materials 14 tendes (final any).', dur:'al llarg setmana', type:'lowprio' },
+              { name:'SUUR (masters Word A5+A4)', note:'Master minutes + master carta que li passara Uri - fer A5 i A4.', dur:'~1h aquesta setmana', type:'quick' }
+            ]}
+        ]},
+      { label:'Social Media', accent:'#7B35C4',
+        members:[
+          { name:'Carla', id:'carla', initials:'CJ', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Social Media Manager', responsible:true, pct:100,
+            projects:[
+              { name:'Lubrizol (social media playbook)', note:'PRIORITAT - baixar creativitats. Reunio amb Antonio i Queralt despres reunio per organitzar-se.', dur:'tota la setmana', type:'block' },
+              { name:'Disna (Corpore Sano - event 7 octubre)', note:'Preparar contingut event + creativitats octubre.', dur:'tota la setmana', type:'block' },
+              { name:'Disna (contingut octubre)', note:'Acabar preparar tot el contingut octubre Disna.', dur:'aquesta setmana', type:'lowprio' },
+              { name:'B-Bruce (recap Neftis)', note:'Reel recap feria CPHI Dubai.', dur:'aquesta setmana', type:'quick' },
+              { name:'Neftis (post CPHI)', note:'Post CPHI - pot fer-lo Carla si Alba va molt full.', dur:'aquesta setmana', type:'lowprio' },
+              { name:'Echevarne (publicacio)', note:'Pendent, no per avui - dema o passat.', dur:'dimarts 15 o dimecres 16', type:'quick' }
+            ]},
+          { name:'Alex', id:'alex', initials:'AM', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Video', pct:100,
+            projects:[
+              { name:'Olin (spot Vuelta al Cole)', note:'URGENT AVUI - muntar amb locucio bona i enviar HOY sí o sí per aprovacio. Silvia parla amb Alex.', dur:'dilluns 14 (urgent)', type:'block' },
+              { name:'BPT (reels testimonials)', note:'Acabant reels avui dilluns 14.', dur:'dilluns 14', type:'block' },
+              { name:'Lubrizol (assets marca animats)', note:'Continuar animacio - feedback d\'Antonio pendent d\'aplicar. Reunio migdia per organitzar amb Antonio.', dur:'tota la setmana', type:'block' },
+              { name:'Lubrizol (correccio assets)', note:'Corregir assets.', dur:'aquesta setmana', type:'quick' },
+              { name:'J. Hernando (video brand manifesto)', note:'Comencar en el moment que pugui - presentacio 28 setembre.', dur:'quan pugui', type:'block' }
+            ]},
+          { name:'Alba', id:'alba', initials:'AL', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Disseny', pct:100,
+            projects:[
+              { name:'BPT (proposta Open Health)', note:'URGENT - generar per DEMA DIMARTS 15 (reunio dimecres mati Olí, presentacio dimecres). Rollups per event tambe.', dur:'dilluns 14 + dimarts 15', type:'block' },
+              { name:'Olin (post sorteig)', note:'Post sorteig publica dema dimarts 15. La bajada de materials la fara Igor (banner, display, pantalles). Alba nomes post principal.', dur:'dilluns 14', type:'active' },
+              { name:'Disna (Corpore Sano - creativitats)', note:'Creativitats event.', dur:'aquesta setmana', type:'active' },
+              { name:'Catalonia (redes)', note:'Traspas Paula - posts Catalonia.', dur:'aquesta setmana', type:'lowprio' },
+              { name:'B-TALK (publicacions)', note:'Ja ha rebut totes les publicacions per anar dissenyant. Marcar deadlines clars amb Carla.', dur:'al llarg setmana', type:'lowprio' },
+              { name:'BPT (3 publicacions)', note:'Ja ha fet 2 setmana passada, queden 3 per aquesta setmana.', dur:'al llarg setmana', type:'lowprio' },
+              { name:'Echevarne (publicacio)', note:'Per dema/passat.', dur:'dimarts 15 o dimecres 16', type:'quick' },
+              { name:'Lubrizol (Carbopol - proposta visual)', note:'Si va menys petada final setmana, agafar proposta visual per descarregar Queralt. No es urgent.', dur:'final setmana si pot', type:'pending' }
+            ]}
+        ]},
+      { label:'Business Development', accent:'#2D6E2D', mgmt:true,
+        members:[
+          { name:'Albert', id:'albert', initials:'AF', avatarBg:'#E8F5E8', avatarTxt:'#2D6E2D', role:'Business Development', responsible:true, pct:60,
+            projects:[
+              { name:'ASICS (Testing Madrid)', note:'Renders/ficticis per visualitzar millor la proposta - amb Dachs.', dur:'aquesta setmana', type:'active' },
+              { name:'Seguiment general', note:'Continua seguiment habitual.', dur:'seguiment', type:'lowprio' }
+            ]}
+        ]},
+      { label:'Strategy & B-Bruce Marketing', accent:'#555250', mgmt:true,
+        members:[
+          { name:'Paula', id:'paula', initials:'PC', avatarBg:'#EEEDEB', avatarTxt:'#555250', role:'Directora Estrategia (½ jornada)', responsible:true, pct:75,
+            projects:[
+              { name:'J. Hernando (coordinacio)', note:'PRIORITAT top - presentacio 28 setembre. Coordinar avancos amb Antonio.', dur:'tota la setmana (des de dimarts 15)', type:'block' },
+              { name:'LIN3S SPORT (planning + naming)', note:'Ajudar Astur amb planning. Activar fase naming per treure ja. Branding tope octubre. Llancament gener 2027.', dur:'aquesta setmana', type:'block' },
+              { name:'Kira Ventures (reunio oficines)', note:'Confirmar reunio a Dachs aquesta setmana.', dur:'confirmacio dimarts 15', type:'active' },
+              { name:'BBOU/B-Bruce (activacio contingut Instagram + web)', note:'Coordinar amb Uri com activar contingut BBOU redes (nomes podcast activat).', dur:'coordinacio setmana', type:'lowprio' }
+            ]}
+        ]},
+      { label:'Client Experience', accent:'#1A5C9A', mgmt:true,
+        members:[
+          { name:'Astur', id:'astur', initials:'AS', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'CXO', responsible:true, pct:100,
+            projects:[
+              { name:'Miguel Torres RTD', note:'Reunio dilluns 14 a les 11h - propuesta definitiva. Coordinar 30 maquetes fisiques amb Dachs.', dur:'~1h reunio dilluns 14', type:'active' },
+              { name:'BBOU (SUUR - pressupostos)', note:'Pressupost shooting + direccio art SUUR. Pressupost + timings landing provisional (suurbeachclub.com).', dur:'~mig dia aquesta setmana', type:'active' },
+              { name:'BBOU (retrotimings)', note:'Retrotiming aplicacions general (esperant llistat de Maria). Retrotiming web (mirar arquitectura Prisma). Retrotiming Social Media Playbook.', dur:'~mig dia aquesta setmana', type:'active' },
+              { name:'Legends', note:'Activar YA DE YA - creativitats amb noves textures Brand Center. Igor arrenca.', dur:'aquesta setmana', type:'active' },
+              { name:'AFP Courts (noves crees Paid)', note:'Entre aquesta setmana i la vinent - actualitzar creativitats anuncis Paid.', dur:'aquesta setmana o vinent', type:'lowprio' },
+              { name:'Well On', note:'Activar activacio i posar en facturacio. Dijous 17 kick-off web amb Uri.', dur:'~2h coordinacio + kick-off dijous 17', type:'active' },
+              { name:'Motos Bordoy (QJ + Kove)', note:'Bastant controlat. Igor amb parell de tasques.', dur:'~10h tota la setmana', type:'block' },
+              { name:'BBOU (masters Word - pregunta client)', note:'Preguntar Maria si masters Word son nomes per SUUR o tambe BBOU (bodes+eventos).', dur:'aquesta setmana', type:'quick' },
+              { name:'LIN3S SPORT (planning amb Paula)', note:'Paula ajuda amb planning - activar naming.', dur:'aquesta setmana', type:'lowprio' }
+            ]},
+          { name:'Silvia', id:'silvia', initials:'SE', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account (½ jornada)', responsible:true, pct:100,
+            projects:[
+              { name:'Lubrizol (Instagram Beauty - playbook)', note:'PRIORITAT MAXIMA - coordinar equip per tancar aquesta setmana i presentar la vinent.', dur:'tota la setmana', type:'block' },
+              { name:'Olin (spot Vuelta al Cole)', note:'URGENT - parlar amb Alex per muntar locucio i enviar HOY. Fes tancament setmanal.', dur:'dilluns 14 (urgent)', type:'block' },
+              { name:'Olin (post sorteig + campanya)', note:'Coordinar Alba + Igor per publicacio dema. Ha passat a semicampanya.', dur:'dilluns 14 + dimarts 15', type:'block' },
+              { name:'BPT (urgencies)', note:'Rollups event + proposta Open Health per dema. Coordinar Alba.', dur:'~mig dia (dilluns 14 + dimarts 15)', type:'active' },
+              { name:'Nestle Espanya (pressupostos)', note:'Entrat nou projecte - pressupostar diversos projectes fins final any.', dur:'~mig dia aquesta setmana', type:'active' },
+              { name:'Olin (materials 14 tendes)', note:'Pressupostar materials 14 tendes fins final any (adaptacions - Angel).', dur:'aquesta setmana (pressupost)', type:'lowprio' },
+              { name:'Sportfil', note:'Reunio dimecres 16 client - fake per presentacio.', dur:'~2h coordinacio', type:'active' },
+              { name:'Lidl (habitual)', note:'Va i ve cada dia. Pulseres citronela dimarts/dimecres.', dur:'seguiment', type:'lowprio' },
+              { name:'Nestle Nan Optipro Portugal', note:'Feedback avui + stick de mostra pendent.', dur:'dilluns 14', type:'quick' },
+              { name:'Nestle Man Confort Espanya', note:'Nou projecte descarregat - programar aquesta setmana. Aclarir noms.', dur:'aquesta setmana', type:'lowprio' }
+            ]}
+        ]},
+      { label:'Direccio', accent:'#191919', mgmt:true,
+        members:[
+          { name:'Dani', id:'dani', initials:'DA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CEO', responsible:true, pct:0,
+            projects:[] },
+          { name:'Raquel', id:'raquel', initials:'RA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CFO', responsible:true, pct:0,
+            projects:[] }
+        ]}
+    ],
+    fites: [
+      { who:'Astur + Dachs', text:'Miguel Torres RTD - reunio propuesta definitiva', tag:'Dilluns 14 (11h)', note:'Coordinar 30 maquetes fisiques.' },
+      { who:'Alex', text:'Olin spot Vuelta al Cole - muntar locucio i enviar', tag:'Dilluns 14 (urgent)', note:'HOY sí o sí per aprovacio client.' },
+      { who:'Larraz', text:'B-TALK reels acabats', tag:'Dilluns 14', note:'Per publicar aquesta setmana.' },
+      { who:'Antonio + Queralt + Carla', text:'Reunio Lubrizol playbook - organitzar treball', tag:'Dilluns 14 (post-reunio)', note:'Prioritat maxima setmana.' },
+      { who:'Alba + Igor', text:'Olin post sorteig publicat + materials bajada', tag:'Dimarts 15', note:'Ha passat a semicampanya. Alba post principal, Igor materials.' },
+      { who:'Alba', text:'BPT - proposta Open Health + rollups', tag:'Dimarts 15', note:'Reunio dimecres mati client.' },
+      { who:'Antonio', text:'J. Hernando - ensenyar avancos a Dani', tag:'Dimarts 15', note:'Per si cal replantejar abans presentacio 28/9.' },
+      { who:'Dachs', text:'Sportfil - 2 ficticis (chips guisant + gominolas)', tag:'Dimarts 15', note:'Fake per presentacio Sportfil dimecres.' },
+      { who:'Uri', text:'Well On - kick-off web', tag:'Dijous 17', note:'Iniciar disseny.' },
+      { who:'Antonio + Alex', text:'Lubrizol playbook - assets marca animats tancats', tag:'Divendres 18', note:'Per presentar client la setmana vinent.' },
+      { who:'Queralt', text:'Lubrizol social media playbook - referencies propies', tag:'Divendres 18', note:'Combinat amb Carbopol Textura.' }
+    ]
   }];
 
 // ────────────────────────────────────────────────────────────────
@@ -2037,7 +2252,7 @@ function makeDepts() {
 }
 
 // ────────────────────────────────────────────────────────────────
-const TAG_LABELS = { block:'Bloquejat', active:'En curs', quick:'Tasca ràpida', feedback:'Esperant feedback', pending:'Pendent' };
+const TAG_LABELS = { block:'Bloquejat', active:'Prioritat', quick:'Tasca ràpida', feedback:'Esperant feedback', pending:'Pendent' };
 
 function loadClass(p){ return p>=80?'load-high':p>=50?'load-mid':p>0?'load-low':'load-none'; }
 
@@ -2081,7 +2296,7 @@ function renderWeek(week) {
   const _nxt = week.alerts.filter(a=>a.type==='nextweek');
   const _oth = week.alerts.filter(a=>a.type!=='absence' && a.type!=='nextweek');
   const _aHTML = _abs.length ? `<div class="alert-item alert-absence"><span class="abs-title">ABSÈNCIES</span><ul class="abs-list">${_abs.map(a=>{const t=a.text.replace(/^ABSENCIES:\s*/,'');const parts=t.split(' ');return `<li><strong>${parts[0]}</strong> ${parts.slice(1).join(' ')}</li>`;}).join('')}</ul></div>` : '';
-  const _nHTML = _nxt.length ? `<div class="alert-item alert-nextweek"><span class="abs-title">SETMANA VINENT DE VACANCES</span><ul class="abs-list">${_nxt.map(a=>`<li><strong>${a.text}</strong></li>`).join('')}</ul></div>` : '';
+  const _nHTML = _nxt.length ? `<div class="alert-item alert-nextweek"><span class="abs-title">FESTIU 18S A SANT FELIU</span><ul class="abs-list">${_nxt.map(a=>`<li><strong>${a.text}</strong></li>`).join('')}</ul></div>` : '';
   const _oHTML = _oth.length ? _oth.map(a=>{const t=a.text;const colon=t.indexOf(':');const bold=colon>0?`<strong>${t.slice(0,colon)}</strong>${t.slice(colon)}`:t;return `<div class="alert-item ${a.type}">${bold}</div>`;}).join('') : '';
   const alertsHTML = (_abs.length||_nxt.length||_oth.length) ? `<div class="alerts-wrap">${_aHTML}${_nHTML}${_oHTML}</div>` : '';
 
@@ -2155,11 +2370,12 @@ function renderWeek(week) {
       ${(()=>{const am=week.departments.filter(d=>!d.mgmt).flatMap(d=>d.members).filter(m=>m.pct>0);const gp=am.length?Math.round(am.reduce((s,m)=>s+(m.pct||0),0)/am.length):0;const gc=gp>=80?'#CC2929':gp>=50?'#C97B00':'#1A7A4A';const gb=gp>=80?'#FCEAEA':gp>=50?'#FEF3E6':'#EAF5EE';return '<div class="global-occ-bar"><span class="global-occ-label">Ocupacio equip productiu</span><div class="global-occ-track"><div class="global-occ-fill" style="width:'+Math.min(100,gp)+'%;background:'+gc+';"></div></div><span class="global-occ-pct" style="background:'+gb+';color:'+gc+';">'+gp+'%</span></div>';})()}
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem;">
-      <span class="proj-tag block">● Bloquejat / Projecte gran</span>
-      <span class="proj-tag active">● En curs actiu</span>
+      <span class="proj-tag block">● Bloquejat</span>
+      <span class="proj-tag active">● Prioritat alta</span>
+      <span class="proj-tag lowprio">● Prioritat baixa</span>
       <span class="proj-tag quick">● Tasca ràpida</span>
       <span class="proj-tag feedback">● Esperant feedback</span>
-      <span class="proj-tag pending">● Pendent / Incert</span>
+      <span class="proj-tag pending">● Pendent</span>
     </div>
     ${statsHTML}
     ${alertsHTML}
@@ -2185,9 +2401,9 @@ function renderWeek(week) {
 
 function showWeek(id) {
   document.querySelectorAll('.week-view').forEach(v=>v.classList.remove('visible'));
-  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('visible');
-  document.querySelector(`.pill[data-id="${id}"]`).classList.add('active');
+  const sel = document.getElementById('week-select');
+  if(sel) sel.value = id;
   const w = WEEKS.find(x=>x.id===id);
   if(w) document.getElementById('topbar-week').textContent = w.dateRange;
 }
@@ -2216,16 +2432,25 @@ const DASH_PHOTOS = {
 
 (function init(){
   const container = document.getElementById('weeks-container');
-  const pillsEl   = document.getElementById('week-pills');
+  const selectEl = document.getElementById('week-select');
+  // Populate dropdown with weeks in reverse order (most recent first)
+  const weeksReversed = [...WEEKS].reverse();
+  weeksReversed.forEach((week)=>{
+    const opt = document.createElement('option');
+    opt.value = week.id;
+    opt.textContent = week.dateRange;
+    selectEl.appendChild(opt);
+  });
+  selectEl.addEventListener('change',(e)=>showWeek(e.target.value));
+
+  // Render all weeks in container, most recent visible
   WEEKS.forEach((week,i)=>{
-    const pill = document.createElement('button');
-    pill.className = 'pill';
-    pill.textContent = week.label;
-    pill.dataset.id = week.id;
-    pill.addEventListener('click',()=>showWeek(week.id));
-    pillsEl.appendChild(pill);
     const view = renderWeek(week);
-    if(i===WEEKS.length-1){ view.classList.add('visible'); document.getElementById('topbar-week').textContent=week.dateRange; pill.classList.add('active'); }
+    if(i===WEEKS.length-1){
+      view.classList.add('visible');
+      document.getElementById('topbar-week').textContent = week.dateRange;
+      selectEl.value = week.id;
+    }
     container.appendChild(view);
   });
 })();
