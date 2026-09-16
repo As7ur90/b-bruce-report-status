@@ -136,6 +136,26 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .week-view.visible{display:block;}
 .alert-item.alert-absence{background:#EFF6FF;border-left:3px solid #1A5C9A;color:#1A3A6A;padding:10px 14px;}
 .alert-item.alert-nextweek{background:#FDF4E7;border-left:3px solid #C97B00;color:#7A4500;padding:10px 14px;}
+.days-header{display:flex;align-items:baseline;gap:12px;margin-bottom:12px;}
+.days-header.team-tasks-header{margin-top:8px;}
+.days-title{font-family:'DM Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--black);}
+.days-subtitle{font-size:11px;color:var(--g3);font-style:italic;}
+.day-empty{font-size:10.5px;color:var(--g3);font-style:italic;text-align:center;padding:20px 0;}
+.days-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.5rem;}
+@media (min-width: 1200px){.days-grid{grid-template-columns:repeat(5,1fr);}}
+.day-col{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:12px;min-height:120px;display:flex;flex-direction:column;}
+.day-col.holiday{background:#FDF4E7;border-color:#F0D9A8;}
+.day-label{font-family:'DM Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--black);margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:6px;}
+.day-col.holiday .day-label{color:#C97B00;border-bottom-color:#F0D9A8;}
+.day-holiday-note{font-size:10px;color:#7A4500;font-style:italic;margin-bottom:8px;line-height:1.4;}
+.day-items{display:flex;flex-direction:column;gap:8px;flex:1;}
+.day-item{font-size:11px;line-height:1.5;color:var(--g5);padding:7px 9px;background:#F8F7F4;border-radius:5px;border-left:2px solid var(--g2);}
+.day-item .item-task{color:var(--black);font-weight:600;display:block;margin-bottom:2px;}
+.day-item .item-who{color:var(--g3);font-size:10px;font-weight:500;letter-spacing:0.01em;}
+.day-col.holiday .day-item{background:#FFF9EF;border-left-color:#E5B366;}
+.day-empty{font-size:10.5px;color:var(--g3);font-style:italic;text-align:center;padding:20px 0;}
+@media (max-width: 800px){.days-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width: 500px){.days-grid{grid-template-columns:1fr;}}
 .alert-item.alert-nextweek .abs-title{color:#C97B00;}
 .alert-item.handoff{background:#F0F9F4;border-left:3px solid #1A7A4A;color:#0F4A2A;}
 .abs-title{font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1A5C9A;display:block;margin-bottom:8px;}
@@ -1982,7 +2002,7 @@ const WEEKS = [
     generatedAt: '14 de setembre 2026',
     stats: { persones:19 },
     alerts: [
-      { type:'absence', text:'Paula avui dilluns 14 (dia lliure - dema ja hi es)' },
+      { type:'absence', text:'Paula avui dilluns 14 (dema ja hi es)' },
       { type:'absence', text:'Xavi TOTA la setmana (vacances - no fara res)' },
       { type:'nextweek', text:'Dani' },
       { type:'nextweek', text:'Raquel' },
@@ -1991,15 +2011,67 @@ const WEEKS = [
       { type:'nextweek', text:'Queralt' },
       { type:'nextweek', text:'Angel' },
       { type:'nextweek', text:'Alex' },
-      { type:'danger',  text:'SETMANA VINENT: presentacio Lubrizol Instagram Beauty (social media playbook). Ha de quedar tancat aquesta setmana per no perdre octubre en redes.' },
-      { type:'danger',  text:'DIUMENGE 28: presentacio J. Hernando (branding + brand show + video brand manifesto). Antonio ensenya avancos a Dani DIMARTS 15.' },
-      { type:'warn',    text:'Legends: activar YA DE YA - empezar creativitats amb noves textures Brand Center. Igor arrenca.' },
-      { type:'warn',    text:'BBOU: planificar web general + landing SUUR + shooting + social media playbook. Uri ha passat minutes a Astur. Angel pot agafar minutes (Word). Dachs+Angel poden agafar materials de baixada i art final.' },
-      { type:'warn',    text:'Miguel Torres RTD: reunio avui dilluns 14 a les 11h - proposta definitiva escollida per estudi consumidors. Dachs ha de fer 30 MAQUETES FISIQUES. Larraz no cal a la reunio.' },
-      { type:'warn',    text:'LIN3S SPORT: Paula ajuda Astur amb planning. Fase naming activada. Branding tope octubre. Llancament marca gener 2027.' },
-      { type:'warn',    text:'Nou membre: TONI MATEO - Web Developer (mitja jornada 4h/dia). Focus Olin web (pot compaginar amb altres). Aquesta setmana full amb Teras (deadline dimecres 16).' },
-      ],
-    departments: [
+      { type:'warn',    text:'Nou membre: TONI MATEO - Web Developer (mitja jornada 4h/dia). Focus principal Olin web. Aquesta setmana full amb Teras (deadline dimecres 16).' },
+      { type:'warn',    text:'LIN3S SPORT: nova marca extensio d\'esports. Paula ajuda Astur amb planning. Fase naming activada. Branding tope octubre. Llancament gener 2027.' }
+    ],
+    days: [
+      {
+        label: 'Dilluns 14',
+        items: [
+          { who:'Alex', text:'Spot Olin Vuelta al Cole enviat al client' },
+          { who:'Larraz', text:'Reels B-TALK acabats per publicar' },
+          { who:'Angel', text:'Feedback Nestle Molico Portugal enviat' },
+          { who:'Silvia', text:'Feedback Nestle NAN Optipro Portugal enviat' },
+          { who:'Igor', text:'Propostes Paid Legends enviades' },
+          { who:'Igor', text:'Art final poster Kove entregat' }
+        ]
+      },
+      {
+        label: 'Dimarts 15',
+        items: [
+          { who:'Alba + Igor', text:'Olin post sorteig publicat + materials baixada (banner, display, pantalles)' },
+          { who:'Alba', text:'Proposta BPT Open Health entregada + rollups event' },
+          { who:'Antonio', text:'Avancos J. Hernando ensenyats a Dani' },
+          { who:'Dachs', text:'2 ficticis Sportfil entregats (chips guisant + gominolas)' },
+          { who:'Dachs', text:'Feedback aplicat Torres 10 Ready to Drink entregat' },
+          { who:'Igor', text:'Feedback aplicat campanya scooters QJ entregat' }
+        ]
+      },
+      {
+        label: 'Dimecres 16',
+        items: [
+          { who:'Toni Mateo', text:'Olin web Teras entregada (deadline)' },
+          { who:'Angel', text:'Lidl polseres citronela entregades' },
+          { who:'Dachs', text:'Mockups esdeveniment ASICS entregats' },
+          { who:'Dachs', text:'AF Suprem Pro entregat (x2 refs)' },
+          { who:'Dachs', text:'Ajustos Suprem Pro Portugal entregats (x3 refs)' },
+          { who:'Angel', text:'Varies referencies Lidl entregades' },
+          { who:'Uri', text:'Canvis Candidate passats a Jan' },
+          { who:'Larraz', text:'Pre-muntatge video J. Hernando entregat' },
+          { who:'Carla + Larraz', text:'B-TALK Guillem Graell publicat a xarxes B-Bruce' },
+          { who:'Larraz', text:'Pantalles Cartago entregades' },
+          { who:'Igor', text:'Ajustos campanya carrusel Kove 450RR entregats' },
+          { who:'Igor', text:'Newsletter + display QJ 600V entregats' },
+          { who:'Igor', text:'Adaptacions Legends (3 axis a tots formats) entregades' },
+          { who:'Alba', text:'Reels Catalonia entregats' },
+          { who:'Alba', text:'Canvis rollups stand BPT entregats' }
+        ]
+      },
+      {
+        label: 'Dijous 17',
+        items: []
+      },
+      {
+        label: 'Divendres 18',
+        items: [
+          { who:'Antonio + Alex', text:'Assets marca Lubrizol playbook tancats' },
+          { who:'Queralt', text:'Referencies propies Lubrizol playbook + Carbopol Textura' }
+        ],
+        holiday: true,
+        holidayNote: 'FESTIU Sant Feliu de Codines - deadlines poden repartir-se amb dilluns 21.'
+      }
+    ],
+        departments: [
       { label:'Creative Campaigns', accent:'#CC2929',
         members:[
           { name:'Xavi', id:'xavi', initials:'XB', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Director Creatiu', responsible:true, pct:0,
@@ -2299,6 +2371,14 @@ function renderWeek(week) {
   const _nHTML = _nxt.length ? `<div class="alert-item alert-nextweek"><span class="abs-title">FESTIU 18S A SANT FELIU</span><ul class="abs-list">${_nxt.map(a=>`<li><strong>${a.text}</strong></li>`).join('')}</ul></div>` : '';
   const _oHTML = _oth.length ? _oth.map(a=>{const t=a.text;const colon=t.indexOf(':');const bold=colon>0?`<strong>${t.slice(0,colon)}</strong>${t.slice(colon)}`:t;return `<div class="alert-item ${a.type}">${bold}</div>`;}).join('') : '';
   const alertsHTML = (_abs.length||_nxt.length||_oth.length) ? `<div class="alerts-wrap">${_aHTML}${_nHTML}${_oHTML}</div>` : '';
+  const daysHTML = week.days ? `<div class="days-header"><span class="days-title">Deliveries day by day</span><span class="days-subtitle">entregables previstos per dia</span></div><div class="days-grid">${week.days.map(d=>{
+    const holidayClass = d.holiday ? ' holiday' : '';
+    const noteHTML = d.holidayNote ? `<div class="day-holiday-note">${d.holidayNote}</div>` : '';
+    const itemsHTML = d.items && d.items.length
+      ? d.items.map(it=>`<div class="day-item"><span class="item-task">${it.text}</span><span class="item-who">${it.who}</span></div>`).join('')
+      : '<div class="day-empty">Sense deliveries</div>';
+    return `<div class="day-col${holidayClass}"><div class="day-label">${d.label}</div>${noteHTML}<div class="day-items">${itemsHTML}</div></div>`;
+  }).join('')}</div>` : '';
 
   const deptsHTML = week.departments.map(dept=>`
     <div class="dept-section${dept.mgmt?' mgmt':''}">
@@ -2379,6 +2459,8 @@ function renderWeek(week) {
     </div>
     ${statsHTML}
     ${alertsHTML}
+    ${daysHTML}
+    <div class="days-header team-tasks-header"><span class="days-title">Team tasks</span><span class="days-subtitle">càrrega i tasques per persona</span></div>
     ${deptsHTML}
     <div class="fites-section">
       <div class="fites-header">
