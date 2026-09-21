@@ -2000,6 +2000,7 @@ const WEEKS = [
     label: '14-18 set',
     dateRange: '14 - 18 de setembre 2026',
     generatedAt: '14 de setembre 2026',
+    holidayTitle: 'FESTIU 18S SANT FELIU',
     stats: { persones:19 },
     alerts: [
       { type:'absence', text:'Paula avui dilluns 14 (dema ja hi es)' },
@@ -2256,6 +2257,261 @@ const WEEKS = [
       { who:'Antonio + Alex', text:'Lubrizol playbook - assets marca animats tancats', tag:'Divendres 18', note:'Per presentar client la setmana vinent.' },
       { who:'Queralt', text:'Lubrizol social media playbook - referencies propies', tag:'Divendres 18', note:'Combinat amb Carbopol Textura.' }
     ]
+  },
+  {
+    id: 'w-2026-09-21',
+    label: '21-25 set',
+    dateRange: '21 - 25 de setembre 2026',
+    generatedAt: '21 de setembre 2026',
+    holidayTitle: 'FESTIU 24S LA MERCÈ',
+    stats: { persones:19 },
+    alerts: [
+      { type:'absence', text:'Xavi de vacances dilluns 21 - dimecres 23 (divendres 25 ja hi es)' },
+      { type:'absence', text:'Albert dimecres 23 i divendres 25 (vacances)' },
+      { type:'absence', text:'Silvia divendres 25 (vacances)' },
+      { type:'nextweek', text:'Uri' },
+      { type:'nextweek', text:'Igor' },
+      { type:'nextweek', text:'Larraz' },
+      { type:'nextweek', text:'Enric' },
+      { type:'nextweek', text:'Carla' },
+      { type:'nextweek', text:'Alba' },
+      { type:'nextweek', text:'Paula' },
+      { type:'nextweek', text:'Silvia' },
+      { type:'nextweek', text:'Xavi' },
+      { type:'nextweek', text:'Albert' },
+      { type:'warn',    text:'DILLUNS 28: presentacio J. Hernando a Madrid (branding + brand show + video brand manifesto). Antonio, Larraz i Alex a saco tota la setmana. Uri fa esquelet presentacio per alleugerir Antonio.' },
+      { type:'warn',    text:'Lubrizol Brand Assets + Social Media Playbook: presentacio presencial DIMARTS 30 a les 9:30h (Carla + Queralt + Silvia + possible Paula). Ha d\'estar tancat divendres 25.' }
+    ],
+    days: [
+      {
+        label: 'Dilluns 21',
+        items: [
+          { who:'Igor', text:'Ajustos campanya scooters gamma QJ entregats' },
+          { who:'Igor', text:'Ajustos campanya Meta SUUR entregats' },
+          { who:'Igor', text:'Ajustos campanyes Legends entregats' },
+          { who:'Larraz', text:'Reels Legends acabats i entregats' },
+          { who:'Dachs', text:'Ajustos Torres RTD entregats (URGENT per OK)' },
+          { who:'Angel', text:'Ajust urgent aparador Balmes Kove entregat (tipografia)' },
+          { who:'Igor', text:'Feedback SRV 600V aplicat + nova proposta newsletter + display' },
+          { who:'Silvia', text:'Feedback Nestle Suprem enviat' },
+          { who:'Silvia', text:'Feedback Nestle Optipro enviat' },
+          { who:'Angel', text:'Arts finals Olin entregats' },
+          { who:'Angel', text:'Olin Protec entregat' },
+          { who:'Alba', text:'Ajustos dossiers BPT entregats (mateix ajust x3)' },
+          { who:'Alba', text:'Redes Olin entregades' },
+          { who:'Alba', text:'Canvis stand BPT entregats' },
+          { who:'Larraz', text:'2 capsules B-TALKS entregades (publicar aquesta setmana)' },
+          { who:'Uri', text:'Ajustos pantalles YuVod entregats' }
+        ]
+      },
+      {
+        label: 'Dimarts 22',
+        items: [
+          { who:'Dachs', text:'Maquetes Torres RTD (proves acabats) enviades a Juanjo' },
+          { who:'Uri', text:'Feedback configurador tarifes Olin aplicat i entregat' },
+          { who:'Silvia', text:'Feedback Lubrizol In-Cosmetics ajustat i entregat (max. dimecres)' },
+          { who:'Queralt', text:'Propostes visuals Carbopol Textura Lubrizol tancades (2 visuals - 1 des de zero)' },
+          { who:'Igor', text:'Mailing Cartago maquetat i entregat' },
+          { who:'Silvia', text:'Feedback Nestle stick Suprem entregat' },
+          { who:'Paula + Uri', text:'Kick-off Museu Maritim (2h) + reunio Tresors Amagats' },
+          { who:'Paula', text:'Presentacio namings LIN3S' },
+          { who:'Paula', text:'Strategic Report LIN3S entregat' },
+          { who:'Angel', text:'Portugal AAFF logo + slogan Kove/QJ/Macbor entregats' },
+          { who:'Astur', text:'Reunio AFP Courts + presentar proposta nova web' }
+        ]
+      },
+      {
+        label: 'Dimecres 23',
+        items: [
+          { who:'Igor', text:'Nova campanya QJ Fort 4.2 entregada (fitxa web + campanya redes)' },
+          { who:'Paula', text:'Revisio app Candidate amb ajustos Jan i Vladi' }
+        ]
+      },
+      {
+        label: 'Dijous 24',
+        items: [
+          { who:'Sant Feliu + Antonio + Toni', text:'Torres RTD - muntatge etiquetes a l\'oficina (si arriben impressions de Juanjo)' }
+        ],
+        holiday: true,
+        holidayNote: 'FESTIU La Merce Barcelona - equip BCN fora. Sant Feliu (Astur, Dachs, Queralt, Angel, Alex, Dani, Raquel) + Antonio (Mallorca) + Toni Mateo (Valencia) operatius.'
+      },
+      {
+        label: 'Divendres 25',
+        items: [
+          { who:'Antonio + Alex + Uri', text:'Lubrizol Brand Assets tancats (web + presentacio + reticula)' },
+          { who:'Queralt + Carla', text:'Lubrizol Social Media Playbook tancat' },
+          { who:'Paula + Uri', text:'Arquitectura web Well On entregada (amb supervisio Uri)' },
+          { who:'Queralt', text:'Ajustos proposta serveis complementaris Catalonia entregats' }
+        ]
+      }
+    ],
+    departments: [
+      { label:'Creative Campaigns', accent:'#CC2929',
+        members:[
+          { name:'Xavi', id:'xavi', initials:'XB', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Director Creatiu', responsible:true, pct:20,
+            projects:[
+              { name:'De vacances', note:'Tornada divendres 25.', dur:'vacances dl-dc', type:'pending' },
+              { name:'Divendres 25', note:'Reincorporacio - seguiment general.', dur:'divendres 25', type:'lowprio' }
+            ]},
+          { name:'Igor', id:'igor', initials:'IM', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Disseny', pct:110,
+            projects:[
+              { name:'Motos Bordoy (QJ + Kove)', note:'Setmana forta amb Bordoy: ajustos campanya scooters (dl 21) + feedback SRV 600V + nova campanya QJ Fort 4.2 (dc 23) - fitxa web + campanya redes.', dur:'tota la setmana (~20h)', type:'block' },
+              { name:'SUUR (campanya Meta)', note:'Ajustos campanya Meta - entrega dilluns 21.', dur:'dilluns 21', type:'active' },
+              { name:'Legends (campanyes)', note:'Ajustos campanyes - entrega dilluns 21.', dur:'dilluns 21', type:'active' },
+              { name:'Cartago (mailing)', note:'Maquetar mailing - entrega dimarts 22.', dur:'dimarts 22', type:'active' },
+              { name:'ASICS (adaptacio ads Madrid)', note:'Adaptar ads Valencia a Madrid - ~mig dia. Final setmana o principis vinent.', dur:'~mig dia final setmana', type:'lowprio' },
+              { name:'AFP Courts (noves crees Paid)', note:'Actualitzar creativitats anuncis Paid.', dur:'quan pugui', type:'lowprio' }
+            ]}
+        ]},
+      { label:'Dynamic Branding & Digital Product', accent:'#1A7A4A',
+        members:[
+          { name:'Antonio', id:'antonio', initials:'AP', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Branding + web', responsible:true, pct:110,
+            projects:[
+              { name:'J. Hernando (branding + brand show)', note:'PRIORITAT MAXIMA - presentacio DILLUNS 28 a Madrid. Uri fa l\'esquelet de la presentacio per alleugerir Antonio.', dur:'tota la setmana', type:'block' },
+              { name:'Lubrizol (Brand Assets)', note:'Tancar web + presentacio + reticula divendres 25 (presentacio dimarts 30 a les 9:30h).', dur:'tota la setmana', type:'block' },
+              { name:'Kira Ventures', note:'Web bastant avancada - seguiment amb Enric.', dur:'seguiment', type:'lowprio' }
+            ]},
+          { name:'Uri', id:'uri', initials:'UR', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'UX/UI', responsible:true, pct:110,
+            projects:[
+              { name:'Museu Maritim (Tresors Amagats)', note:'Brand assets Tresors Amagats. Kick-off + reunio dimarts 22 al mati (2h).', dur:'dimarts 22 (kick-off) + resta setmana', type:'block' },
+              { name:'CF Badalona (actualitzacio Sportbiz)', note:'Actualitzar materials presentacio Badalona amb l\'escut bo per event Sportbiz.', dur:'~mig dia aquesta setmana', type:'active' },
+              { name:'Candidate (ajustos)', note:'Passats a Jan la setmana passada - revisio amb Paula dimecres 23.', dur:'dimecres 23', type:'active' },
+              { name:'SUUR (ajustos pantalles YuVod + materials fisics)', note:'Ajustos pantalles YuVod (dilluns 21) + tarjetes visita professionals (fetes divendres passat) + materials habitacio i entrada (5 i 4) pendents.', dur:'dilluns 21 + al llarg setmana', type:'active' },
+              { name:'Olin (configurador tarifes)', note:'Aplicar feedback - dimarts 22.', dur:'dimarts 22', type:'active' },
+              { name:'J. Hernando (esquelet presentacio)', note:'Fer esqueleto de la presentacio (tipografia, color, retícula) per alleugerir Antonio. Un hueco durant la setmana.', dur:'~mig dia aquesta setmana', type:'active' },
+              { name:'Lubrizol (Brand Assets)', note:'Suport a Antonio amb la web.', dur:'segons necessitat', type:'lowprio' },
+              { name:'Well On (arquitectura web)', note:'Supervisar amb Paula - divendres 25.', dur:'divendres 25', type:'active' }
+            ]},
+          { name:'Ferran Larraz', id:'larraz', initials:'FL', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Video', pct:110,
+            projects:[
+              { name:'J. Hernando (video brand show)', note:'PRIORITAT MAXIMA - presentacio DILLUNS 28 a Madrid. Tota la setmana.', dur:'tota la setmana', type:'block' },
+              { name:'B-TALKS (capsules)', note:'2 capsules per publicar aquesta setmana - entrega dilluns 21.', dur:'dilluns 21', type:'active' },
+              { name:'Legends (reels)', note:'Reels practicament a mig fer - acabar i entregar dilluns 21.', dur:'dilluns 21', type:'active' }
+            ]},
+          { name:'Enric', id:'enric', initials:'EB', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Web Developer', pct:100,
+            projects:[
+              { name:'Kira Ventures (programacio)', note:'Ja tenen l\'OK - programar tota la setmana.', dur:'tota la setmana', type:'block' },
+              { name:'BPT (web)', note:'Comencar a programar aquesta setmana - encara no s\'ha comencat.', dur:'tota la setmana', type:'block' }
+            ]},
+          { name:'Toni Mateo', id:'toni', initials:'TM', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Web Developer (4h/dia)', pct:100,
+            projects:[
+              { name:'Olin (web)', note:'Focus principal - ajustos i seguiment. Aquesta setmana desde Valencia (dijous 24 operatiu, no fa festa Barcelona).', dur:'tota la setmana', type:'block' },
+              { name:'Kira Ventures / BPT (suport)', note:'Suport a Enric si cal.', dur:'segons necessitat', type:'lowprio' }
+            ]}
+        ]},
+      { label:'Iconic Packaging & Off Materials', accent:'#A05C00',
+        members:[
+          { name:'Ferran Dachs', id:'dachs', initials:'FD', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Dissenyador packaging', responsible:true, pct:110,
+            projects:[
+              { name:'Miguel Torres RTD', note:'Ajustos urgentissims dilluns 21 per OK + maquetes fisiques enviades a Juanjo dimarts 22. Muntatge etiquetes oficina dijous 24 si arriben impressions (Sant Feliu operatiu).', dur:'tota la setmana', type:'block' },
+              { name:'Lubrizol (In-Cosmetics)', note:'Aplicar feedback rebut - entrega dimarts 22 o dimecres 23. Compartit amb Queralt (qui es lliure primer).', dur:'dimarts 22 o dimecres 23', type:'active' },
+              { name:'Nestle Suprem Pro', note:'AF x2 refs entregat dimecres passat - seguir amb feedbacks.', dur:'seguiment', type:'active' },
+              { name:'Nestle Suprem Pro Portugal', note:'Ajustos x3 refs - seguiment amb Silvia.', dur:'seguiment', type:'lowprio' },
+              { name:'Nestle (sticks Suprem/Optipro)', note:'2 sticks nous pendents de setmana passada - anar avancant durant la setmana.', dur:'al llarg setmana', type:'active' },
+              { name:'ASICS (arts finals impressio)', note:'Arts finals materials event Madrid - Angel podra agafar-los (Dachs mes pillat).', dur:'delegat a Angel', type:'pending' }
+            ]},
+          { name:'Queralt', id:'queralt', initials:'QS', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Packaging (½ jornada)', pct:110,
+            projects:[
+              { name:'Lubrizol (Carbopol Textura)', note:'PRIORITAT MAXIMA - presentacio DIMECRES matí. 2 visuals: un fet, l\'altre des de zero. Tot dilluns 21 + dimarts 22 a fons.', dur:'dilluns 21 + dimarts 22', type:'block' },
+              { name:'Lubrizol (Social Media Playbook)', note:'Tancar aquesta setmana per presentacio dimarts 30. Presencial - Queralt hi va (2h).', dur:'dimecres 23 - divendres 25', type:'block' },
+              { name:'Lubrizol (In-Cosmetics)', note:'Feedback pendent - aplicar dimarts o dimecres si Dachs no lliure.', dur:'compartit amb Dachs', type:'active' },
+              { name:'Catalonia (proposta serveis)', note:'Ajustos proposta serveis complementaris - entrega divendres 25 o dilluns 28.', dur:'final setmana', type:'lowprio' }
+            ]},
+          { name:'Angel', id:'angel', initials:'AA', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Art final', pct:100,
+            projects:[
+              { name:'Lidl', note:'Full amb Lidl - Silvia bastant material passat.', dur:'tota la setmana', type:'block' },
+              { name:'Motos Bordoy (Kove - ajust Balmes)', note:'Ajust urgent aparador Balmes Kove - tipografia. Tasca rapida dilluns 21.', dur:'~1h dilluns 21', type:'quick' },
+              { name:'Olin (arts finals + Protec)', note:'Arts finals entregats dilluns 21. Continuar amb Olin Protec i adaptacions.', dur:'al llarg setmana', type:'active' },
+              { name:'ASICS (arts finals impressio Madrid)', note:'Arts finals materials event - final setmana. Delegat des de Dachs.', dur:'final setmana', type:'active' },
+              { name:'Nestle (suport Dachs)', note:'Segons necessitat.', dur:'segons carrega', type:'lowprio' },
+              { name:'Motos Bordoy (Portugal AAFF)', note:'Logo + slogan Kove, QJ i Macbor Portugal. Rapid. Entrega dimarts 22.', dur:'~2h dimarts 22', type:'quick' }
+            ]}
+        ]},
+      { label:'Social Media', accent:'#7B35C4',
+        members:[
+          { name:'Carla', id:'carla', initials:'CJ', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Social Media Manager', responsible:true, pct:105,
+            projects:[
+              { name:'Lubrizol (Social Media Playbook)', note:'PRIORITAT - tancar creativitats amb Queralt. Presentacio DIMARTS 30 a les 9:30h presencial (Carla hi va).', dur:'tota la setmana', type:'block' },
+              { name:'Disna (contingut octubre)', note:'Contemplant contingut octubre Corpore Sano + Naturvital.', dur:'tota la setmana', type:'active' },
+              { name:'Event Corpore Sano (7 oct)', note:'Gestio impressions amb Work Center. Comprar materials. Paral·lel.', dur:'al llarg setmana', type:'active' },
+              { name:'Neftis (post)', note:'Fent-lo Carla directament.', dur:'aquesta setmana', type:'quick' },
+              { name:'B-TALKS + Echevarne + BPT (publicacions xarxes)', note:'Publicacions habituals - coordinacio.', dur:'al llarg setmana', type:'lowprio' }
+            ]},
+          { name:'Alex', id:'alex', initials:'AM', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Video', pct:110,
+            projects:[
+              { name:'J. Hernando (video brand manifesto)', note:'PRIORITAT MAXIMA - presentacio DILLUNS 28 a Madrid. Tota la setmana.', dur:'tota la setmana', type:'block' },
+              { name:'Lubrizol (web assets)', note:'Suport a Antonio amb la web dels Brand Assets - tancar divendres 25.', dur:'final setmana', type:'active' }
+            ]},
+          { name:'Alba', id:'alba', initials:'AL', avatarBg:'#F2E8FC', avatarTxt:'#7B35C4', role:'Disseny', pct:100,
+            projects:[
+              { name:'BPT (dossiers + stand)', note:'Ajustos x3 dossiers + canvis stand BPT (feedback nou rebut divendres) - entrega dilluns 21.', dur:'dilluns 21', type:'block' },
+              { name:'Echevarne (publicacio urgent)', note:'Publicacio urgent rebuda - dilluns 21.', dur:'dilluns 21', type:'active' },
+              { name:'Olin (redes)', note:'Redes Olin - dilluns 21.', dur:'dilluns 21', type:'active' },
+              { name:'Publicacions BPT (xarxes)', note:'Publicacions habituals BPT.', dur:'al llarg setmana', type:'lowprio' },
+              { name:'Disna (creativitats)', note:'Creativitats event Corpore Sano + contingut xarxes.', dur:'al llarg setmana', type:'lowprio' }
+            ]}
+        ]},
+      { label:'Business Development', accent:'#2D6E2D', mgmt:true,
+        members:[
+          { name:'Albert', id:'albert', initials:'AF', avatarBg:'#E8F5E8', avatarTxt:'#2D6E2D', role:'Business Development', responsible:true, pct:50,
+            projects:[
+              { name:'ASICS (event Madrid)', note:'Adaptar ads Valencia a Madrid amb Igor + arts finals impressio amb Angel. Final setmana. Albert fora dc 23 i dv 25.', dur:'dilluns 21 + dimarts 22 + dijous 24', type:'active' },
+              { name:'Case COV', note:'Passar tasca a Antonio dimecres 23 - falten tancar cosetes event.', dur:'dimecres 23', type:'quick' }
+            ]}
+        ]},
+      { label:'Strategy & B-Bruce Marketing', accent:'#555250', mgmt:true,
+        members:[
+          { name:'Paula', id:'paula', initials:'PC', avatarBg:'#EEEDEB', avatarTxt:'#555250', role:'Directora Estrategia (½ jornada)', responsible:true, pct:110,
+            projects:[
+              { name:'J. Hernando (charts + revisio)', note:'Revisio i fer charts J. Hernando - presentacio dilluns 28 Madrid.', dur:'tota la setmana', type:'block' },
+              { name:'LIN3S SPORT (namings + Strategic Report)', note:'Presentacio namings + Strategic Report dimarts 22.', dur:'dimarts 22', type:'block' },
+              { name:'Museu Maritim (kick-off Tresors Amagats)', note:'Kick-off dimarts 22 (2h) amb Uri.', dur:'dimarts 22', type:'block' },
+              { name:'Well On (arquitectura web)', note:'Elaborar arquitectura web - entrega divendres 25 amb supervisio Uri.', dur:'dilluns 21 - divendres 25', type:'block' },
+              { name:'Candidate (revisio app)', note:'Revisio amb ajustos Jan i Vladi - dimecres 23.', dur:'dimecres 23', type:'active' },
+              { name:'Sportbiz (preparacio)', note:'Preparacio event Sportbiz.', dur:'aquesta setmana', type:'active' },
+              { name:'Lubrizol (presentacio dimarts 30)', note:'Possible acompanyar a la presentacio dimarts 30.', dur:'per confirmar', type:'pending' }
+            ]}
+        ]},
+      { label:'Client Experience', accent:'#1A5C9A', mgmt:true,
+        members:[
+          { name:'Astur', id:'astur', initials:'AS', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'CXO', responsible:true, pct:100,
+            projects:[
+              { name:'Motos Bordoy (QJ + Kove)', note:'Setmana forta: scooters QJ + campanya Meta SUUR + SRV 600V feedback + nova campanya QJ Fort 4.2 dimecres 23 (fitxa web + redes) + ajust Balmes Kove.', dur:'~18h tota la setmana', type:'block' },
+              { name:'Miguel Torres RTD', note:'Coordinacio ajustos dilluns 21 + maquetes Juanjo dimarts 22 + muntatge etiquetes dijous 24 (30 tenen data 30 setembre).', dur:'tota la setmana', type:'block' },
+              { name:'Legends (ajustos campanyes)', note:'Coordinacio ajustos Igor + reels Larraz.', dur:'dilluns 21', type:'active' },
+              { name:'BBOU (Social Media Playbook)', note:'Arrancar SMPplaybook BBOU - urgent, sense data. Astur ho gestiona amb output que definira Uri.', dur:'aquesta setmana', type:'active' },
+              { name:'BBOU (web - pressupost)', note:'Terminar pressupost 4 webs en lloc d\'una - aquesta setmana per poder planificar arrencada.', dur:'aquesta setmana', type:'block' },
+              { name:'BBOU + SUUR (shootings)', note:'Coordinar pressupostos partners: recomanacio video de Javier + Albert altres partners + Jose Evia arquitectura. 2 tipus pressupostos diferents.', dur:'aquesta setmana', type:'active' },
+              { name:'SUUR (materials fisics + pantalles YuVod)', note:'Coordinacio amb Uri: pantalles YuVod + materials habitacio 5 i entrada 4 + tarjetes visita fetes dv passat.', dur:'coordinacio setmana', type:'active' },
+              { name:'AFP Courts (reunio + nova proposta web)', note:'Reunio amb client DIMARTS 22 + preparar tota la proposta de nova web aquesta setmana.', dur:'dimarts 22 (reunio) + resta setmana', type:'block' }
+            ]},
+          { name:'Silvia', id:'silvia', initials:'SE', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'Account (½ jornada)', responsible:true, pct:100,
+            projects:[
+              { name:'Nestle Espanya (nous projectes)', note:'Mail rebut amb prioritats i ordre preferencia - proximes setmanes bastant actiu Nestle Espanya. Anar avancant tota la setmana.', dur:'tota la setmana', type:'block' },
+              { name:'Lubrizol (Social Media Playbook)', note:'Coordinar equip per tancar divendres 25 - presentacio DIMARTS 30 a les 9:30h presencial (Silvia hi va).', dur:'tota la setmana', type:'block' },
+              { name:'Lubrizol (In-Cosmetics)', note:'Feedback pendent - Dachs o Queralt aplica dimarts/dimecres.', dur:'dimarts 22 o dimecres 23', type:'active' },
+              { name:'Olin', note:'Coordinar Igor arts finals + Olin Protec + banners ajustats.', dur:'seguiment setmana', type:'active' },
+              { name:'Lidl (habitual)', note:'Va i ve cada dia - bastant material passat a Angel.', dur:'seguiment', type:'lowprio' }
+            ]}
+        ]},
+      { label:'Direccio', accent:'#191919', mgmt:true,
+        members:[
+          { name:'Dani', id:'dani', initials:'DA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CEO', responsible:true, pct:0,
+            projects:[] },
+          { name:'Raquel', id:'raquel', initials:'RA', avatarBg:'#E8E7E4', avatarTxt:'#191919', role:'CFO', responsible:true, pct:0,
+            projects:[] }
+        ]}
+    ],
+    fites: [
+      { who:'Antonio + Larraz + Alex + Paula', text:'J. Hernando - presentacio Madrid', tag:'Diumenge 28 setembre', note:'Branding + brand show + video brand manifesto + charts. Tota la setmana a saco.' },
+      { who:'Carla + Queralt + Silvia', text:'Lubrizol Brand Assets + SM Playbook - presentacio presencial', tag:'Dimarts 30 (9:30h)', note:'Ha d\'estar tancat divendres 25. Presencial - 2h.' },
+      { who:'Queralt', text:'Lubrizol Carbopol Textura - presentacio interna', tag:'Dimecres 23 (mati)', note:'2 visuals - 1 des de zero.' },
+      { who:'Paula + Uri', text:'Museu Maritim - kick-off + reunio Tresors Amagats', tag:'Dimarts 22 (2h)', note:'Kick-off oficial del projecte.' },
+      { who:'Paula', text:'LIN3S SPORT - presentacio namings + Strategic Report', tag:'Dimarts 22', note:'Fase naming activada.' },
+      { who:'Igor', text:'QJ Fort 4.2 - fitxa web + campanya redes', tag:'Dimecres 23', note:'Nova campanya - lanzamiento setmana.' },
+      { who:'Dachs + Astur', text:'Torres RTD - maquetes fisiques a Juanjo', tag:'Dimarts 22', note:'Muntatge etiquetes dijous 24 si arriben.' },
+      { who:'Paula + Uri', text:'Well On - arquitectura web entregada', tag:'Divendres 25', note:'Supervisio Uri.' }
+    ]
   }];
 
 // ────────────────────────────────────────────────────────────────
@@ -2368,7 +2624,7 @@ function renderWeek(week) {
   const _nxt = week.alerts.filter(a=>a.type==='nextweek');
   const _oth = week.alerts.filter(a=>a.type!=='absence' && a.type!=='nextweek');
   const _aHTML = _abs.length ? `<div class="alert-item alert-absence"><span class="abs-title">ABSÈNCIES</span><ul class="abs-list">${_abs.map(a=>{const t=a.text.replace(/^ABSENCIES:\s*/,'');const parts=t.split(' ');return `<li><strong>${parts[0]}</strong> ${parts.slice(1).join(' ')}</li>`;}).join('')}</ul></div>` : '';
-  const _nHTML = _nxt.length ? `<div class="alert-item alert-nextweek"><span class="abs-title">FESTIU 18S A SANT FELIU</span><ul class="abs-list">${_nxt.map(a=>`<li><strong>${a.text}</strong></li>`).join('')}</ul></div>` : '';
+  const _nHTML = _nxt.length ? `<div class="alert-item alert-nextweek"><span class="abs-title">${week.holidayTitle || "FESTIU"}</span><ul class="abs-list">${_nxt.map(a=>`<li><strong>${a.text}</strong></li>`).join('')}</ul></div>` : '';
   const _oHTML = _oth.length ? _oth.map(a=>{const t=a.text;const colon=t.indexOf(':');const bold=colon>0?`<strong>${t.slice(0,colon)}</strong>${t.slice(colon)}`:t;return `<div class="alert-item ${a.type}">${bold}</div>`;}).join('') : '';
   const alertsHTML = (_abs.length||_nxt.length||_oth.length) ? `<div class="alerts-wrap">${_aHTML}${_nHTML}${_oHTML}</div>` : '';
   const daysHTML = week.days ? `<div class="days-header"><span class="days-title">Deliveries day by day</span><span class="days-subtitle">entregables previstos per dia</span></div><div class="days-grid">${week.days.map(d=>{
