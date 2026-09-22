@@ -142,6 +142,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .days-subtitle{font-size:11px;color:var(--g3);font-style:italic;}
 .day-empty{font-size:10.5px;color:var(--g3);font-style:italic;text-align:center;padding:20px 0;}
 .days-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.5rem;}
+.deliv-filters{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;}
+.dfilter{font-family:'DM Mono',monospace;font-size:11px;padding:5px 26px 5px 10px;border:1px solid var(--border);border-radius:6px;background:var(--white) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%23555' fill='none' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat right 10px center;color:var(--black);cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;min-width:150px;}
+.dfilter:hover{border-color:var(--g4);}
+.dfilter-reset{font-family:'DM Mono',monospace;font-size:10.5px;padding:5px 10px;border:1px solid var(--border);border-radius:6px;background:var(--white);color:var(--g4);cursor:pointer;letter-spacing:.03em;}
+.dfilter-reset:hover{border-color:var(--black);color:var(--black);}
+.day-empty-filtered{padding:14px 0;}
+.item-delayed{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.04em;color:#CC2929;background:#FCEAEA;border:1px solid #F0B3B3;border-radius:4px;padding:1px 6px;margin-left:10px;}
+.day-item.is-delayed{border-left-color:#CC2929;}
 @media (min-width: 1200px){.days-grid{grid-template-columns:repeat(5,1fr);}}
 .day-col{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:12px;min-height:120px;display:flex;flex-direction:column;}
 .day-col.holiday{background:#FDF4E7;border-color:#F0D9A8;}
@@ -2019,43 +2027,43 @@ const WEEKS = [
       {
         label: 'Dilluns 14',
         items: [
-          { who:'Alex', text:'Spot Olin Vuelta al Cole enviat al client' },
-          { who:'Larraz', text:'Reels B-TALK acabats per publicar' },
-          { who:'Angel', text:'Feedback Nestle Molico Portugal enviat' },
-          { who:'Silvia', text:'Feedback Nestle NAN Optipro Portugal enviat' },
-          { who:'Igor', text:'Propostes Paid Legends enviades' },
-          { who:'Igor', text:'Art final poster Kove entregat' }
+          { who:'Alex', text:'Spot Olin Vuelta al Cole enviat al client', client:'Olin', owner:'Silvia' },
+          { who:'Larraz', text:'Reels B-TALK acabats per publicar', client:'B-TALK', owner:'Paula' },
+          { who:'Angel', text:'Feedback Nestle Molico Portugal enviat', client:'Nestlé', owner:'Silvia' },
+          { who:'Silvia', text:'Feedback Nestle NAN Optipro Portugal enviat', client:'Nestlé', owner:'Silvia' },
+          { who:'Igor', text:'Propostes Paid Legends enviades', client:'Legends', owner:'Astur' },
+          { who:'Igor', text:'Art final poster Kove entregat', client:'Kove', owner:'Astur' }
         ]
       },
       {
         label: 'Dimarts 15',
         items: [
-          { who:'Alba + Igor', text:'Olin post sorteig publicat + materials baixada (banner, display, pantalles)' },
-          { who:'Alba', text:'Proposta BPT Open Health entregada + rollups event' },
-          { who:'Antonio', text:'Avancos J. Hernando ensenyats a Dani' },
-          { who:'Dachs', text:'2 ficticis Sportfil entregats (chips guisant + gominolas)' },
-          { who:'Dachs', text:'Feedback aplicat Torres 10 Ready to Drink entregat' },
-          { who:'Igor', text:'Feedback aplicat campanya scooters QJ entregat' }
+          { who:'Alba + Igor', text:'Olin post sorteig publicat + materials baixada (banner, display, pantalles)', client:'Olin', owner:'Silvia' },
+          { who:'Alba', text:'Proposta BPT Open Health entregada + rollups event', client:'BPT', owner:'Silvia' },
+          { who:'Antonio', text:'Avancos J. Hernando ensenyats a Dani', client:'J. Hernando', owner:'Paula' },
+          { who:'Dachs', text:'2 ficticis Sportfil entregats (chips guisant + gominolas)', client:'Sportfil', owner:'Silvia' },
+          { who:'Dachs', text:'Feedback aplicat Torres 10 Ready to Drink entregat', client:'Torres', owner:'Astur' },
+          { who:'Igor', text:'Feedback aplicat campanya scooters QJ entregat', client:'QJ', owner:'Astur' }
         ]
       },
       {
         label: 'Dimecres 16',
         items: [
-          { who:'Toni Mateo', text:'Olin web Teras entregada (deadline)' },
-          { who:'Angel', text:'Lidl polseres citronela entregades' },
-          { who:'Dachs', text:'Mockups esdeveniment ASICS entregats' },
-          { who:'Dachs', text:'AF Suprem Pro entregat (x2 refs)' },
-          { who:'Dachs', text:'Ajustos Suprem Pro Portugal entregats (x3 refs)' },
-          { who:'Angel', text:'Varies referencies Lidl entregades' },
-          { who:'Uri', text:'Canvis Candidate passats a Jan' },
-          { who:'Larraz', text:'Pre-muntatge video J. Hernando entregat' },
-          { who:'Carla + Larraz', text:'B-TALK Guillem Graell publicat a xarxes B-Bruce' },
-          { who:'Larraz', text:'Pantalles Cartago entregades' },
-          { who:'Igor', text:'Ajustos campanya carrusel Kove 450RR entregats' },
-          { who:'Igor', text:'Newsletter + display QJ 600V entregats' },
-          { who:'Igor', text:'Adaptacions Legends (3 axis a tots formats) entregades' },
-          { who:'Alba', text:'Reels Catalonia entregats' },
-          { who:'Alba', text:'Canvis rollups stand BPT entregats' }
+          { who:'Toni Mateo', text:'Olin web Teras entregada (deadline)', client:'Olin', owner:'Silvia' },
+          { who:'Angel', text:'Lidl polseres citronela entregades', client:'Lidl', owner:'Silvia' },
+          { who:'Dachs', text:'Mockups esdeveniment ASICS entregats', client:'ASICS', owner:null },
+          { who:'Dachs', text:'AF Suprem Pro entregat (x2 refs)', client:'Nestlé', owner:'Silvia' },
+          { who:'Dachs', text:'Ajustos Suprem Pro Portugal entregats (x3 refs)', client:'Nestlé', owner:'Silvia' },
+          { who:'Angel', text:'Varies referencies Lidl entregades', client:'Lidl', owner:'Silvia' },
+          { who:'Uri', text:'Canvis Candidate passats a Jan', client:'Kivel', owner:'Astur' },
+          { who:'Larraz', text:'Pre-muntatge video J. Hernando entregat', client:'J. Hernando', owner:'Paula' },
+          { who:'Carla + Larraz', text:'B-TALK Guillem Graell publicat a xarxes B-Bruce', client:'B-TALK', owner:'Paula' },
+          { who:'Larraz', text:'Pantalles Cartago entregades', client:'Cartago', owner:'Silvia' },
+          { who:'Igor', text:'Ajustos campanya carrusel Kove 450RR entregats', client:'Kove', owner:'Astur' },
+          { who:'Igor', text:'Newsletter + display QJ 600V entregats', client:'QJ', owner:'Astur' },
+          { who:'Igor', text:'Adaptacions Legends (3 axis a tots formats) entregades', client:'Legends', owner:'Astur' },
+          { who:'Alba', text:'Reels Catalonia entregats', client:'Catalonia', owner:'Paula' },
+          { who:'Alba', text:'Canvis rollups stand BPT entregats', client:'BPT', owner:'Silvia' }
         ]
       },
       {
@@ -2065,8 +2073,8 @@ const WEEKS = [
       {
         label: 'Divendres 18',
         items: [
-          { who:'Antonio + Alex', text:'Assets marca Lubrizol playbook tancats' },
-          { who:'Queralt', text:'Referencies propies Lubrizol playbook + Carbopol Textura' }
+          { who:'Antonio + Alex', text:'Assets marca Lubrizol playbook tancats', client:'Lubrizol', owner:'Silvia' },
+          { who:'Queralt', text:'Referencies propies Lubrizol playbook + Carbopol Textura', client:'Lubrizol', owner:'Silvia' }
         ],
         holiday: true,
         holidayNote: 'FESTIU Sant Feliu de Codines - deadlines poden repartir-se amb dilluns 21.'
@@ -2286,45 +2294,50 @@ const WEEKS = [
       {
         label: 'Dilluns 21',
         items: [
-          { who:'Igor', text:'Ajustos campanya scooters gamma QJ entregats' },
-          { who:'Igor', text:'Ajustos campanya Meta SUUR entregats' },
-          { who:'Igor', text:'Ajustos campanyes Legends entregats' },
-          { who:'Larraz', text:'Reels Legends acabats i entregats' },
-          { who:'Dachs', text:'Ajustos Torres RTD entregats (URGENT per OK)' },
-          { who:'Angel', text:'Ajust urgent aparador Balmes Kove entregat (tipografia)' },
-          { who:'Igor', text:'Feedback SRV 600V aplicat + nova proposta newsletter + display' },
-          { who:'Silvia', text:'Feedback Nestle Suprem enviat' },
-          { who:'Silvia', text:'Feedback Nestle Optipro enviat' },
-          { who:'Angel', text:'Arts finals Olin entregats' },
-          { who:'Angel', text:'Olin Protec entregat' },
-          { who:'Alba', text:'Ajustos dossiers BPT entregats (mateix ajust x3)' },
-          { who:'Alba', text:'Redes Olin entregades' },
-          { who:'Alba', text:'Canvis stand BPT entregats' },
-          { who:'Larraz', text:'2 capsules B-TALKS entregades (publicar aquesta setmana)' },
-          { who:'Uri', text:'Ajustos pantalles YuVod entregats' }
+          { who:'Igor', text:'Ajustos campanya scooters gamma QJ entregats', client:'QJ', owner:'Astur' },
+          { who:'Igor', text:'Ajustos campanya Meta SUUR entregats', client:'SUUR', owner:'Astur' },
+          { who:'Igor', text:'Ajustos campanyes Legends entregats', client:'Legends', owner:'Astur' },
+          { who:'Larraz', text:'Reels Legends acabats i entregats', client:'Legends', owner:'Astur' },
+          { who:'Dachs', text:'Ajustos Torres RTD entregats (URGENT per OK)', client:'Torres', owner:'Astur' },
+          { who:'Angel', text:'Ajust urgent aparador Balmes Kove entregat (tipografia)', client:'Kove', owner:'Astur' },
+          { who:'Silvia', text:'Feedback Nestle Suprem enviat', client:'Nestlé', owner:'Silvia' },
+          { who:'Silvia', text:'Feedback Nestle Optipro enviat', client:'Nestlé', owner:'Silvia' },
+          { who:'Angel', text:'Arts finals Olin entregats', client:'Olin', owner:'Silvia' },
+          { who:'Angel', text:'Olin Protec entregat', client:'Olin', owner:'Silvia' },
+          { who:'Alba', text:'Ajustos dossiers BPT entregats (mateix ajust x3)', client:'BPT', owner:'Silvia' },
+          { who:'Uri', text:'Ajustos pantalles YuVod entregats', client:'BBOU', owner:'Astur' }
         ]
       },
       {
         label: 'Dimarts 22',
         items: [
-          { who:'Dachs', text:'Maquetes Torres RTD (proves acabats) enviades a Juanjo' },
-          { who:'Uri', text:'Feedback configurador tarifes Olin aplicat i entregat' },
-          { who:'Silvia', text:'Feedback Lubrizol In-Cosmetics ajustat i entregat (max. dimecres)' },
-          { who:'Queralt', text:'Propostes visuals Carbopol Textura Lubrizol tancades (2 visuals - 1 des de zero)' },
-          { who:'Igor', text:'Mailing Cartago maquetat i entregat' },
-          { who:'Silvia', text:'Feedback Nestle stick Suprem entregat' },
-          { who:'Paula + Uri', text:'Kick-off Museu Maritim (2h) + reunio Tresors Amagats' },
-          { who:'Paula', text:'Presentacio namings LIN3S' },
-          { who:'Paula', text:'Strategic Report LIN3S entregat' },
-          { who:'Angel', text:'Portugal AAFF logo + slogan Kove/QJ/Macbor entregats' },
-          { who:'Astur', text:'Reunio AFP Courts + presentar proposta nova web' }
+          { who:'Dachs', text:'Maquetes Torres RTD (proves acabats) enviades a Juanjo', client:'Torres', owner:'Astur' },
+          { who:'Uri', text:'Feedback configurador tarifes Olin aplicat i entregat', client:'Olin', owner:'Silvia' },
+          { who:'Queralt', text:'Propostes visuals Carbopol Textura Lubrizol tancades (2 visuals - 1 des de zero)', client:'Lubrizol', owner:'Silvia' },
+          { who:'Igor', text:'Mailing Cartago maquetat i entregat', client:'Cartago', owner:'Silvia' },
+          { who:'Dachs', text:'Feedback Nestle Optipro i ExpertPro entregat', client:'Nestlé', owner:'Silvia' },
+          { who:'Paula + Uri', text:'Kick-off Museu Maritim (2h) + reunio Tresors Amagats', client:'Museu Marítim', owner:'Paula' },
+          { who:'Paula', text:'Presentacio namings LIN3S', client:'LIN3S SPORT', owner:'Astur' },
+          { who:'Paula', text:'Strategic Report LIN3S entregat', client:'LIN3S SPORT', owner:'Astur' },
+          { who:'Angel', text:'Portugal AAFF logo + slogan Kove/QJ/Macbor entregats', client:'QJ', owner:'Astur' },
+          { who:'Astur', text:'Reunio AFP Courts + presentar proposta nova web', client:'AFP Courts', owner:'Astur' },
+          { who:'Igor', text:'Feedback SRV 600V aplicat + nova proposta newsletter + display', client:'QJ', owner:'Astur', delayed:1 },
+          { who:'Alba', text:'Xarxes Olin fetes (es publiquen dimecres)', client:'Olin', owner:'Silvia', delayed:1 },
+          { who:'Larraz + Alex', text:'2 capsules B-TALKS entregades (publicar aquesta setmana)', client:'B-TALK', owner:'Paula', delayed:1 },
+          { who:'Alba', text:'Canvis stand BPT entregats', client:'BPT', owner:'Silvia', delayed:1 },
+          { who:'Igor + Larraz', text:'Legends reels ajustats + idiomes angles i catala (3 campanyes) entregats', client:'Legends', owner:'Astur' },
+          { who:'Alba', text:'Ajustos dossiers BPT reenviats (mateix ajust x3)', client:'BPT', owner:'Silvia' },
+          { who:'Larraz', text:'Canvis video Lubrizol aplicats i entregats', client:'Lubrizol', owner:'Silvia' },
+          { who:'Dachs', text:'Mini ajust ExpertPro Nestle entregat (tasca rapida)', client:'Nestlé', owner:'Silvia' },
+          { who:'Alex + Larraz', text:'Canvis pantalles Olin entregats (tasca rapida)', client:'Olin', owner:'Silvia' }
         ]
       },
       {
         label: 'Dimecres 23',
         items: [
-          { who:'Igor', text:'Nova campanya QJ Fort 4.2 entregada (fitxa web + campanya redes)' },
-          { who:'Paula', text:'Revisio app Candidate amb ajustos Jan i Vladi' }
+          { who:'Igor', text:'Nova campanya QJ Fort 4.2 entregada (fitxa web + campanya redes)', client:'QJ', owner:'Astur' },
+          { who:'Paula', text:'Revisio app Candidate amb ajustos Jan i Vladi', client:'Kivel', owner:'Astur' },
+          { who:'Dachs + Queralt', text:'Feedback Lubrizol In-Cosmetics ajustat i entregat', client:'Lubrizol', owner:'Silvia', delayed:1 }
         ]
       },
       {
@@ -2338,10 +2351,10 @@ const WEEKS = [
       {
         label: 'Divendres 25',
         items: [
-          { who:'Antonio + Alex + Uri', text:'Lubrizol Brand Assets tancats (web + presentacio + reticula)' },
-          { who:'Queralt + Carla', text:'Lubrizol Social Media Playbook tancat' },
-          { who:'Paula + Uri', text:'Arquitectura web Well On entregada (amb supervisio Uri)' },
-          { who:'Queralt', text:'Ajustos proposta serveis complementaris Catalonia entregats' }
+          { who:'Antonio + Alex + Uri', text:'Lubrizol Brand Assets tancats (web + presentacio + reticula)', client:'Lubrizol', owner:'Silvia' },
+          { who:'Queralt + Carla', text:'Lubrizol Social Media Playbook tancat', client:'Lubrizol', owner:'Silvia' },
+          { who:'Paula + Uri', text:'Arquitectura web Well On entregada (amb supervisio Uri)', client:'Well On', owner:'Paula' },
+          { who:'Queralt', text:'Ajustos proposta serveis complementaris Catalonia entregats', client:'Catalonia', owner:'Paula' }
         ]
       }
     ],
@@ -2584,6 +2597,36 @@ const TAG_LABELS = { block:'Bloquejat', active:'Prioritat', quick:'Tasca ràpida
 
 function loadClass(p){ return p>=80?'load-high':p>=50?'load-mid':p>0?'load-low':'load-none'; }
 
+function filterDeliveries(weekId){
+  const scope = document.getElementById(weekId);
+  if(!scope) return;
+  const whoSel = scope.querySelector('.dfilter[data-ftype="who"]');
+  const clientSel = scope.querySelector('.dfilter[data-ftype="client"]');
+  const ownerSel = scope.querySelector('.dfilter[data-ftype="owner"]');
+  const who = whoSel ? whoSel.value : '';
+  const client = clientSel ? clientSel.value : '';
+  const owner = ownerSel ? ownerSel.value : '';
+  scope.querySelectorAll('.day-col').forEach(col=>{
+    let anyVisible = false;
+    const items = col.querySelectorAll('.day-item');
+    items.forEach(it=>{
+      const w = (it.dataset.who||'').split('|');
+      const c = it.dataset.client||'';
+      const o = it.dataset.owner||'';
+      const match = (!who || w.includes(who)) && (!client || c===client) && (!owner || o===owner);
+      it.style.display = match ? '' : 'none';
+      if(match) anyVisible = true;
+    });
+    const emptyEl = col.querySelector('.day-empty-filtered');
+    if(emptyEl) emptyEl.style.display = (items.length && !anyVisible) ? 'block' : 'none';
+  });
+}
+function resetDeliveryFilters(weekId){
+  const scope = document.getElementById(weekId);
+  if(!scope) return;
+  scope.querySelectorAll('.dfilter').forEach(sel=>sel.value='');
+  filterDeliveries(weekId);
+}
 function renderWeek(week) {
   const el = document.createElement('div');
   el.className = 'week-view';
@@ -2627,13 +2670,32 @@ function renderWeek(week) {
   const _nHTML = _nxt.length ? `<div class="alert-item alert-nextweek"><span class="abs-title">${week.holidayTitle || "FESTIU"}</span><ul class="abs-list">${_nxt.map(a=>`<li><strong>${a.text}</strong></li>`).join('')}</ul></div>` : '';
   const _oHTML = _oth.length ? _oth.map(a=>{const t=a.text;const colon=t.indexOf(':');const bold=colon>0?`<strong>${t.slice(0,colon)}</strong>${t.slice(colon)}`:t;return `<div class="alert-item ${a.type}">${bold}</div>`;}).join('') : '';
   const alertsHTML = (_abs.length||_nxt.length||_oth.length) ? `<div class="alerts-wrap">${_aHTML}${_nHTML}${_oHTML}</div>` : '';
-  const daysHTML = week.days ? `<div class="days-header"><span class="days-title">Deliveries day by day</span><span class="days-subtitle">entregables previstos per dia</span></div><div class="days-grid">${week.days.map(d=>{
+  const _allItems = week.days ? week.days.flatMap(d=>d.items||[]) : [];
+  const _whoSet = new Set();
+  _allItems.forEach(it=>String(it.who||'').split('+').map(x=>x.trim()).filter(Boolean).forEach(w=>_whoSet.add(w)));
+  const _clientSet = new Set(_allItems.map(it=>it.client).filter(Boolean));
+  const _ownerSet = new Set(_allItems.map(it=>it.owner).filter(Boolean));
+  const _whoOpts = [..._whoSet].sort().map(w=>`<option value="${w}">${w}</option>`).join('');
+  const _clientOpts = [..._clientSet].sort().map(cl=>`<option value="${cl}">${cl}</option>`).join('');
+  const _ownerOpts = [..._ownerSet].sort().map(o=>`<option value="${o}">${o}</option>`).join('');
+  const filtersHTML = _allItems.length ? `<div class="deliv-filters">
+    <select class="dfilter" data-ftype="who" onchange="filterDeliveries('${week.id}')"><option value="">Persona: totes</option>${_whoOpts}</select>
+    <select class="dfilter" data-ftype="client" onchange="filterDeliveries('${week.id}')"><option value="">Client: tots</option>${_clientOpts}</select>
+    <select class="dfilter" data-ftype="owner" onchange="filterDeliveries('${week.id}')"><option value="">Responsable: tots</option>${_ownerOpts}</select>
+    <button type="button" class="dfilter-reset" onclick="resetDeliveryFilters('${week.id}')">Netejar filtres</button>
+  </div>` : '';
+  const daysHTML = week.days ? `<div class="days-header"><span class="days-title">Deliveries day by day</span><span class="days-subtitle">entregables previstos per dia</span></div>${filtersHTML}<div class="days-grid">${week.days.map(d=>{
     const holidayClass = d.holiday ? ' holiday' : '';
     const noteHTML = d.holidayNote ? `<div class="day-holiday-note">${d.holidayNote}</div>` : '';
     const itemsHTML = d.items && d.items.length
-      ? d.items.map(it=>`<div class="day-item"><span class="item-task">${it.text}</span><span class="item-who">${it.who}</span></div>`).join('')
+      ? d.items.map(it=>{
+          const whoAttr = String(it.who||'').split('+').map(x=>x.trim()).join('|');
+          const delayedHTML = it.delayed ? `<span class="item-delayed">Delay +${it.delayed}</span>` : '';
+          return `<div class="day-item${it.delayed?' is-delayed':''}" data-who="${whoAttr}" data-client="${it.client||''}" data-owner="${it.owner||''}"><span class="item-task">${it.text}</span><span class="item-who">${it.who}</span>${delayedHTML}</div>`;
+        }).join('')
       : '<div class="day-empty">Sense deliveries</div>';
-    return `<div class="day-col${holidayClass}"><div class="day-label">${d.label}</div>${noteHTML}<div class="day-items">${itemsHTML}</div></div>`;
+    const filteredEmptyHTML = d.items && d.items.length ? '<div class="day-empty day-empty-filtered" style="display:none;">Sense resultats amb aquest filtre</div>' : '';
+    return `<div class="day-col${holidayClass}"><div class="day-label">${d.label}</div>${noteHTML}<div class="day-items">${itemsHTML}${filteredEmptyHTML}</div></div>`;
   }).join('')}</div>` : '';
 
   const deptsHTML = week.departments.map(dept=>`
