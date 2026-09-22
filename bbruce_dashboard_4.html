@@ -152,7 +152,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .item-done{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.04em;color:#1A7A4A;background:#EAF5EE;border:1px solid #A9D9BC;border-radius:4px;padding:1px 6px;margin-left:10px;}
 .day-item.is-delayed{border-left-color:#CC2929;}
 .day-item.is-carried{opacity:.45;}
-.day-item.is-carried:hover{opacity:.85;}
 @media (min-width: 1200px){.days-grid{grid-template-columns:repeat(5,1fr);}}
 .day-col{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:12px;min-height:120px;display:flex;flex-direction:column;}
 .day-col.holiday{background:#FDF4E7;border-color:#F0D9A8;}
@@ -2732,7 +2731,7 @@ function renderWeek(week) {
           const delayedHTML = it.delayed ? `<span class="item-delayed">Delay +${it.delayed}</span>` : '';
           const showDone = !it.carried && !it.delayed && (it.done || _dayIsPastOrToday);
           const doneHTML = showDone ? `<span class="item-done">Done</span>` : '';
-          const stateClass = (it.delayed?' is-delayed':'') + (it.carried?' is-carried':'');
+          const stateClass = (it.delayed?' is-delayed':'') + ((it.carried && _dayIsPastOrToday)?' is-carried':'');
           return `<div class="day-item${stateClass}" data-who="${whoAttr}" data-client="${it.client||''}" data-owner="${it.owner||''}"><span class="item-task">${it.text}</span><span class="item-who">${it.who}</span>${doneHTML}${delayedHTML}</div>`;
         }).join('')
       : '<div class="day-empty">Sense deliveries</div>';
