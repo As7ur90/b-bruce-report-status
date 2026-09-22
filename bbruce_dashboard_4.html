@@ -149,7 +149,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .dfilter-reset:hover{border-color:var(--black);color:var(--black);}
 .day-empty-filtered{padding:14px 0;}
 .item-delayed{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.04em;color:#CC2929;background:#FCEAEA;border:1px solid #F0B3B3;border-radius:4px;padding:1px 6px;margin-left:10px;}
+.item-done{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.04em;color:#1A7A4A;background:#EAF5EE;border:1px solid #A9D9BC;border-radius:4px;padding:1px 6px;margin-left:10px;}
 .day-item.is-delayed{border-left-color:#CC2929;}
+.day-item.is-carried{opacity:.45;}
+.day-item.is-carried:hover{opacity:.85;}
 @media (min-width: 1200px){.days-grid{grid-template-columns:repeat(5,1fr);}}
 .day-col{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:12px;min-height:120px;display:flex;flex-direction:column;}
 .day-col.holiday{background:#FDF4E7;border-color:#F0D9A8;}
@@ -2055,7 +2058,7 @@ const WEEKS = [
           { who:'Dachs', text:'AF Suprem Pro entregat (x2 refs)', client:'Nestlé', owner:'Silvia' },
           { who:'Dachs', text:'Ajustos Suprem Pro Portugal entregats (x3 refs)', client:'Nestlé', owner:'Silvia' },
           { who:'Angel', text:'Varies referencies Lidl entregades', client:'Lidl', owner:'Silvia' },
-          { who:'Uri', text:'Canvis Candidate passats a Jan', client:'Kivel', owner:'Astur' },
+          { who:'Uri', text:'Canvis Candidate passats a Jan', client:'Kivel', owner:'Paula' },
           { who:'Larraz', text:'Pre-muntatge video J. Hernando entregat', client:'J. Hernando', owner:'Paula' },
           { who:'Carla + Larraz', text:'B-TALK Guillem Graell publicat a xarxes B-Bruce', client:'B-TALK', owner:'Paula' },
           { who:'Larraz', text:'Pantalles Cartago entregades', client:'Cartago', owner:'Silvia' },
@@ -2305,7 +2308,11 @@ const WEEKS = [
           { who:'Angel', text:'Arts finals Olin entregats', client:'Olin', owner:'Silvia' },
           { who:'Angel', text:'Olin Protec entregat', client:'Olin', owner:'Silvia' },
           { who:'Alba', text:'Ajustos dossiers BPT entregats (mateix ajust x3)', client:'BPT', owner:'Silvia' },
-          { who:'Uri', text:'Ajustos pantalles YuVod entregats', client:'BBOU', owner:'Astur' }
+          { who:'Uri', text:'Ajustos pantalles YuVod entregats', client:'BBOU', owner:'Astur' },
+          { who:'Igor', text:'Feedback SRV 600V aplicat + nova proposta newsletter + display', client:'QJ', owner:'Astur', carried:true },
+          { who:'Alba', text:'Redes Olin entregades', client:'Olin', owner:'Silvia', carried:true },
+          { who:'Larraz', text:'2 capsules B-TALKS entregades (publicar aquesta setmana)', client:'B-TALK', owner:'Paula', carried:true },
+          { who:'Alba', text:'Canvis stand BPT entregats', client:'BPT', owner:'Silvia', carried:true }
         ]
       },
       {
@@ -2317,33 +2324,40 @@ const WEEKS = [
           { who:'Igor', text:'Mailing Cartago maquetat i entregat', client:'Cartago', owner:'Silvia' },
           { who:'Dachs', text:'Feedback Nestle Optipro i ExpertPro entregat', client:'Nestlé', owner:'Silvia' },
           { who:'Paula + Uri', text:'Kick-off Museu Maritim (2h) + reunio Tresors Amagats', client:'Museu Marítim', owner:'Paula' },
-          { who:'Paula', text:'Presentacio namings LIN3S', client:'LIN3S SPORT', owner:'Astur' },
-          { who:'Paula', text:'Strategic Report LIN3S entregat', client:'LIN3S SPORT', owner:'Astur' },
+          { who:'Paula', text:'Presentacio namings LIN3S', client:'LIN3S SPORT', owner:'Paula' },
+          { who:'Paula', text:'Strategic Report LIN3S entregat', client:'LIN3S SPORT', owner:'Paula' },
           { who:'Angel', text:'Portugal AAFF logo + slogan Kove/QJ/Macbor entregats', client:'QJ', owner:'Astur' },
           { who:'Astur', text:'Reunio AFP Courts + presentar proposta nova web', client:'AFP Courts', owner:'Astur' },
           { who:'Igor', text:'Feedback SRV 600V aplicat + nova proposta newsletter + display', client:'QJ', owner:'Astur', delayed:1 },
           { who:'Alba', text:'Xarxes Olin fetes (es publiquen dimecres)', client:'Olin', owner:'Silvia', delayed:1 },
           { who:'Larraz + Alex', text:'2 capsules B-TALKS entregades (publicar aquesta setmana)', client:'B-TALK', owner:'Paula', delayed:1 },
           { who:'Alba', text:'Canvis stand BPT entregats', client:'BPT', owner:'Silvia', delayed:1 },
+          { who:'Dachs + Queralt', text:'Feedback Lubrizol In-Cosmetics ajustat i entregat (max. dimecres)', client:'Lubrizol', owner:'Silvia', carried:true },
           { who:'Igor + Larraz', text:'Legends reels ajustats + idiomes angles i catala (3 campanyes) entregats', client:'Legends', owner:'Astur' },
           { who:'Alba', text:'Ajustos dossiers BPT reenviats (mateix ajust x3)', client:'BPT', owner:'Silvia' },
           { who:'Larraz', text:'Canvis video Lubrizol aplicats i entregats', client:'Lubrizol', owner:'Silvia' },
           { who:'Dachs', text:'Mini ajust ExpertPro Nestle entregat (tasca rapida)', client:'Nestlé', owner:'Silvia' },
-          { who:'Alex + Larraz', text:'Canvis pantalles Olin entregats (tasca rapida)', client:'Olin', owner:'Silvia' }
+          { who:'Alex + Larraz', text:'Canvis pantalles Olin entregats (tasca rapida)', client:'Olin', owner:'Silvia' },
+          { who:'Igor', text:'Retoc de color QJ Fort 4.2', client:'QJ', owner:'Astur' },
+          { who:'Igor', text:'Fitxa web QJ Fort 4.2', client:'QJ', owner:'Astur' },
+          { who:'Igor', text:'Banners web QJ Fort 4.2', client:'QJ', owner:'Astur' },
+          { who:'Igor', text:'Feedback campanya scooters: ajust imatge de fons', client:'QJ', owner:'Astur' }
         ]
       },
       {
         label: 'Dimecres 23',
         items: [
           { who:'Igor', text:'Nova campanya QJ Fort 4.2 entregada (fitxa web + campanya redes)', client:'QJ', owner:'Astur' },
-          { who:'Paula', text:'Revisio app Candidate amb ajustos Jan i Vladi', client:'Kivel', owner:'Astur' },
-          { who:'Dachs + Queralt', text:'Feedback Lubrizol In-Cosmetics ajustat i entregat', client:'Lubrizol', owner:'Silvia', delayed:1 }
+          { who:'Paula', text:'Revisio app Candidate amb ajustos Jan i Vladi', client:'Kivel', owner:'Paula' },
+          { who:'Dachs + Queralt', text:'Feedback Lubrizol In-Cosmetics ajustat i entregat', client:'Lubrizol', owner:'Silvia', delayed:1 },
+          { who:'Igor', text:'Campanya xarxes Keyvisual + Carrusel QJ Fort 4.2', client:'QJ', owner:'Astur' },
+          { who:'Angel', text:'Cartelleria Belmonte Kove', client:'Kove', owner:'Astur' }
         ]
       },
       {
         label: 'Dijous 24',
         items: [
-          { who:'Sant Feliu + Antonio + Toni', text:'Torres RTD - muntatge etiquetes a l\'oficina (si arriben impressions de Juanjo)' }
+          { who:'Dachs', text:'Torres RTD - muntatge etiquetes a l\'oficina (si arriben impressions de Juanjo)', client:'Torres', owner:'Astur' }
         ],
         holiday: true,
         holidayNote: 'FESTIU La Merce Barcelona - equip BCN fora. Sant Feliu (Astur, Dachs, Queralt, Angel, Alex, Dani, Raquel) + Antonio (Mallorca) + Toni Mateo (Valencia) operatius.'
@@ -2354,7 +2368,8 @@ const WEEKS = [
           { who:'Antonio + Alex + Uri', text:'Lubrizol Brand Assets tancats (web + presentacio + reticula)', client:'Lubrizol', owner:'Silvia' },
           { who:'Queralt + Carla', text:'Lubrizol Social Media Playbook tancat', client:'Lubrizol', owner:'Silvia' },
           { who:'Paula + Uri', text:'Arquitectura web Well On entregada (amb supervisio Uri)', client:'Well On', owner:'Paula' },
-          { who:'Queralt', text:'Ajustos proposta serveis complementaris Catalonia entregats', client:'Catalonia', owner:'Paula' }
+          { who:'Queralt', text:'Ajustos proposta serveis complementaris Catalonia entregats', client:'Catalonia', owner:'Paula' },
+          { who:'Igor', text:'Noves creativitats ADS AFP Courts', client:'AFP Courts', owner:'Astur' }
         ]
       }
     ],
@@ -2597,6 +2612,29 @@ const TAG_LABELS = { block:'Bloquejat', active:'Prioritat', quick:'Tasca ràpida
 
 function loadClass(p){ return p>=80?'load-high':p>=50?'load-mid':p>0?'load-low':'load-none'; }
 
+const CA_MONTHS = {'gener':0,'febrer':1,'marc':2,'abril':3,'maig':4,'juny':5,'juliol':6,'agost':7,'setembre':8,'octubre':9,'novembre':10,'desembre':11};
+function stripAccents(str){ return str.normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+function weekMonthYear(week){
+  const m = (week.dateRange||'').match(/de\s+(\S+)\s+(\d{4})/i);
+  if(!m) return null;
+  const monthKey = stripAccents(m[1].toLowerCase());
+  const month = CA_MONTHS[monthKey];
+  if(month===undefined) return null;
+  return { month, year: parseInt(m[2],10) };
+}
+function dayActualDate(d, week){
+  const my = weekMonthYear(week);
+  if(!my) return null;
+  const dm = (d.label||'').match(/\d+/);
+  if(!dm) return null;
+  return new Date(my.year, my.month, parseInt(dm[0],10));
+}
+function isStrictlyPast(d, week){
+  const dd = dayActualDate(d, week);
+  if(!dd) return false;
+  const today = new Date(); today.setHours(0,0,0,0);
+  return dd.getTime() < today.getTime();
+}
 function filterDeliveries(weekId){
   const scope = document.getElementById(weekId);
   if(!scope) return;
@@ -2687,11 +2725,15 @@ function renderWeek(week) {
   const daysHTML = week.days ? `<div class="days-header"><span class="days-title">Deliveries day by day</span><span class="days-subtitle">entregables previstos per dia</span></div>${filtersHTML}<div class="days-grid">${week.days.map(d=>{
     const holidayClass = d.holiday ? ' holiday' : '';
     const noteHTML = d.holidayNote ? `<div class="day-holiday-note">${d.holidayNote}</div>` : '';
+    const _dayIsPastOrToday = isStrictlyPast(d, week);
     const itemsHTML = d.items && d.items.length
       ? d.items.map(it=>{
           const whoAttr = String(it.who||'').split('+').map(x=>x.trim()).join('|');
           const delayedHTML = it.delayed ? `<span class="item-delayed">Delay +${it.delayed}</span>` : '';
-          return `<div class="day-item${it.delayed?' is-delayed':''}" data-who="${whoAttr}" data-client="${it.client||''}" data-owner="${it.owner||''}"><span class="item-task">${it.text}</span><span class="item-who">${it.who}</span>${delayedHTML}</div>`;
+          const showDone = !it.carried && !it.delayed && (it.done || _dayIsPastOrToday);
+          const doneHTML = showDone ? `<span class="item-done">Done</span>` : '';
+          const stateClass = (it.delayed?' is-delayed':'') + (it.carried?' is-carried':'');
+          return `<div class="day-item${stateClass}" data-who="${whoAttr}" data-client="${it.client||''}" data-owner="${it.owner||''}"><span class="item-task">${it.text}</span><span class="item-who">${it.who}</span>${doneHTML}${delayedHTML}</div>`;
         }).join('')
       : '<div class="day-empty">Sense deliveries</div>';
     const filteredEmptyHTML = d.items && d.items.length ? '<div class="day-empty day-empty-filtered" style="display:none;">Sense resultats amb aquest filtre</div>' : '';
