@@ -152,6 +152,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .item-done{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.04em;color:#1A7A4A;background:#EAF5EE;border:1px solid #A9D9BC;border-radius:4px;padding:1px 6px;margin-left:10px;}
 .day-item.is-delayed{border-left-color:#CC2929;}
 .day-item.is-carried{opacity:.45;}
+.day-item{display:flex;align-items:flex-start;gap:8px;}
+.item-check{flex-shrink:0;margin-top:3px;width:13px;height:13px;cursor:pointer;accent-color:var(--black);}
+.item-body{flex:1;min-width:0;}
+.day-item.is-checked{background:#EFF3EF;}
+.day-item.is-checked .item-task{text-decoration:line-through;color:var(--g3);}
 @media (min-width: 1200px){.days-grid{grid-template-columns:repeat(5,1fr);}}
 .day-col{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:12px;min-height:120px;display:flex;flex-direction:column;}
 .day-col.holiday{background:#FDF4E7;border-color:#F0D9A8;}
@@ -2655,6 +2660,23 @@ function isStrictlyPast(d, week){
   const today = new Date(); today.setHours(0,0,0,0);
   return dd.getTime() < today.getTime();
 }
+function getPersonalChecks(){
+  try { return JSON.parse(localStorage.getItem('bbrucePersonalChecks')||'{}'); } catch(e){ return {}; }
+}
+function togglePersonalCheck(id){
+  const checks = getPersonalChecks();
+  checks[id] = !checks[id];
+  try { localStorage.setItem('bbrucePersonalChecks', JSON.stringify(checks)); } catch(e){}
+  const el = document.querySelector(`[data-item-id="${id}"]`);
+  if(el) el.classList.toggle('is-checked', !!checks[id]);
+}
+function applyPersonalChecks(){
+  const checks = getPersonalChecks();
+  document.querySelectorAll('[data-item-id]').forEach(el=>{
+    const id = el.getAttribute('data-item-id');
+    if(checks[id]) el.classList.add('is-checked');
+  });
+}
 function filterDeliveries(weekId){
   const scope = document.getElementById(weekId);
   if(!scope) return;
@@ -2747,13 +2769,14 @@ function renderWeek(week) {
     const noteHTML = d.holidayNote ? `<div class="day-holiday-note">${d.holidayNote}</div>` : '';
     const _dayIsPastOrToday = isStrictlyPast(d, week);
     const itemsHTML = d.items && d.items.length
-      ? d.items.map(it=>{
+      ? d.items.map((it, itemIdx)=>{
+          const itemId = `${week.id}__${d.label}__${itemIdx}`;
           const whoAttr = String(it.who||'').split('+').map(x=>x.trim()).join('|');
           const delayedHTML = it.delayed ? `<span class="item-delayed">Delay +${it.delayed}</span>` : '';
           const showDone = !it.carried && (it.done || _dayIsPastOrToday);
           const doneHTML = showDone ? `<span class="item-done">Done</span>` : '';
           const stateClass = (it.delayed?' is-delayed':'') + ((it.carried && _dayIsPastOrToday)?' is-carried':'');
-          return `<div class="day-item${stateClass}" data-who="${whoAttr}" data-client="${it.client||''}" data-owner="${it.owner||''}"><span class="item-task">${it.text}</span><span class="item-who">${it.who}</span>${doneHTML}${delayedHTML}</div>`;
+          return `<div class="day-item${stateClass}" data-who="${whoAttr}" data-client="${it.client||''}" data-owner="${it.owner||''}" data-item-id="${itemId}"><input type="checkbox" class="item-check" onclick="togglePersonalCheck('${itemId}')"><div class="item-body"><span class="item-task">${it.text}</span><span class="item-who">${it.who}</span>${doneHTML}${delayedHTML}</div></div>`;
         }).join('')
       : '<div class="day-empty">Sense deliveries</div>';
     const filteredEmptyHTML = d.items && d.items.length ? '<div class="day-empty day-empty-filtered" style="display:none;">Sense resultats amb aquest filtre</div>' : '';
@@ -2915,6 +2938,7 @@ const DASH_PHOTOS = {
     }
     container.appendChild(view);
   });
+  applyPersonalChecks();
 })();
 </script>
 </body>
