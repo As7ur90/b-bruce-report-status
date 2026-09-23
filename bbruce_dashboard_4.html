@@ -2663,18 +2663,22 @@ function isStrictlyPast(d, week){
 function getPersonalChecks(){
   try { return JSON.parse(localStorage.getItem('bbrucePersonalChecks')||'{}'); } catch(e){ return {}; }
 }
-function togglePersonalCheck(id){
+function togglePersonalCheck(id, cb){
   const checks = getPersonalChecks();
-  checks[id] = !checks[id];
+  const isChecked = cb ? cb.checked : !checks[id];
+  checks[id] = isChecked;
   try { localStorage.setItem('bbrucePersonalChecks', JSON.stringify(checks)); } catch(e){}
   const el = document.querySelector(`[data-item-id="${id}"]`);
-  if(el) el.classList.toggle('is-checked', !!checks[id]);
+  if(el) el.classList.toggle('is-checked', isChecked);
 }
 function applyPersonalChecks(){
   const checks = getPersonalChecks();
   document.querySelectorAll('[data-item-id]').forEach(el=>{
     const id = el.getAttribute('data-item-id');
-    if(checks[id]) el.classList.add('is-checked');
+    const isChecked = !!checks[id];
+    el.classList.toggle('is-checked', isChecked);
+    const cb = el.querySelector('.item-check');
+    if(cb) cb.checked = isChecked;
   });
 }
 function filterDeliveries(weekId){
@@ -2776,7 +2780,7 @@ function renderWeek(week) {
           const showDone = !it.carried && (it.done || _dayIsPastOrToday);
           const doneHTML = showDone ? `<span class="item-done">Done</span>` : '';
           const stateClass = (it.delayed?' is-delayed':'') + ((it.carried && _dayIsPastOrToday)?' is-carried':'');
-          return `<div class="day-item${stateClass}" data-who="${whoAttr}" data-client="${it.client||''}" data-owner="${it.owner||''}" data-item-id="${itemId}"><input type="checkbox" class="item-check" onclick="togglePersonalCheck('${itemId}')"><div class="item-body"><span class="item-task">${it.text}</span><span class="item-who">${it.who}</span>${doneHTML}${delayedHTML}</div></div>`;
+          return `<div class="day-item${stateClass}" data-who="${whoAttr}" data-client="${it.client||''}" data-owner="${it.owner||''}" data-item-id="${itemId}"><input type="checkbox" class="item-check" onclick="togglePersonalCheck('${itemId}', this)"><div class="item-body"><span class="item-task">${it.text}</span><span class="item-who">${it.who}</span>${doneHTML}${delayedHTML}</div></div>`;
         }).join('')
       : '<div class="day-empty">Sense deliveries</div>';
     const filteredEmptyHTML = d.items && d.items.length ? '<div class="day-empty day-empty-filtered" style="display:none;">Sense resultats amb aquest filtre</div>' : '';
