@@ -149,7 +149,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .dfilter-reset:hover{border-color:var(--black);color:var(--black);}
 .day-empty-filtered{padding:14px 0;}
 .item-delayed{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.04em;color:#CC2929;background:#FCEAEA;border:1px solid #F0B3B3;border-radius:4px;padding:1px 6px;margin-left:10px;}
-.item-done{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.04em;color:#1A7A4A;background:#EAF5EE;border:1px solid #A9D9BC;border-radius:4px;padding:1px 6px;margin-left:10px;}
+.item-done{display:none;font-family:'DM Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.04em;color:#1A7A4A;background:#EAF5EE;border:1px solid #A9D9BC;border-radius:4px;padding:1px 6px;margin-left:10px;}
+.day-item.is-checked .item-done{display:inline-block;}
 .day-item.is-delayed{border-left-color:#CC2929;}
 .day-item.is-carried{opacity:.45;}
 .day-item{display:flex;align-items:flex-start;gap:8px;}
@@ -2584,12 +2585,6 @@ const WEEKS = [
           { who:'Antonio + Dani + Xavi', text:'Presentacio branding J. Hernando (Madrid, 11-13h)', client:'J. Hernando', owner:'Paula' },
           { who:'Alex', text:'Video 625X Kove - textos legals aplicats', client:'Kove', owner:'Astur', done:true },
           { who:'Igor', text:'Newsletter QJ ajustada i enviada', client:'QJ', owner:'Astur' },
-          { who:'Astur', text:'BBOU - planificacio disseny furgonetes', client:'BBOU', owner:'Astur' },
-          { who:'Astur', text:'BBOU - Social Media Playbook (pendent go client)', client:'BBOU', owner:'Astur' },
-          { who:'Astur', text:'BBOU - llistat apps implementacio hotels', client:'BBOU', owner:'Astur' },
-          { who:'Astur', text:'BBOU - campanya Meta Vinuela', client:'BBOU', owner:'Astur' },
-          { who:'Astur', text:'BBOU - campanya Meta Cortijo', client:'BBOU', owner:'Astur' },
-          { who:'Astur', text:'BBOU - pressupost shootings', client:'BBOU', owner:'Astur' },
           { who:'Astur', text:'Legends - newsletters', client:'Legends', owner:'Astur' },
           { who:'Carla', text:'Presentacio Lubrizol Instagram (part pendent de la setmana passada) finalitzada', client:'Lubrizol', owner:'Silvia' },
           { who:'Silvia', text:'Presentacio BPT enviada (necessaria per dimecres)', client:'BPT', owner:'Silvia' },
@@ -2600,8 +2595,7 @@ const WEEKS = [
           { who:'Dachs', text:'Nan Suprem Portugal 1, 2, 3 - ajustos i art final', client:'Nestlé', owner:'Silvia' },
           { who:'Dachs', text:'Ajustos Kira (ultima hora divendres) aplicats i enviats', client:'Kira', owner:'Paula' },
           { who:'Alex', text:'Reel Guillem Graell B-TALK', client:'B-TALK', owner:'Paula' },
-          { who:'Igor', text:'Post B-TALK maquetat (si arriba a temps)', client:'B-TALK', owner:'Paula' },
-          { who:'Alba', text:'Nou projecte Lubrizol iniciat (presentacio setmana vinent)', client:'Lubrizol', owner:'Silvia' }
+          { who:'Igor', text:'Post B-TALK maquetat (si arriba a temps)', client:'B-TALK', owner:'Paula' }
         ]
       },
       {
@@ -2609,7 +2603,27 @@ const WEEKS = [
         items: [
           { who:'Uri', text:'Ajustos configurador tarifes Olin aplicats i enviats (contra rellotge - programacio ha d\'estar per 1 novembre)', client:'Olin', owner:'Silvia' },
           { who:'Dachs + Angel', text:'3 arts finals merchandising Olin (a Oxi)', client:'Olin', owner:'Silvia' },
-          { who:'Angel', text:'Feedback display Olin aplicat (treballat per Igor, mides adaptades)', client:'Olin', owner:'Silvia' }
+          { who:'Angel', text:'Feedback display Olin aplicat (treballat per Igor, mides adaptades)', client:'Olin', owner:'Silvia' },
+          { who:'Dachs', text:'Nan Optipro PT x4', client:'Nestlé', owner:'Silvia' },
+          { who:'Dachs', text:'Nan Supreme Pro ES x4', client:'Nestlé', owner:'Silvia' },
+          { who:'Alba', text:'Xarxes socials Olin', client:'Olin', owner:'Silvia' },
+          { who:'Alex', text:'Animacio Lubrizol', client:'Lubrizol', owner:'Silvia' },
+          { who:'Alex', text:'Capsula B-TALK', client:'B-TALK', owner:'Paula', carried:true },
+          { who:'Xavi', text:'Namings LIN3S SPORT (treball previ a la presentacio de dimecres)', client:'LIN3S SPORT', owner:'Paula' },
+          { who:'Larraz', text:'2 videos CF Badalona ajustats', client:'CF Badalona', owner:'Paula' },
+          { who:'Uri', text:'Check Well On', client:'Well On', owner:'Paula' },
+          { who:'Uri', text:'Check Candidate', client:'Kivel', owner:'Paula' },
+          { who:'Uri', text:'Avancar planificacio Museu Maritim (res plantejat encara)', client:'Museu Marítim', owner:'Paula' },
+          { who:'Igor', text:'V1 visuals ASICS tretes', client:'ASICS', owner:'Albert' },
+          { who:'Dachs', text:'AAFF materials impressio ASICS', client:'ASICS', owner:'Albert' },
+          { who:'Igor', text:'Ajustos keyvisuals Torres RTD', client:'Torres', owner:'Astur' },
+          { who:'Dachs', text:'Furgonetes BBOU (disseny)', client:'BBOU', owner:'Astur' },
+          { who:'Igor', text:'Campanya Meta La Vinuela + Cortijo Bravo: creativitats enviades (urgent)', client:'BBOU', owner:'Astur' },
+          { who:'Astur', text:'Pressupostos campanyes Meta (Vinuela + Cortijo Bravo)', client:'BBOU', owner:'Astur' },
+          { who:'Astur', text:'Disseny furgonetes BBOU (revisio)', client:'BBOU', owner:'Astur' },
+          { who:'Astur', text:'Ajustos campanya 4.2 QJ', client:'QJ', owner:'Astur' },
+          { who:'Astur', text:'Copys + bodycopies campanyes SUUR', client:'SUUR', owner:'Astur' },
+          { who:'Dachs', text:'Flyer CSI', client:'CSI', owner:'Astur' }
         ]
       },
       {
@@ -2619,10 +2633,13 @@ const WEEKS = [
           { who:'Xavi', text:'Presentacio 2a ronda naming LIN3S SPORT', client:'LIN3S SPORT', owner:'Paula' },
           { who:'Xavi + Antonio', text:'Briefing branding LIN3S SPORT rebut (brand manifesto + narrativa)', client:'LIN3S SPORT', owner:'Paula' },
           { who:'Paula + Uri', text:'Presentacio wireframes Well On (revisio Uri)', client:'Well On', owner:'Paula' },
-          { who:'Dachs', text:'Flyer CSI', client:'CSI', owner:'Astur' },
           { who:'Larraz', text:'Videos Sportfil traduits a angles (Case Badalona)', client:'Sportfil', owner:'Silvia' },
           { who:'Uri', text:'Ajustos logo i aplicacions Sportfil (brand show actualitzat)', client:'Sportfil', owner:'Silvia' },
-          { who:'Equip de comptes', text:'Tancament facturacio del mes', client:null, owner:null }
+          { who:'Equip de comptes', text:'Tancament facturacio del mes', client:null, owner:null },
+          { who:'Igor', text:'3 logos models QJ', client:'QJ', owner:'Astur' },
+          { who:'Igor', text:'Campanya Meta La Vinuela + Cortijo Bravo: declinacions + exports finals per Prisma', client:'BBOU', owner:'Astur' },
+          { who:'Dachs', text:'Disseny concessionari Autocyl (Kove + QJ)', client:'Kove', owner:'Astur' },
+          { who:'Dachs', text:'Cartelleria retroil·luminada QJ & Kove', client:'QJ', owner:'Astur' }
         ]
       },
       {
@@ -2630,7 +2647,8 @@ const WEEKS = [
         items: [
           { who:'Silvia + Carla + Queralt', text:'Presentacio Instagram + Brand Assets Lubrizol Beauty realitzada (9h)', client:'Lubrizol', owner:'Silvia' },
           { who:'Paula + Uri', text:'Revisio treball ongoing disseny Well On (1h)', client:'Well On', owner:'Paula' },
-          { who:'Antonio', text:'Animacio il·lustracions Lubrizol', client:'Lubrizol', owner:'Silvia' }
+          { who:'Antonio', text:'Animacio il·lustracions Lubrizol', client:'Lubrizol', owner:'Silvia' },
+          { who:'Uri', text:'Presentacio BBOU actualitzada (nou kerning lletres)', client:'BBOU', owner:'Astur' }
         ]
       },
       {
@@ -2638,7 +2656,9 @@ const WEEKS = [
         items: [
           { who:'Astur', text:'Proposta web + social media AFP Courts (ampliacio abast 2027)', client:'AFP Courts', owner:'Astur' },
           { who:'Queralt', text:'Lubrizol Body Antiaging SM Playbook', client:'Lubrizol', owner:'Silvia' },
-          { who:'Antonio', text:'Papereria Kira signada', client:'Kira', owner:'Paula' }
+          { who:'Antonio', text:'Papereria Kira signada', client:'Kira', owner:'Paula' },
+          { who:'Dachs', text:'Tote Bag Rugby CSI Leasing', client:'CSI', owner:'Astur' },
+          { who:'Queralt', text:'Nou projecte Lubrizol iniciat (presentacio setmana vinent)', client:'Lubrizol', owner:'Silvia' }
         ]
       }
     ],
@@ -2916,7 +2936,8 @@ function applyPersonalChecks(){
   const checks = getPersonalChecks();
   document.querySelectorAll('[data-item-id]').forEach(el=>{
     const id = el.getAttribute('data-item-id');
-    const isChecked = !!checks[id];
+    const hasStored = Object.prototype.hasOwnProperty.call(checks, id);
+    const isChecked = hasStored ? !!checks[id] : el.hasAttribute('data-default-done');
     el.classList.toggle('is-checked', isChecked);
     const cb = el.querySelector('.item-check');
     if(cb) cb.checked = isChecked;
@@ -3019,10 +3040,9 @@ function renderWeek(week) {
           const itemId = `${week.id}__${d.label}__${simpleHash((it.who||'')+'|'+(it.text||''))}`;
           const whoAttr = String(it.who||'').split('+').map(x=>x.trim()).join('|');
           const delayedHTML = it.delayed ? `<span class="item-delayed">Delay +${it.delayed}</span>` : '';
-          const showDone = !it.carried && (it.done || _dayIsPastOrToday);
-          const doneHTML = showDone ? `<span class="item-done">Done</span>` : '';
           const stateClass = (it.delayed?' is-delayed':'') + ((it.carried && _dayIsPastOrToday)?' is-carried':'');
-          return `<div class="day-item${stateClass}" data-who="${whoAttr}" data-client="${it.client||''}" data-owner="${it.owner||''}" data-item-id="${itemId}"><input type="checkbox" class="item-check" onclick="togglePersonalCheck('${itemId}', this)"><div class="item-body"><span class="item-task">${it.text}</span><span class="item-who">${it.who}</span>${doneHTML}${delayedHTML}</div></div>`;
+          const defaultDoneAttr = it.done ? ' data-default-done="1"' : '';
+          return `<div class="day-item${stateClass}" data-who="${whoAttr}" data-client="${it.client||''}" data-owner="${it.owner||''}" data-item-id="${itemId}"${defaultDoneAttr}><input type="checkbox" class="item-check" onclick="togglePersonalCheck('${itemId}', this)"><div class="item-body"><span class="item-task">${it.text}</span><span class="item-who">${it.who}</span><span class="item-done">Done</span>${delayedHTML}</div></div>`;
         }).join('')
       : '<div class="day-empty">Sense deliveries</div>';
     const filteredEmptyHTML = d.items && d.items.length ? '<div class="day-empty day-empty-filtered" style="display:none;">Sense resultats amb aquest filtre</div>' : '';
