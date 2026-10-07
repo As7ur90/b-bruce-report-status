@@ -158,6 +158,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--black);mi
 .item-body{flex:1;min-width:0;}
 .day-item.is-checked{background:#EFF3EF;}
 .day-item.is-checked .item-task{text-decoration:line-through;color:var(--g3);}
+.day-add{margin-top:8px;}
+.day-add-btn{width:100%;font-family:'DM Mono',monospace;font-size:10.5px;padding:6px;border:1px dashed var(--border);border-radius:5px;background:transparent;color:var(--g4);cursor:pointer;}
+.day-add-btn:hover{border-color:var(--black);color:var(--black);}
+.day-add-form{background:#F8F7F4;border:1px solid var(--border);border-radius:5px;padding:8px;}
+.day-add-form input,.day-add-form select{width:100%;box-sizing:border-box;font-family:'DM Sans',sans-serif;font-size:11px;padding:5px 7px;margin-bottom:5px;border:1px solid var(--border);border-radius:4px;background:var(--white);color:var(--black);}
+.af-actions{display:flex;gap:6px;}
+.af-actions button{flex:1;font-family:'DM Mono',monospace;font-size:10.5px;padding:5px;border:1px solid var(--border);border-radius:4px;background:var(--white);color:var(--black);cursor:pointer;}
+.af-actions button:first-child{background:var(--black);color:var(--white);border-color:var(--black);}
+.item-local{font-family:'DM Mono',monospace;font-size:9px;color:var(--g4);border:1px dotted var(--g3);border-radius:4px;padding:1px 5px;margin-left:10px;}
+.item-remove{border:none;background:transparent;color:var(--g4);cursor:pointer;font-size:14px;line-height:1;margin-left:6px;padding:0 2px;}
+.item-remove:hover{color:#CC2929;}
+.local-tools{display:none;gap:8px;align-items:center;}
+.item-task,.item-who{overflow-wrap:anywhere;word-break:break-word;}
+.item-meta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;}
+.item-meta .item-delayed,.item-meta .item-done,.item-meta .item-local{margin-left:0;white-space:nowrap;}
+.item-meta .item-remove{margin-left:auto;}
 @media (min-width: 1200px){.days-grid{grid-template-columns:repeat(5,1fr);}}
 .day-col{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:12px;min-height:120px;display:flex;flex-direction:column;}
 .day-col.holiday{background:#FDF4E7;border-color:#F0D9A8;}
@@ -3241,6 +3257,141 @@ function applyPersonalChecks(){
     if(cb) cb.checked = isChecked;
   });
 }
+function escHtml(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+function itemHTML(weekId, dayLabel, it, dayIsPast, isLocal){
+  const itemId = `${weekId}__${dayLabel}__${simpleHash((it.who||'')+'|'+(it.text||''))}`;
+  const whoAttr = String(it.who||'').split('+').map(x=>x.trim()).join('|');
+  const delayedHTML = it.delayed ? `<span class="item-delayed">Delay +${escHtml(it.delayed)}</span>` : '';
+  const localHTML = isLocal ? `<span class="item-local">afegit (local)</span><button type="button" class="item-remove" title="Treure" onclick="removeLocalItem(this)">×</button>` : '';
+  const stateClass = (it.delayed?' is-delayed':'') + ((it.carried && dayIsPast)?' is-carried':'') + (isLocal?' is-local':'');
+  const defaultDoneAttr = it.done ? ' data-default-done="1"' : '';
+  return `<div class="day-item${stateClass}" data-who="${escHtml(whoAttr)}" data-client="${escHtml(it.client||'')}" data-owner="${escHtml(it.owner||'')}" data-item-id="${escHtml(itemId)}"${defaultDoneAttr}><input type="checkbox" class="item-check" onclick="togglePersonalCheck(this.closest('.day-item').getAttribute('data-item-id'), this)"><div class="item-body"><span class="item-task">${escHtml(it.text)}</span><div class="item-meta">${it.who ? `<span class="item-who">${escHtml(it.who)}</span>` : ''}<span class="item-done">Done</span>${delayedHTML}${localHTML}</div></div></div>`;
+}
+const LOCAL_ADDS_KEY = 'bbruceLocalAdds';
+function getLocalAdds(){ try { return JSON.parse(localStorage.getItem(LOCAL_ADDS_KEY)||'{}'); } catch(e){ return {}; } }
+function saveLocalAdds(o){ try { localStorage.setItem(LOCAL_ADDS_KEY, JSON.stringify(o)); } catch(e){} }
+function dataHasItem(weekId, dayLabel, it){
+  const w = WEEKS.find(x=>x.id===weekId);
+  if(!w || !w.days) return false;
+  const d = w.days.find(x=>x.label===dayLabel);
+  return !!(d && (d.items||[]).some(x=>(x.who||'')===(it.who||'') && (x.text||'')===(it.text||'')));
+}
+function ensureOpt(sel, val){
+  if(!sel || !val) return;
+  if(![...sel.options].some(o=>o.value===val)){ const o = document.createElement('option'); o.value = val; o.textContent = val; sel.appendChild(o); }
+}
+function insertLocalItemDOM(weekId, dayLabel, it){
+  const root = document.getElementById(weekId); if(!root) return;
+  const col = [...root.querySelectorAll('.day-col')].find(c=>c.getAttribute('data-day')===dayLabel); if(!col) return;
+  const box = col.querySelector('.day-items');
+  const empty = box.querySelector('.day-empty:not(.day-empty-filtered)'); if(empty) empty.remove();
+  const tmp = document.createElement('div');
+  tmp.innerHTML = itemHTML(weekId, dayLabel, it, false, true);
+  box.insertBefore(tmp.firstElementChild, box.querySelector('.day-empty-filtered'));
+  String(it.who||'').split('+').map(x=>x.trim()).filter(Boolean).forEach(w=>ensureOpt(root.querySelector('.dfilter[data-ftype="who"]'), w));
+  ensureOpt(root.querySelector('.dfilter[data-ftype="client"]'), it.client);
+  ensureOpt(root.querySelector('.dfilter[data-ftype="owner"]'), it.owner);
+}
+function updateLocalTools(weekId){
+  const root = document.getElementById(weekId); if(!root) return;
+  const t = root.querySelector('.local-tools');
+  if(t) t.style.display = root.querySelector('.is-local') ? 'inline-flex' : 'none';
+}
+function addLocalItem(weekId, dayLabel, it){
+  if(dataHasItem(weekId, dayLabel, it)) return false;
+  const all = getLocalAdds();
+  all[weekId] = all[weekId] || {};
+  all[weekId][dayLabel] = all[weekId][dayLabel] || [];
+  if(all[weekId][dayLabel].some(x=>x.who===it.who && x.text===it.text)) return false;
+  all[weekId][dayLabel].push(it);
+  saveLocalAdds(all);
+  insertLocalItemDOM(weekId, dayLabel, it);
+  applyPersonalChecks();
+  filterDeliveries(weekId);
+  updateLocalTools(weekId);
+  return true;
+}
+function removeLocalItem(btn){
+  const el = btn.closest('.day-item'); const col = btn.closest('.day-col'); const root = btn.closest('.week-view');
+  if(!el || !col || !root) return;
+  const weekId = root.id, dayLabel = col.getAttribute('data-day'), id = el.getAttribute('data-item-id');
+  const all = getLocalAdds();
+  if(all[weekId] && all[weekId][dayLabel]){
+    all[weekId][dayLabel] = all[weekId][dayLabel].filter(it=>`${weekId}__${dayLabel}__${simpleHash((it.who||'')+'|'+(it.text||''))}` !== id);
+    saveLocalAdds(all);
+  }
+  const box = col.querySelector('.day-items');
+  el.remove();
+  if(!box.querySelector('.day-item') && !box.querySelector('.day-empty:not(.day-empty-filtered)')){
+    const e = document.createElement('div'); e.className = 'day-empty'; e.textContent = 'Sense deliveries';
+    box.insertBefore(e, box.querySelector('.day-empty-filtered'));
+  }
+  filterDeliveries(weekId);
+  updateLocalTools(weekId);
+}
+function applyLocalAdditions(){
+  const all = getLocalAdds();
+  let changed = false;
+  Object.keys(all).forEach(weekId=>{
+    Object.keys(all[weekId]).forEach(dayLabel=>{
+      const keep = all[weekId][dayLabel].filter(it=>!dataHasItem(weekId, dayLabel, it));
+      if(keep.length !== all[weekId][dayLabel].length){ all[weekId][dayLabel] = keep; changed = true; }
+      keep.forEach(it=>insertLocalItemDOM(weekId, dayLabel, it));
+    });
+    updateLocalTools(weekId);
+  });
+  if(changed) saveLocalAdds(all);
+}
+function toggleAddForm(btn){
+  const wrap = btn.closest('.day-add'); if(!wrap) return;
+  const form = wrap.querySelector('.day-add-form'); const open = wrap.querySelector('.day-add-btn');
+  const show = form.style.display === 'none';
+  form.style.display = show ? 'block' : 'none';
+  open.style.display = show ? 'none' : '';
+  if(show){ const f = form.querySelector('.af-who'); if(f) f.focus(); }
+}
+function submitAddForm(btn){
+  const wrap = btn.closest('.day-add'); const col = btn.closest('.day-col'); const root = btn.closest('.week-view');
+  if(!wrap || !col || !root) return;
+  const text = wrap.querySelector('.af-text').value.trim();
+  if(!text){ wrap.querySelector('.af-text').focus(); return; }
+  const it = { who: wrap.querySelector('.af-who').value.trim(), text, client: wrap.querySelector('.af-client').value.trim() || null, owner: wrap.querySelector('.af-owner').value || null };
+  const delay = parseInt(wrap.querySelector('.af-delay').value, 10);
+  if(delay > 0) it.delayed = delay;
+  addLocalItem(root.id, col.getAttribute('data-day'), it);
+  wrap.querySelectorAll('input').forEach(i=>i.value='');
+  wrap.querySelector('.af-owner').value = '';
+  toggleAddForm(btn);
+}
+function jsq(s){ return "'" + String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'") + "'"; }
+function copyText(text, btn){
+  const done = ()=>{ if(btn){ const o = btn.textContent; btn.textContent = 'Copiat!'; setTimeout(()=>{ btn.textContent = o; }, 1500); } };
+  const fallback = ()=>{
+    const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch(e){ window.prompt('Copia aquest text:', text); }
+    document.body.removeChild(ta);
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done).catch(fallback); } else { fallback(); }
+}
+function exportLocalAdds(weekId, btn){
+  const all = getLocalAdds()[weekId] || {};
+  const w = WEEKS.find(x=>x.id===weekId); if(!w || !w.days) return;
+  const lines = [];
+  w.days.forEach(d=>{
+    const arr = (all[d.label]||[]).filter(it=>!dataHasItem(weekId, d.label, it));
+    if(!arr.length) return;
+    lines.push('// ' + d.label);
+    arr.forEach(it=>lines.push('{ who:' + jsq(it.who) + ', text:' + jsq(it.text) + ', client:' + (it.client ? jsq(it.client) : 'null') + ', owner:' + (it.owner ? jsq(it.owner) : 'null') + (it.delayed ? ', delayed:' + it.delayed : '') + ' },'));
+  });
+  if(lines.length) copyText(lines.join('\n'), btn);
+}
+function clearLocalAdds(weekId){
+  if(!window.confirm('Esborrar les tasques afegides en local d\'aquesta setmana?')) return;
+  const all = getLocalAdds();
+  delete all[weekId];
+  saveLocalAdds(all);
+  window.location.reload();
+}
 function filterDeliveries(weekId){
   const scope = document.getElementById(weekId);
   if(!scope) return;
@@ -3328,23 +3479,18 @@ function renderWeek(week) {
     <select class="dfilter" data-ftype="client" onchange="filterDeliveries('${week.id}')"><option value="">Client: tots</option>${_clientOpts}</select>
     <select class="dfilter" data-ftype="owner" onchange="filterDeliveries('${week.id}')"><option value="">Responsable: tots</option>${_ownerOpts}</select>
     <button type="button" class="dfilter-reset" onclick="resetDeliveryFilters('${week.id}')">Netejar filtres</button>
+    <span class="local-tools"><button type="button" class="dfilter-reset" onclick="exportLocalAdds('${week.id}', this)">Exportar afegits</button><button type="button" class="dfilter-reset" onclick="clearLocalAdds('${week.id}')">Esborrar afegits</button></span>
   </div>` : '';
-  const daysHTML = week.days ? `<div class="days-header"><span class="days-title">Deliveries day by day</span><span class="days-subtitle">entregables previstos per dia</span></div>${filtersHTML}<div class="days-grid">${week.days.map(d=>{
+  const daysHTML = week.days ? `<div class="days-header"><span class="days-title">Deliveries day by day</span><span class="days-subtitle">entregables previstos per dia</span></div>${filtersHTML}<datalist id="dl-who-${week.id}">${_whoOpts}</datalist><datalist id="dl-client-${week.id}">${_clientOpts}</datalist><div class="days-grid">${week.days.map(d=>{
     const holidayClass = d.holiday ? ' holiday' : '';
     const noteHTML = d.holidayNote ? `<div class="day-holiday-note">${d.holidayNote}</div>` : '';
     const _dayIsPastOrToday = isStrictlyPast(d, week);
     const itemsHTML = d.items && d.items.length
-      ? d.items.map((it, itemIdx)=>{
-          const itemId = `${week.id}__${d.label}__${simpleHash((it.who||'')+'|'+(it.text||''))}`;
-          const whoAttr = String(it.who||'').split('+').map(x=>x.trim()).join('|');
-          const delayedHTML = it.delayed ? `<span class="item-delayed">Delay +${it.delayed}</span>` : '';
-          const stateClass = (it.delayed?' is-delayed':'') + ((it.carried && _dayIsPastOrToday)?' is-carried':'');
-          const defaultDoneAttr = it.done ? ' data-default-done="1"' : '';
-          return `<div class="day-item${stateClass}" data-who="${whoAttr}" data-client="${it.client||''}" data-owner="${it.owner||''}" data-item-id="${itemId}"${defaultDoneAttr}><input type="checkbox" class="item-check" onclick="togglePersonalCheck('${itemId}', this)"><div class="item-body"><span class="item-task">${it.text}</span><span class="item-who">${it.who}</span><span class="item-done">Done</span>${delayedHTML}</div></div>`;
-        }).join('')
+      ? d.items.map(it=>itemHTML(week.id, d.label, it, _dayIsPastOrToday, false)).join('')
       : '<div class="day-empty">Sense deliveries</div>';
-    const filteredEmptyHTML = d.items && d.items.length ? '<div class="day-empty day-empty-filtered" style="display:none;">Sense resultats amb aquest filtre</div>' : '';
-    return `<div class="day-col${holidayClass}"><div class="day-label">${d.label}</div>${noteHTML}<div class="day-items">${itemsHTML}${filteredEmptyHTML}</div></div>`;
+    const filteredEmptyHTML = '<div class="day-empty day-empty-filtered" style="display:none;">Sense resultats amb aquest filtre</div>';
+    const addHTML = `<div class="day-add"><button type="button" class="day-add-btn" onclick="toggleAddForm(this)">+ Afegir</button><div class="day-add-form" style="display:none"><input class="af-who" list="dl-who-${week.id}" placeholder="Persona (ex. Igor + Uri)"><input class="af-text" placeholder="Tasca"><input class="af-client" list="dl-client-${week.id}" placeholder="Client"><select class="af-owner"><option value="">Responsable</option>${_ownerOpts}</select><input class="af-delay" type="number" min="0" placeholder="Delay (dies, opcional)"><div class="af-actions"><button type="button" onclick="submitAddForm(this)">Afegir</button><button type="button" onclick="toggleAddForm(this)">Cancel·lar</button></div></div></div>`;
+    return `<div class="day-col${holidayClass}" data-day="${d.label}"><div class="day-label">${d.label}</div>${noteHTML}<div class="day-items">${itemsHTML}${filteredEmptyHTML}</div>${addHTML}</div>`;
   }).join('')}</div>` : '';
 
   const deptsHTML = week.departments.map(dept=>`
@@ -3502,6 +3648,7 @@ const DASH_PHOTOS = {
     }
     container.appendChild(view);
   });
+  applyLocalAdditions();
   applyPersonalChecks();
 })();
 </script>
