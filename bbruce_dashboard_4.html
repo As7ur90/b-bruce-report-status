@@ -2872,7 +2872,7 @@ const WEEKS = [
           { who:'Dachs', text:'Reentrega stick Nestle (ajust Portugal)', client:'Nestlé', owner:'Silvia' },
           { who:'Dachs', text:'Feedback Suprem Pro Espanya (brick i caixa)', client:'Nestlé', owner:'Silvia' },
           { who:'Dachs', text:'Nan Expert Pro: referencia que falta + fulletó', client:'Nestlé', owner:'Silvia' },
-          { who:'Queralt', text:'Feedback cosmetics Lubrizol', client:'Lubrizol', owner:'Silvia' },
+          { who:'Queralt', text:'Feedback cosmetics Lubrizol', client:'Lubrizol', owner:'Silvia', carried:true },
           { who:'Queralt + Alba', text:'Proposta nou projecte body Lubrizol', client:'Lubrizol', owner:'Silvia' },
           { who:'Alba', text:'Modificar publicacions BPT', client:'BPT', owner:'Silvia' },
           { who:'Alba', text:'Carrusel Echevarne', client:'Echevarne', owner:'Astur' },
@@ -2906,9 +2906,9 @@ const WEEKS = [
           { who:'Dachs', text:'Nan Supreme caixes x3 (reunio + AF)', client:'Nestlé', owner:'Silvia' },
           { who:'Alba', text:'Xarxes socials Olin', client:'Olin', owner:'Silvia' },
           { who:'Larraz', text:'Reel Olin', client:'Olin', owner:'Silvia' },
-          { who:'Queralt', text:'Feedback In-Cosmetics Lubrizol', client:'Lubrizol', owner:'Silvia' },
+          { who:'Queralt', text:'Feedback In-Cosmetics Lubrizol', client:'Lubrizol', owner:'Silvia', carried:true },
           { who:'Queralt', text:'Feedback Optisana', client:'Lidl', owner:'Silvia' },
-          { who:'Queralt', text:'Comencar nou projecte Lubrizol (body)', client:'Lubrizol', owner:'Silvia' },
+          { who:'Queralt', text:'Comencar nou projecte Lubrizol (body)', client:'Lubrizol', owner:'Silvia', carried:true },
           { who:'Carla', text:'Newsletter B-Bruce', client:null, owner:'Paula' },
           { who:'Uri', text:'Proves Candidate', client:'Kivel', owner:'Paula' }
         ]
@@ -2916,8 +2916,23 @@ const WEEKS = [
       {
         label: 'Dimecres 7',
         items: [
-          { who:'Uri', text:'Presentacio treball Museu Maritim', client:'Museu Marítim', owner:'Paula' },
-          { who:'Albert + Silvia + Paula + Astur', text:'Reunio de comptes', client:null, owner:null }
+          { who:'Uri', text:'Presentacio direccio d\'art Museu Maritim', client:'Museu Marítim', owner:'Paula' },
+          { who:'Albert + Silvia + Paula + Astur', text:'Reunio de comptes', client:null, owner:null },
+          { who:'Angel', text:'Lidl (seguiment)', client:'Lidl', owner:'Silvia' },
+          { who:'Dachs', text:'Nan Supreme Pro caixes', client:'Nestlé', owner:'Silvia' },
+          { who:'Dachs', text:'Nan Confort', client:'Nestlé', owner:'Silvia' },
+          { who:'Dachs', text:'Nan Supreme PT AF', client:'Nestlé', owner:'Silvia' },
+          { who:'Dachs', text:'Iniciar Nan HA', client:'Nestlé', owner:'Silvia' },
+          { who:'Queralt', text:'Feedback In-Cosmetics Lubrizol', client:'Lubrizol', owner:'Silvia', delayed:2 },
+          { who:'Queralt', text:'Feedback Antarticine', client:null, owner:'Silvia' },
+          { who:'Queralt', text:'Comencar nou projecte Lubrizol (body)', client:'Lubrizol', owner:'Silvia', delayed:1 },
+          { who:'Alba', text:'Comencar nou projecte Lubrizol (body)', client:'Lubrizol', owner:'Silvia' },
+          { who:'Igor', text:'Flyer Olin', client:'Olin', owner:'Silvia' },
+          { who:'Toni Mateo', text:'Pujar web Teras', client:'Olin', owner:'Silvia' },
+          { who:'Antonio', text:'Retreball "Hs" branding J. Hernando', client:'J. Hernando', owner:'Paula' },
+          { who:'Dachs', text:'AF Mercedes Benz BBOU', client:'BBOU', owner:'Astur' },
+          { who:'Igor', text:'Ajustos creativitats Legends', client:'Legends', owner:'Astur' },
+          { who:'Igor + Uri', text:'BBOU: nou feedback campanyes Meta + Google (Vinuela + Cortijo)', client:'BBOU', owner:'Astur' }
         ]
       },
       {
@@ -2945,6 +2960,9 @@ const WEEKS = [
           { name:'Igor', id:'igor', initials:'IM', avatarBg:'#FCEAEA', avatarTxt:'#CC2929', role:'Disseny', pct:100,
             projects:[
               { name:'Motos Bordoy (QJ + Kove)', note:'Dedicacio habitual ~40% del temps setmanal a Bordoy.', dur:'al llarg setmana', type:'active' },
+              { name:'Olin (flyer)', note:'Flyer d\'Olin.', dur:'dimecres 7', type:'active' },
+              { name:'Legends (ajustos creativitats)', note:'Ajustos de les creativitats.', dur:'dimecres 7', type:'active' },
+              { name:'BBOU (nou feedback Meta + Google)', note:'Nou feedback de les campanyes Vinuela + Cortijo, amb Uri.', dur:'dimecres 7', type:'block' },
               { name:'Legends (carrusels)', note:'Nous formats de carrusel estatic i video amb Larraz.', dur:'dilluns 5', type:'block' },
               { name:'BBOU (campanyes Cortijo Bravo + La Vinuela)', note:'Feedback: replantejar elements i triar les imatges correctes. Ho teniem per dilluns i no es va arribar: passa a dimarts, el mes urgent.', dur:'dimarts 6', type:'block' },
               { name:'AFP Courts (creativitats ADS)', note:'Ajustos de les noves creativitats per la reunio de revisio de campanyes SEM i SEO.', dur:'dimarts 6', type:'active' },
@@ -2955,6 +2973,7 @@ const WEEKS = [
         members:[
           { name:'Antonio', id:'antonio', initials:'AP', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Branding + web', responsible:true, pct:110,
             projects:[
+              { name:'J. Hernando (retreball Hs)', note:'Retreball del "Hs" del branding.', dur:'dimecres 7', type:'active' },
               { name:'Hexagon Cup (possible stand)', note:'Parlar amb Xavi dels requisits de produccio del possible stand. Conceptes dimarts 6 amb Xavi.', dur:'dilluns 5 - dimarts 6', type:'active' },
               { name:'Kira Ventures (web + papereria)', note:'Web: responsive, pagines de disseny, cookies, menus i politiques. Papereria corporativa pendent.', dur:'al llarg setmana', type:'active' },
               { name:'Olin (inici projecte)', note:'Inici del treball del projecte Olin.', dur:'al llarg setmana', type:'active' },
@@ -2962,7 +2981,7 @@ const WEEKS = [
             ]},
           { name:'Uri', id:'uri', initials:'UR', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'UX/UI', responsible:true, pct:110,
             projects:[
-              { name:'Museu Maritim (presentacio)', note:'Presenta el treball dimecres 7.', dur:'dimecres 7', type:'block' },
+              { name:'Museu Maritim (presentacio)', note:'Presenta la direccio d\'art dimecres 7.', dur:'dimecres 7', type:'block' },
               { name:'BBOU (Social Media Playbook)', note:'Ho engega a mitja setmana, a partir de dijous 8, amb el pressupost del projecte inicial. No es un entregable.', dur:'a partir de dijous 8', type:'pending' },
               { name:'BBOU (campanyes Cortijo Bravo + La Vinuela)', note:'Amb Igor, urgent: ho teniem per dilluns i no es va arribar.', dur:'dimarts 6', type:'block' },
               { name:'Candidate (Kivel)', note:'Proves.', dur:'dimarts 6', type:'active' },
@@ -2981,7 +3000,7 @@ const WEEKS = [
           { name:'Toni Mateo', id:'toni', initials:'TM', avatarBg:'#E8F5EE', avatarTxt:'#1A7A4A', role:'Web Developer (4h/dia)', pct:90,
             projects:[
               { name:'Candidate (Kivel)', note:'Provar el flux d\'usuari en mobils (problemes a Android) i millorar el format dels correus que rep l\'usuari.', dur:'al llarg setmana', type:'active' },
-              { name:'Olin', note:'Tasques de Olin assignades.', dur:'al llarg setmana', type:'active' }
+              { name:'Olin (web Teras)', note:'Pujar la web Teras.', dur:'dimecres 7', type:'active' }
             ]}
         ]},
       { label:'Iconic Packaging & Off Materials', accent:'#A05C00',
@@ -2990,15 +3009,17 @@ const WEEKS = [
             projects:[
               { name:'Optisana (Lidl)', note:'8 ficticis amb Queralt abans de les 14h: maxima prioritat.', dur:'dilluns 5', type:'block' },
               { name:'Nestle (stick, Suprem Pro ES, Nan Expert Pro)', note:'Reentrega stick (ajust Portugal), feedback Suprem Pro Espanya (brick i caixa), referencia que falta + fulletó de Nan Expert Pro.', dur:'dilluns 5', type:'block' },
-              { name:'BBOU (vehicle Mercedes)', note:'Ajustos mini i despres preparar arts finals. Dimarts: feedback Mercedes Benz.', dur:'dilluns 5 - dimarts 6', type:'quick' },
-              { name:'Nestle (Expert Pro ES, Optipro, Nan Supreme)', note:'Expert Pro ES + Optipro + caixes Nan Supreme x3 (reunio + AF).', dur:'dimarts 6', type:'block' }
+              { name:'BBOU (vehicle Mercedes)', note:'Ajustos mini, feedback Mercedes Benz (dimarts) i art final (dimecres).', dur:'dilluns 5 - dimecres 7', type:'quick' },
+              { name:'Nestle (Expert Pro ES, Optipro, Nan Supreme)', note:'Expert Pro ES + Optipro + caixes Nan Supreme x3 (reunio + AF).', dur:'dimarts 6', type:'block' },
+              { name:'Nestle (Nan Supreme Pro, Confort, Supreme PT, Nan HA)', note:'Caixes Nan Supreme Pro + Nan Confort + Nan Supreme PT AF + iniciar Nan HA.', dur:'dimecres 7', type:'block' }
             ]},
           { name:'Queralt', id:'queralt', initials:'QS', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Packaging (½ jornada)', pct:100,
             projects:[
               { name:'Optisana (Lidl)', note:'8 ficticis amb Dachs abans de les 14h.', dur:'dilluns 5', type:'block' },
-              { name:'Lubrizol (feedback cosmetics)', note:'Feedback pendent.', dur:'dilluns 5', type:'active' },
-              { name:'Lubrizol (nou projecte body)', note:'Comenca el nou projecte (proposta repartida amb Alba).', dur:'dimarts 6', type:'active' },
-              { name:'Optisana (feedback)', note:'Feedback dels ficticis.', dur:'dimarts 6', type:'active' }
+              { name:'Lubrizol (feedback In-Cosmetics)', note:'Encara pendent: retardat des de dilluns.', dur:'dimecres 7', type:'block' },
+              { name:'Lubrizol (nou projecte body)', note:'Encara per comencar (retardat de dimarts), amb Alba.', dur:'dimecres 7', type:'active' },
+              { name:'Optisana (feedback)', note:'Feedback dels ficticis.', dur:'dimarts 6', type:'active' },
+              { name:'Antarticine (feedback)', note:'Feedback.', dur:'dimecres 7', type:'active' }
             ]},
           { name:'Angel', id:'angel', initials:'AA', avatarBg:'#FFF0DC', avatarTxt:'#A05C00', role:'Art final', pct:80,
             projects:[
@@ -3030,7 +3051,7 @@ const WEEKS = [
               { name:'Catalonia (post)', note:'Avancar el post.', dur:'dilluns 5', type:'active' },
               { name:'Olin (xarxes socials)', note:'Xarxes socials d\'Olin.', dur:'dimarts 6', type:'active' },
               { name:'CSI (tote bag)', note:'Feedback del tote bag.', dur:'dimarts 6', type:'active' },
-              { name:'Lubrizol (nou projecte body)', note:'Proposta amb Queralt.', dur:'al llarg setmana', type:'active' }
+              { name:'Lubrizol (nou projecte body)', note:'Comenca el nou projecte amb Queralt.', dur:'dimecres 7', type:'active' }
             ]}
         ]},
       { label:'Business Development', accent:'#2D6E2D', mgmt:true,
@@ -3056,8 +3077,8 @@ const WEEKS = [
           { name:'Astur', id:'astur', initials:'AS', avatarBg:'#E6F0FA', avatarTxt:'#1A5C9A', role:'CXO', responsible:true, pct:90,
             projects:[
               { name:'Bordoy (QJ + Kove)', note:'Retroil·luminats: feedback per Angel. Kove: es pot lliurar l\'art final. QJ: mini ajustos + 2 propostes d\'imatge mes.', dur:'dilluns 5', type:'active' },
-              { name:'BBOU', note:'Feedback campanyes Cortijo Bravo + La Vinuela, ajustos vehicle Mercedes i arts finals, activacio del Social Media Playbook (Uri, a partir de dijous). Shootings aturats a l\'espera de la decisio del client.', dur:'al llarg setmana', type:'block' },
-              { name:'Legends', note:'Nous formats de carrusel estatic i video.', dur:'dilluns 5', type:'active' },
+              { name:'BBOU', note:'Feedback campanyes Cortijo Bravo + La Vinuela, ajustos vehicle Mercedes i arts finals, activacio del Social Media Playbook (Uri, a partir de dijous). Dimecres: nou feedback campanyes Meta + Google i AF Mercedes Benz. Shootings aturats a l\'espera de la decisio del client.', dur:'al llarg setmana', type:'block' },
+              { name:'Legends', note:'Nous formats de carrusel estatic i video (dilluns) + ajustos de creativitats (dimecres).', dur:'dilluns 5 - dimecres 7', type:'active' },
               { name:'AFP Courts', note:'Noves creativitats ADS per la reunio de revisio de campanyes SEM i SEO.', dur:'dimarts 6', type:'active' },
               { name:'CSI', note:'Pendent feedback del flyer en frances. Feedback del tote bag: Alba (dimarts 6).', dur:'pendent', type:'pending' },
               { name:'Absencia', note:'Absent a partir de dijous 8 (2 setmanes).', dur:'dijous 8', type:'lowprio' }
